@@ -10,23 +10,6 @@ body div div{
   height: 544px;
 }
 
-#Daily {
-  width: 452px;
-  height: 264px;
-  top: 14px;
-  left: 352px;
-}
-
-#Meal {
-  width: 291px;
-  height: 71px;
-  top: 33px;
-  left: 104px;
-}
-
-#Weekly {
-  width: 318px;
-  height: 125px;
-  top: 310px;
-  left: 370px;
+#Fitness, #Blogs, #Projects {
+  position: absolute;
 }

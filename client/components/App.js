@@ -5,7 +5,7 @@ import Nav from './Nav';
 import Fitness from './Fitness';
 import Blogs from './Blogs';
 import Projects from './Projects';
-import Misc from './Misc';
+// import Misc from './Misc';
 
 
 // function loggedIn() {
@@ -19,19 +19,19 @@ import Misc from './Misc';
 //     })
 //   }
 // }
+          // <Route path="/misc" component={Misc} />
+          // <Route path="/login" component={Login} />
+
 
 
 class App extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Route path="/" component={Nav} >
-        	<Route path="/fitness" component={Fitness} />
-          <Route path="/blogs" component={Blogs} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/misc" component={Misc} />
-          <Route path="/login" component={Login} />
-        </Route>
+        <Route path="/" component={Nav} />
+      	<Route path="/fitness" component={Fitness} />
+        <Route path="/blogs" component={Blogs} />
+        <Route path="/projects" component={Projects} />
       </Router>
     )
   }

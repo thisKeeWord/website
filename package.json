@@ -5,7 +5,7 @@
   "main": "bundle.js",
   "scripts": {
     "prestart": "npm run task",
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "start-dev": "npm run task",
     "task": "gulp"
   },
@@ -23,6 +23,7 @@
     "browserify": "^10.2.6",
     "bunyan": "^1.8.10",
     "express": "^4.13.3",
+    "express-history-api-fallback": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-notify": "^2.2.0",
@@ -31,6 +32,8 @@
     "path": "^0.12.7",
     "react": "^0.14",
     "react-dom": "^0.14.0",
+    "react-router": "^2.5.0",
+    "react-router-dom": "^4.2.2",
     "reactify": "^1.1.1",
     "restify": "^4.3.0",
     "url": "^0.11.0",
