@@ -28,6 +28,7 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-notify": "^2.2.0",
     "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
     "mongoose": "^4.3.6",
     "path": "^0.12.7",
     "react": "^0.14",

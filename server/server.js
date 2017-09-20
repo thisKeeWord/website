@@ -11,12 +11,20 @@ var mongoose = require('mongoose');
 
 // decoding data as string for format for url
 app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './../client/')));
 app.use(fallback('index.html', { root: __dirname + './../client/' }));
 
 app.get('/', function(req, res) {
+	console.log(req)
+	console.log('testing')
     res.sendFile('index.html');
-})
+});
+
+app.post('/fitness', function(req, res) {
+	console.log('test')
+	res.send(['hello'])
+});
 // app.post('/login', userController.verifyUser);
 
 
