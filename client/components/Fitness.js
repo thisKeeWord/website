@@ -1,9 +1,10 @@
 import React from 'react';
 import $ from 'jquery';
+import PostForm from './Form.js'
 
 class Fitness extends React.Component {
   componentDidMount() {
-    $.post('/fitness', {}, (error, data) => {
+    $.get('/fitness', (error, data) => {
       return console.log(data);
     })
   }
@@ -12,6 +13,7 @@ class Fitness extends React.Component {
     return (
       <div className='Fitness'>
         Fitness
+        <PostForm />
       </div>
     );
   }
