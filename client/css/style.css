@@ -1,8 +1,8 @@
 
-body div div{
+/*body div div{
   border: 1px solid black;
   position: absolute;
-}
+}*/
 
 #App {
   position: relative;
@@ -12,4 +12,13 @@ body div div{
 
 #Fitness, #Blogs, #Projects {
   position: absolute;
+}
+
+.formEntry {
+  border: 1px solid black;
+  position: absolute;
+  top: 100;
+  width: 200px;
+  height: 300px;
+  overflow-y: auto;
 }
