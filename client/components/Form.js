@@ -8,22 +8,26 @@ class PostForm extends React.Component {
   //   })
   // }
   post(writing) {
-    $.post('', writing, (error, success) {
+    $.post('', writing, (error, success) => {
       console.log('success again');
     });
   }
 
   testing(e) {
     e.preventDefault();
-    let entry = $(".formEntry").text();
-    this.post(entry).done(() => {
-      console.log('successful post sent');
-    })
+    console.log(this.post)
+    let entry = { 
+      entry: $(".formEntry").text() 
+    };
+    this.post(entry)
+    // .done(() => {
+      // console.log('successful post sent');
+    // });
   }
 
   render() {
     return (
-      <form onSubmit={this.testing}>
+      <form onSubmit={this.testing.bind(this)}>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true">
         </div>
         <input type="submit" value="submit"></input>

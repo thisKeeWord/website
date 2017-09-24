@@ -3,8 +3,8 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var fallback = require('express-history-api-fallback');
-var User = require('./../database/userModel');
-var userController = require('./../database/userController');
+// var User = require('./../database/userModel');
+// var userController = require('./../database/userController');
 var mongoose = require('mongoose');
 // var mongoURI = process.env.NODE_ENV === 'test1' ? 'mongodb://localhost/test1' : 'mongodb://localhost/gainsApp';
 // mongoose.connect(mongoURI);
@@ -22,9 +22,18 @@ app.get('/', function(req, res) {
 });
 
 app.post('/fitness', function(req, res) {
-	console.log('test')
-	res.send(['hello'])
+
+	console.log(req.body)
+	res.send(['hello']);
 });
+
+app.post('/blogs', function(req, res) {
+	res.send('asdf');
+});
+
+app.post('/projects', function(req, res) {
+	res.send('asdf');
+})
 // app.post('/login', userController.verifyUser);
 
 
