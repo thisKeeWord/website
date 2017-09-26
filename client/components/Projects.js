@@ -1,13 +1,35 @@
 import React from 'react';
+import $ from 'jquery';
+import PostForm from './Form.js'
 
-class Signup extends React.Component {
+class Projects extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      entryCategory: ''
+    };
+  }
+
+  updateCategory(selection) {
+    this.setState({
+      entryCategory: selection
+    });
+  }
+
+  componentDidMount() {
+    $.get('/projects', (error, data) => {
+      return console.log(data);
+    });
+  }
+
   render() {
     return (
-    	<div className="Projects">
+      <div className='Projects'>
         Projects
+        <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory} />
       </div>
-    )
+    );
   }
 };
 
-module.exports = Signup;
+module.exports = Projects;

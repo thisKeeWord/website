@@ -25,11 +25,21 @@ class PostForm extends React.Component {
     // });
   }
 
+  onChange(e) {
+    e.preventDefault();
+    this.props.updateCategory(e);
+  }
+
   render() {
     return (
       <form onSubmit={this.testing.bind(this)}>
-        <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true">
-        </div>
+        <select className="entryCategory" value={this.props.entryCategory} defaultValue='select one' onChange={this.onChange.bind(this)}>
+          <option value="blogs">Blogs</option>
+          <option value="fitness">Fitness</option>
+          <option value="projects">Projects</option>
+        </select>
+        <input type="text" id="title" placeholder="title of entry"></input>
+        <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <input type="submit" value="submit"></input>
       </form>
     );
