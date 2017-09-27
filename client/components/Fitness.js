@@ -6,13 +6,21 @@ class Fitness extends React.Component {
   constructor() {
     super();
     this.state = {
-      entryCategory: ''
+      entryCategory: '',
+      title: ''
     };
   }
 
   updateCategory(selection) {
     this.setState({
       entryCategory: selection
+    });
+  }
+
+  updateTitle(title) {
+    console.log(title)
+    this.setState({
+      title: title
     });
   }
 
@@ -26,7 +34,7 @@ class Fitness extends React.Component {
     return (
       <div className='Fitness'>
         Fitness
-        <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} />
+        <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} handleTitleChange={this.updateTitle.bind(this)} titleOfEntry={this.state.title} />
       </div>
     );
   }

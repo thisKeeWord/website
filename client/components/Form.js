@@ -15,9 +15,13 @@ class PostForm extends React.Component {
 
   testing(e) {
     e.preventDefault();
-    console.log(this.post)
-    let entry = { 
-      entry: $(".formEntry").text() 
+    console.log(e)
+    let entry = {
+      url: window.location.pathname,
+      // title: 
+      entry: $(".formEntry").text(),
+      category: this.props.entrySelection,
+
     };
     this.post(entry)
     // .done(() => {
@@ -30,6 +34,11 @@ class PostForm extends React.Component {
     this.props.updateCategory(e);
   }
 
+  handleChange(e) {
+    e.preventDefault();
+    this.props.handleTitleChange(e.target.value);
+  }
+
   render() {
     return (
       <form onSubmit={this.testing.bind(this)}>
@@ -38,7 +47,7 @@ class PostForm extends React.Component {
           <option value="fitness">Fitness</option>
           <option value="projects">Projects</option>
         </select>
-        <input type="text" id="title" placeholder="title of entry"></input>
+        <input type="text" id="title" value={this.props.titleOfEntry} onChange={this.handleChange.bind(this)} placeholder="title of entry" />
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <input type="submit" value="submit"></input>
       </form>
