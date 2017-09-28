@@ -7,7 +7,7 @@ var writingSchema = new Schema({
   date: { type: Date, default: Date.now },
   category: { type: String, required: true },
   title: { type: String, required: true },
-  body: { type: String, required: true }
+  body: { type: String, required: true },
 });
 
 writingSchema.pre('save', function(next) {

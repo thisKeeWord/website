@@ -2,7 +2,7 @@
   "name": "gains_app",
   "version": "1.0.0",
   "description": "Your awesome project!",
-  "main": "bundle.js",
+  "main": "gulpfile.js",
   "scripts": {
     "prestart": "npm run task",
     "start": "nodemon server/server.js",

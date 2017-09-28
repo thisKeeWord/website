@@ -8,9 +8,21 @@ class PostForm extends React.Component {
   //   })
   // }
   post(writing) {
-    $.post('', writing, (error, success) => {
-      console.log('success again');
+    console.log('testing')
+    return $.ajax({
+      type: 'POST', 
+      url: '', 
+      data: JSON.stringify(writing), // stringyfy before passing
+      dataType: 'json', // payload is json
+      contentType : 'application/json',
+      success: data => {
+        console.log(data);
+      }
     });
+    // $.post('', writing, (error, success) => {
+    //   if (error) return console.error(error)
+    //   return console.log('success again');
+    // });
   }
 
   testing(e) {
@@ -18,12 +30,14 @@ class PostForm extends React.Component {
     console.log(e)
     let entry = {
       url: window.location.pathname,
-      // title: 
-      entry: $(".formEntry").text(),
       category: this.props.entrySelection,
-
+      title: $(".entryTitle").text(),
+      body: $(".formEntry").text(),
     };
-    this.post(entry)
+    return this.post(entry)
+    // .done(() => {
+      // console.log('done')
+    // })
     // .done(() => {
       // console.log('successful post sent');
     // });
@@ -31,13 +45,13 @@ class PostForm extends React.Component {
 
   onChange(e) {
     e.preventDefault();
-    this.props.updateCategory(e);
+    this.props.updateCategory(e.target.value);
   }
 
-  handleChange(e) {
-    e.preventDefault();
-    this.props.handleTitleChange(e.target.value);
-  }
+  // handleChange(e) {
+  //   e.preventDefault();
+  //   this.props.handleTitleChange(e.target.value);
+  // }
 
   render() {
     return (
@@ -47,9 +61,9 @@ class PostForm extends React.Component {
           <option value="fitness">Fitness</option>
           <option value="projects">Projects</option>
         </select>
-        <input type="text" id="title" value={this.props.titleOfEntry} onChange={this.handleChange.bind(this)} placeholder="title of entry" />
+        <div className="entryTitle" role="textbox" placeholder="What's the title" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
-        <input type="submit" value="submit"></input>
+        <input type="submit" id="submitButton" value="submit"></input>
       </form>
     );
   }

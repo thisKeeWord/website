@@ -7,8 +7,8 @@ var writingController = require('./../database/postWriting/writingController');
 // var User = require('./../database/userModel');
 // var userController = require('./../database/userController');
 var mongoose = require('mongoose');
-// var mongoURI = process.env.NODE_ENV === 'test1' ? 'mongodb://localhost/test1' : 'mongodb://localhost/gainsApp';
-// mongoose.connect(mongoURI);
+var mongoURI = 'mongodb://localhost/leoWebsite';
+mongoose.connect(mongoURI);
 
 // decoding data as string for format for url
 app.use(bodyParser.urlencoded());

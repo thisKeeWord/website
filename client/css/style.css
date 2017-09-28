@@ -14,11 +14,22 @@
   position: absolute;
 }
 
-.formEntry {
+.formEntry, .entryTitle {
   border: 1px solid black;
+  overflow-y: auto;
+}
+
+.formEntry {
   position: absolute;
-  top: 100;
+  top: 130;
   width: 200px;
   height: 300px;
-  overflow-y: auto;
+}
+
+.entryTitle {
+  width: 200px;
+}
+
+#submitButton {
+  position: relative;
 }

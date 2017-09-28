@@ -7,8 +7,14 @@ var writingController = {
 };
 
 function writing(req, res) {
+	// console.log(req.body)
+	// var contentToSave = JSON.parse(req.body);
 	console.log(req.body)
-	res.send(['success']);
+	Writing.create(req.body, function (err, result) {
+	  if (err) return console.error(err);
+	  console.log(result)
+	});
+  // saved!
 }
 
 module.exports = writingController;
