@@ -30,7 +30,14 @@ app.post('/blogs', function(req, res) {
 
 app.post('/projects', function(req, res) {
 	res.send('asdf');
-})
+});
+
+app.get('/fitness', function(req, res) { 
+	console.log('req', 'in server') 
+	res.send('test')
+});
+// writingController.getWritings);
+
 // app.post('/login', userController.verifyUser);
 
 

@@ -26,7 +26,7 @@ class Fitness extends React.Component {
   // }
 
   componentDidMount() {
-    $.get('/fitness', (error, data) => {
+    $.get('/data', (error, data) => {
       return console.log(data);
     });
   }

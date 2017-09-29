@@ -10,7 +10,4 @@ var writingSchema = new Schema({
   body: { type: String, required: true },
 });
 
-writingSchema.pre('save', function(next) {
-});
-
 module.exports = mongoose.model('Writing', writingSchema);

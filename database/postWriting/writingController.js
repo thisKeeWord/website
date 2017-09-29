@@ -3,7 +3,8 @@ var Writing = require('./writingModel');
 // var sessionController = require('./../session/sessionController');
 
 var writingController = {
-	writing: writing
+	writing: writing,
+  getWritings: getWritings
 };
 
 function writing(req, res) {
@@ -15,6 +16,12 @@ function writing(req, res) {
 	  console.log(result)
 	});
   // saved!
+}
+
+function getWritings(req, res) {
+  console.log(req)
+	// Writing.find({ category: })
+  res.send([""])
 }
 
 module.exports = writingController;
