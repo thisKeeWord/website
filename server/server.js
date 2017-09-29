@@ -32,10 +32,7 @@ app.post('/projects', function(req, res) {
 	res.send('asdf');
 });
 
-app.get('/fitness', function(req, res) { 
-	console.log('req', 'in server') 
-	res.send('test')
-});
+app.post('/fack', writingController.getWritings);
 // writingController.getWritings);
 
 // app.post('/login', userController.verifyUser);

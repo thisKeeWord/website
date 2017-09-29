@@ -25,6 +25,14 @@ class PostForm extends React.Component {
     // });
   }
 
+  componentDidMount() {
+    console.log(window.location.pathname)
+    $.post('/fack', { category: window.location.pathname.replace('/', '')}, data => {
+      console.log(data);
+    });
+  }
+
+
   testing(e) {
     e.preventDefault();
     console.log(e)

@@ -19,9 +19,11 @@ function writing(req, res) {
 }
 
 function getWritings(req, res) {
-  console.log(req)
-	// Writing.find({ category: })
-  res.send([""])
+  console.log(req.body)
+	Writing.find(req.body, function(error, success) {
+    if (error) console.error(error);
+    res.send(success);
+  });
 }
 
 module.exports = writingController;
