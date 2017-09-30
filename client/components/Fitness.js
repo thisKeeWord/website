@@ -8,7 +8,8 @@ class Fitness extends React.Component {
     super();
     this.state = {
       entryCategory: '',
-      resultsToAdd: []
+      resultsToAdd: [],
+      isLoggedIn: false
       // title: ''
     };
   }
@@ -39,12 +40,31 @@ class Fitness extends React.Component {
     });
   }
 
+  componentDidMount() {
+    console.log(window.location.pathname);
+    let that = this;
+    return $.ajax({
+      type: 'POST', 
+      url: '/fack', 
+      data: JSON.stringify({ category: window.location.pathname.replace('/', '')}), // stringyfy before passing
+      dataType: 'json', // payload is json
+      contentType : 'application/json',
+      success: data => {
+        that.addResults(data);
+      }
+    });
+    // $.post('/fack', { category: window.location.pathname.replace('/', '')}, data => {
+    //   console.log(data);
+    // });
+  }
+
   render() {
-    console.log(this.state.resultsToAdd, 'yo')
+    let addForm = null;
+    if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} />
     return (
       <div className='Fitness'>
         Fitness
-        <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} />
+        {addForm}
         <Results resultsToAdd={this.state.resultsToAdd} />
       </div>
     );

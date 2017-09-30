@@ -13,6 +13,7 @@ function writing(req, res) {
 	console.log(req.body)
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);
+    console.log(result)
 	  getWritings(req.body, res);
 	});
   // saved!
@@ -22,6 +23,7 @@ function getWritings(req, res) {
   console.log(req.body)
 	Writing.find(req.body, function(error, success) {
     if (error) console.error(error);
+    console.log(success)
     res.send(success);
   });
 }
