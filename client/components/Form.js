@@ -14,10 +14,7 @@ class PostForm extends React.Component {
       url: '', 
       data: JSON.stringify(writing), // stringyfy before passing
       dataType: 'json', // payload is json
-      contentType : 'application/json',
-      success: data => {
-        console.log(data);
-      }
+      contentType : 'application/json'
     });
     // $.post('', writing, (error, success) => {
     //   if (error) return console.error(error)
@@ -26,23 +23,39 @@ class PostForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log(window.location.pathname)
-    $.post('/fack', { category: window.location.pathname.replace('/', '')}, data => {
-      console.log(data);
+    console.log(window.location.pathname);
+    let that = this;
+    return $.ajax({
+      type: 'POST', 
+      url: '/fack', 
+      data: JSON.stringify({ category: window.location.pathname.replace('/', '')}), // stringyfy before passing
+      dataType: 'json', // payload is json
+      contentType : 'application/json',
+      success: data => {
+        that.appendResults(data);
+      }
     });
+    // $.post('/fack', { category: window.location.pathname.replace('/', '')}, data => {
+    //   console.log(data);
+    // });
   }
 
+  appendResults(data) {
+    this.props.addResultsToPage(data);
+  }
 
   testing(e) {
     e.preventDefault();
-    console.log(e)
+    let that = this;
     let entry = {
       url: window.location.pathname,
       category: this.props.entrySelection,
       title: $(".entryTitle").text(),
       body: $(".formEntry").text(),
     };
-    return this.post(entry)
+    return this.post(entry).done(info => {
+      that.appendResults(info);
+    });
     // .done(() => {
       // console.log('done')
     // })

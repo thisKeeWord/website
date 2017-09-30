@@ -13,7 +13,7 @@ function writing(req, res) {
 	console.log(req.body)
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);
-	  console.log(result)
+	  getWritings(req.body, res);
 	});
   // saved!
 }
