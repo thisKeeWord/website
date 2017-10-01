@@ -5,6 +5,7 @@ import Nav from './Nav';
 import Fitness from './Fitness';
 import Blogs from './Blogs';
 import Projects from './Projects';
+import Login from './Login';
 // import Misc from './Misc';
 
 
@@ -32,6 +33,7 @@ class App extends React.Component {
       	<Route path="/fitness" component={Fitness} />
         <Route path="/blogs" component={Blogs} />
         <Route path="/projects" component={Projects} />
+        <Route path="/login" component={Login} />
       </Router>
     )
   }

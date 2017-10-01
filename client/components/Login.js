@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
+        // <Link to="/">Home</Link>
 
 class Login extends React.Component {
   login(e) {
-    this.props.login(e);
+    const that = this;
+    return $.ajax({
+      type: 'POST', 
+      url: '/login', 
+      data: JSON.stringify(e.target.value), // stringyfy before passing
+      dataType: 'json', // payload is json
+      contentType : 'application/json',
+      success: data => {
+        that.props.logIn(data)
+      }
+    });
   }
   
   render() {
@@ -14,8 +25,7 @@ class Login extends React.Component {
           <input name="password" placeholder="password"></input>
           <input type='submit' value="login" />
         </form>
-        <Link to="/">Home</Link>
-        <Link to="/signup">Signup</Link>
+
       </div>
     )
   }

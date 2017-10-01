@@ -20,7 +20,7 @@ function createUser(req, res, next) {
 
 function verifyUser(req, res, next) {
   User.findOne({ username: req.body.username }, function(error, user) {
-  	if (error || !user) return res.redirect('/signup');
+  	if (error || !user) return res.redirect('/login');
   	user.verifying(req.body.password, function(error, satisfied) {
       if (error) return console.log(error);
       if (satisfied) {

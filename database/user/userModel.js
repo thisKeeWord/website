@@ -21,12 +21,12 @@ userSchema.pre('save', function(next) {
 })
 
 userSchema.methods.verifying = function(pass, callback) {
-		var self = this;
-    bcrypt.compare(pass, self.password, function(error, result) {
-    	console.log("this is the password verification", self.password);
-      if(error || result === false) return console.log(error);
-      if(result === true) callback(null, result);
-    });
+	var self = this;
+  bcrypt.compare(pass, self.password, function(error, result) {
+  	console.log("this is the password verification", self.password);
+    if(error || result === false) return console.log(error);
+    if(result === true) callback(null, result);
+  });
 }
 
 

@@ -4,8 +4,11 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var fallback = require('express-history-api-fallback');
 var writingController = require('./../database/postWriting/writingController');
-// var User = require('./../database/userModel');
-// var userController = require('./../database/userController');
+var User = require('./../database/user/userModel');
+var userController = require('./../database/user/userController');
+var User = require('./../database/session/sessionModel');
+var userController = require('./../database/session/sessionController');
+var userController = require('./../database/utils/cookieController');
 var mongoose = require('mongoose');
 var mongoURI = 'mongodb://localhost/leoWebsite';
 mongoose.connect(mongoURI);
@@ -35,7 +38,7 @@ app.post('/projects', function(req, res) {
 app.post('/fack', writingController.getWritings);
 // writingController.getWritings);
 
-// app.post('/login', userController.verifyUser);
+app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
 
 
 app.listen(3000);

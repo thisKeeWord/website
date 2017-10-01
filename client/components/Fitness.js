@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import $ from 'jquery';
 import PostForm from './Form.js';
 import Results from './Results.js';
@@ -58,6 +59,12 @@ class Fitness extends React.Component {
     // });
   }
 
+  login(loggingIn) {
+    this.setState({
+      isLoggedIn: true
+    });
+  }
+
   render() {
     let addForm = null;
     if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} />
@@ -66,6 +73,7 @@ class Fitness extends React.Component {
         Fitness
         {addForm}
         <Results resultsToAdd={this.state.resultsToAdd} />
+        <Login isLoggedIn={this.state.isLoggedIn} logIn={this.logIn.bind(this) />
       </div>
     );
   }
