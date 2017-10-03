@@ -20,6 +20,7 @@ function isLoggedIn(req, res, next) {
 
 function startSession(req, res, next) {
   //write code here
+  console.log('starting session')
  	Session.findOne({ cookieId: req.userData._id }, function(error, session) {
  		if (error) return console.log(error);
  		if (session) return res.redirect('/secret');
@@ -28,8 +29,9 @@ function startSession(req, res, next) {
 		});
 
 		session.save(function(error, userSession) {
+			console.log('saving session')
 			if (error) return console.log(error);
-			res.redirect('/secret');
+			res.send('true')
 		})
 	})
 }

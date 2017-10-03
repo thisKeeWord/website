@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import $ from 'jquery';
 import PostForm from './Form.js';
 import Results from './Results.js';
+import Login from './Login.js';
 
 class Fitness extends React.Component {
   constructor() {
@@ -67,13 +68,14 @@ class Fitness extends React.Component {
 
   render() {
     let addForm = null;
+    console.log(this.state.isLoggedIn)
     if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} />
     return (
       <div className='Fitness'>
         Fitness
         {addForm}
         <Results resultsToAdd={this.state.resultsToAdd} />
-        <Login isLoggedIn={this.state.isLoggedIn} logIn={this.logIn.bind(this) />
+        <Login isLoggedIn={this.state.isLoggedIn} logIn={this.logIn} />
       </div>
     );
   }

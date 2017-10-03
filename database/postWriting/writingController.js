@@ -10,20 +10,18 @@ var writingController = {
 function writing(req, res) {
 	// console.log(req.body)
 	// var contentToSave = JSON.parse(req.body);
-	console.log(req.body)
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);
-    console.log(result)
 	  getWritings(req.body, res);
 	});
   // saved!
 }
 
 function getWritings(req, res) {
-  console.log(req.body)
+  console.log(req.body, '8972r33r8')
 	Writing.find(req.body, function(error, success) {
-    if (error) console.error(error);
-    console.log(success)
+    if (error) return console.error(error);
+    console.log(success, 'sojjdfsjdsaff')
     res.send(success);
   });
 }
