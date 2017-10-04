@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import PostForm from './Form.js'
 
-class Projects extends React.Component {
+class Blogs extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -17,19 +17,19 @@ class Projects extends React.Component {
   }
 
   componentDidMount() {
-    $.get('/projects', (error, data) => {
+    $.get('/blogs', (error, data) => {
       return console.log(data);
     });
   }
 
   render() {
     return (
-      <div className='Projects'>
-        Projects
+      <div className='Blogs'>
+        Blogs
         <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory} />
       </div>
     );
   }
 };
 
-module.exports = Projects;
+module.exports = Blogs;

@@ -10,9 +10,7 @@ userController.verifyUser = verifyUser;
 function createUser(req, res, next) {
   // write code here
 	User.create(req.body, function(error, newUserInfo) {
-  	if (error) {
-  		return res.render('./../client/signup.ejs', { error: error });
-  	}
+  	if (error) return console.error(error);
 		req.userData = newUserInfo;
 		next();
   });
@@ -20,10 +18,11 @@ function createUser(req, res, next) {
 
 function verifyUser(req, res, next) {
   User.findOne({ username: req.body.username }, function(error, user) {
-  	if (error || !user) return res.redirect('/signup');
+  	if (error || !user) return console.error(error);
   	user.verifying(req.body.password, function(error, satisfied) {
-      if (error) return console.log(error);
+      if (error) return console.log(error, 'fsdjfsdaljkadfsjlkadfsl;');
       if (satisfied) {
+        console.log('satisfied')
   			req.userData = user;
   			next();
   		}

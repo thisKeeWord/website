@@ -1,8 +1,8 @@
 
-body div div{
+/*body div div{
   border: 1px solid black;
   position: absolute;
-}
+}*/
 
 #App {
   position: relative;
@@ -10,23 +10,26 @@ body div div{
   height: 544px;
 }
 
-#Daily {
-  width: 452px;
-  height: 264px;
-  top: 14px;
-  left: 352px;
+#Fitness, #Blogs, #Projects {
+  position: absolute;
 }
 
-#Meal {
-  width: 291px;
-  height: 71px;
-  top: 33px;
-  left: 104px;
+.formEntry, .entryTitle {
+  border: 1px solid black;
+  overflow-y: auto;
 }
 
-#Weekly {
-  width: 318px;
-  height: 125px;
-  top: 310px;
-  left: 370px;
+.formEntry {
+  position: absolute;
+  top: 130;
+  width: 200px;
+  height: 300px;
+}
+
+.entryTitle {
+  width: 200px;
+}
+
+#submitButton {
+  position: relative;
 }
