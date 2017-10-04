@@ -41,6 +41,6 @@ app.post('/fack', writingController.getWritings);
 app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
 
 
-app.listen(3000);
+app.listen(3001);
 
 module.exports = app;

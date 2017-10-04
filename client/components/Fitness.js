@@ -74,8 +74,8 @@ class Fitness extends React.Component {
       <div className='Fitness'>
         Fitness
         {addForm}
-        <Results resultsToAdd={this.state.resultsToAdd} />
-        <Login isLoggedIn={this.state.isLoggedIn} logIn={this.logIn} />
+        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} />
+        <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
       </div>
     );
   }

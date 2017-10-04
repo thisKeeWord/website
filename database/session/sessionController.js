@@ -21,16 +21,17 @@ function isLoggedIn(req, res, next) {
 function startSession(req, res, next) {
   //write code here
   console.log('starting session')
+  console.log(req.userData, 'userData')
  	Session.findOne({ cookieId: req.userData._id }, function(error, session) {
  		if (error) return console.log(error);
- 		if (session) return res.redirect('/secret');
+ 		if (session) return res.send('true');
 		var session = new Session({
 			cookieId: req.userData._id
 		});
 
 		session.save(function(error, userSession) {
 			console.log('saving session')
-			if (error) return console.log(error);
+			if (error) return console.error(error);
 			res.send('true')
 		})
 	})
