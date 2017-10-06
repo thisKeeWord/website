@@ -11,7 +11,9 @@ class Fitness extends React.Component {
     this.state = {
       entryCategory: '',
       resultsToAdd: [],
-      isLoggedIn: false
+      isLoggedIn: false,
+      id: '',
+      selection: ''
       // title: ''
     };
   }
@@ -39,6 +41,13 @@ class Fitness extends React.Component {
   addResults(data) {
     this.setState({
       resultsToAdd: data
+    });
+  }
+
+  divAndEventChosen(id, selection) {
+    this.setState({
+      id: id,
+      selection: selection
     });
   }
 
@@ -74,7 +83,7 @@ class Fitness extends React.Component {
       <div className='Fitness'>
         Fitness
         {addForm}
-        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} />
+        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} />
         <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
       </div>
     );
