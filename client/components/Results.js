@@ -5,8 +5,13 @@ class Results extends React.Component {
 
   escOptions(e) {
     e.preventDefault();
-    console.log(e.target.value, e, e.id, $(e.target).parent().parent().attr("id"), 'logging edit save cancel')
-    this.props.divAndEventChosen($(e.target).parent().parent().attr("id"), e.target.value);
+    let infoToModify = $(e.target).parent().parent().siblings().children();
+    // if (e.target.value === "let objModified = {
+    //   title: infoToModify[0].text(),
+    //   body: infoToModify[2].text()
+    // };
+    console.log(e.target.value, e, e.id, $(e.target).parent().parent().attr("id"), $(e.target).parent().parent().siblings().children(), 'logging edit save cancel')
+    this.props.divAndEventChosen($(e.target).parent().parent().attr("id"), e.target.value, infoToModify);
   }
 
   render() {
@@ -29,6 +34,10 @@ class Results extends React.Component {
       if (data._id === this.props.divId && this.props.eventSelection === "Edit") {
         editableContent = true;
       }
+      else if (data._id === this.props.divId && this.props.eventSelection === "Cancel") {
+        editableContent = false;
+      }
+      // if (data._id === this.props.divId && )
       else {
         editableContent = false;
       }

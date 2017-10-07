@@ -44,11 +44,21 @@ class Fitness extends React.Component {
     });
   }
 
-  divAndEventChosen(id, selection) {
+  divAndEventChosen(id, selection, infoToModify) {
+    // do put request here for modification
+    let objModified = {};
+    if (selection === "Save") {
+      //fix this
+      objModified = {
+        title: infoToModify[0].text(),
+        body: infoToModify[2].text()
+      };
+    }
     this.setState({
       id: id,
       selection: selection
-    });
+    },
+    console.log(infoToModify));
   }
 
   componentDidMount() {
