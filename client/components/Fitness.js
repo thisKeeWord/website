@@ -50,15 +50,15 @@ class Fitness extends React.Component {
     if (selection === "Save") {
       //fix this
       objModified = {
-        title: infoToModify[0].text(),
-        body: infoToModify[2].text()
+        title: $(infoToModify[0]).text(),
+        body: $(infoToModify[2]).text()
       };
     }
     this.setState({
       id: id,
       selection: selection
     },
-    console.log(infoToModify));
+    console.log(infoToModify, objModified));
   }
 
   componentDidMount() {
