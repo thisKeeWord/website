@@ -45,7 +45,7 @@ class Results extends React.Component {
         <div id={data._id} key={data._id}>
           <div id={data.category + "1"}>
             <h1 id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
-            <h3 id="datePosted" contentEditable={editableContent}>{data.date}</h3>
+            <h3 id="datePosted">{data.date}</h3>
             <p contentEditable={editableContent}>{data.body}</p>
           </div>
           <div id={data._id} className="buttons">

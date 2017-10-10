@@ -45,20 +45,56 @@ class Fitness extends React.Component {
   }
 
   divAndEventChosen(id, selection, infoToModify) {
-    // do put request here for modification
+    const that = this;
     let objModified = {};
     if (selection === "Save") {
-      //fix this
       objModified = {
+        id: id,
         title: $(infoToModify[0]).text(),
-        body: $(infoToModify[2]).text()
+        body: $(infoToModify[2]).text(),
+        category: window.location.pathname.replace('/', ''),
       };
+      this.updateRecord('PUT', objModified).done(results => {
+        console.log(results)
+        that.setState({
+          id: id,
+          selection: selection,
+          resultsToAdd: results
+        },
+        console.log(infoToModify, objModified));
+      });
     }
-    this.setState({
-      id: id,
-      selection: selection
-    },
-    console.log(infoToModify, objModified));
+    else if (selection === "Delete") {
+      objModified = {
+        id: id,
+        category: window.location.pathname.replace('/', ''),
+      };
+      this.updateRecord('DELETE', objModified).done(results => {
+        console.log(results)
+        that.setState({
+          id: id,
+          selection: selection,
+          resultsToAdd: results
+        },
+        console.log(infoToModify, objModified));
+      });
+    }
+    else {
+      that.setState({
+        id: id,
+        selection: selection
+      });
+    }
+  }
+
+  updateRecord(mod, record) {
+    return $.ajax({
+      type: mod, 
+      url: '/update', 
+      data: JSON.stringify(record), // stringyfy before passing
+      dataType: 'json', // payload is json
+      contentType : 'application/json',
+    });
   }
 
   componentDidMount() {
