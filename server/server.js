@@ -40,6 +40,10 @@ app.post('/fack', writingController.getWritings);
 
 app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
 
+app.put('/update', writingController.updateWritings);
+
+app.delete('/update', writingController.removeWritings);
+
 
 app.listen(3001);
 

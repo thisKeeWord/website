@@ -11,7 +11,9 @@ class Fitness extends React.Component {
     this.state = {
       entryCategory: '',
       resultsToAdd: [],
-      isLoggedIn: false
+      isLoggedIn: false,
+      id: '',
+      selection: ''
       // title: ''
     };
   }
@@ -39,6 +41,59 @@ class Fitness extends React.Component {
   addResults(data) {
     this.setState({
       resultsToAdd: data
+    });
+  }
+
+  divAndEventChosen(id, selection, infoToModify) {
+    const that = this;
+    let objModified = {};
+    if (selection === "Save") {
+      objModified = {
+        id: id,
+        title: $(infoToModify[0]).text(),
+        body: $(infoToModify[2]).text(),
+        category: window.location.pathname.replace('/', ''),
+      };
+      this.updateRecord('PUT', objModified).done(results => {
+        console.log(results)
+        that.setState({
+          id: id,
+          selection: selection,
+          resultsToAdd: results
+        },
+        console.log(infoToModify, objModified));
+      });
+    }
+    else if (selection === "Delete") {
+      objModified = {
+        id: id,
+        category: window.location.pathname.replace('/', ''),
+      };
+      this.updateRecord('DELETE', objModified).done(results => {
+        console.log(results)
+        that.setState({
+          id: id,
+          selection: selection,
+          resultsToAdd: results
+        },
+        console.log(infoToModify, objModified));
+      });
+    }
+    else {
+      that.setState({
+        id: id,
+        selection: selection
+      });
+    }
+  }
+
+  updateRecord(mod, record) {
+    return $.ajax({
+      type: mod, 
+      url: '/update', 
+      data: JSON.stringify(record), // stringyfy before passing
+      dataType: 'json', // payload is json
+      contentType : 'application/json',
     });
   }
 
@@ -74,7 +129,7 @@ class Fitness extends React.Component {
       <div className='Fitness'>
         Fitness
         {addForm}
-        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} />
+        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} />
         <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
       </div>
     );
