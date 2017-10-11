@@ -7,6 +7,7 @@ import Blogs from './Blogs';
 import Projects from './Projects';
 import Login from './Login';
 // import Misc from './Misc';
+import SinglePost from './SinglePost';
 
 
 // function loggedIn() {
@@ -31,6 +32,7 @@ class App extends React.Component {
       <Router history={browserHistory}>
         <Route path="/" component={Nav} />
       	<Route path="/fitness" component={Fitness} />
+        <Route path='/fitness/:id' component={SinglePost} />
         <Route path="/blogs" component={Blogs} />
         <Route path="/projects" component={Projects} />
         <Route path="/login" component={Login} />

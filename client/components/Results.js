@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import $ from 'jquery';
 
 class Results extends React.Component {
@@ -29,6 +30,7 @@ class Results extends React.Component {
       );
     }
     console.log('bro')
+
     const additions = this.props.resultsToAdd.map(data => {
       console.log(this.props.eventSelection)
       if (data._id === this.props.divId && this.props.eventSelection === "Edit") {
@@ -37,17 +39,24 @@ class Results extends React.Component {
       else if (data._id === this.props.divId && this.props.eventSelection === "Cancel") {
         editableContent = false;
       }
-      // if (data._id === this.props.divId && )
       else {
         editableContent = false;
       }
       return (
-        <div id={data._id} key={data._id}>
-          <div id={data.category + "1"}>
-            <h1 id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
-            <h3 id="datePosted">{data.date}</h3>
-            <p contentEditable={editableContent}>{data.body}</p>
-          </div>
+        <div className="linkWithButtons">
+          <ul className="postNavigation">
+            <li className="clickLinks">
+              <Link to={`/fitness/${data._id}`}>
+                <div className={data.category + 1} id={data._id} key={data._id}>
+                  <div className="perPost">
+                    <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
+                    <h3 className="postResults" id="datePosted">{data.date}</h3>
+                    <p className="postResults" contentEditable={editableContent}>{data.body}</p>
+                  </div>
+                </div>
+              </Link>
+            </li>
+          </ul>
           <div id={data._id} className="buttons">
             {editable}
           </div>

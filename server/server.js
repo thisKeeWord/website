@@ -44,6 +44,8 @@ app.put('/update', writingController.updateWritings);
 
 app.delete('/update', writingController.removeWritings);
 
+app.post('/singleWritings', writingController.getSingleWritings);
+
 
 app.listen(3001);
 

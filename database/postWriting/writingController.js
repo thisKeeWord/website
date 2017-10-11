@@ -6,7 +6,8 @@ var writingController = {
 	writing: writing,
   getWritings: getWritings,
   updateWritings: updateWritings,
-  removeWritings: removeWritings
+  removeWritings: removeWritings,
+  getSingleWritings: getSingleWritings
 };
 
 function writing(req, res) {
@@ -41,6 +42,14 @@ function removeWritings(req, res) {
   Writing.findByIdAndRemove(req.body.id, function(err, removed) {
     if (err) return console.error(err);
     getWritings(req, res);
+  });
+}
+
+function getSingleWritings(req, res) {
+  console.log(req.body)
+  Writing.findById(req.body.id, function(err, foundIt) {
+    if (err) return console.error(err);
+    res.send([foundIt]);
   });
 }
 
