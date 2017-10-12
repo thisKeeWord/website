@@ -6,12 +6,12 @@ class Results extends React.Component {
 
   escOptions(e) {
     e.preventDefault();
-    let infoToModify = $(e.target).parent().parent().siblings().children();
+    let infoToModify = $(e.target).parent().parent().siblings().children().children().children().children();
     // if (e.target.value === "let objModified = {
     //   title: infoToModify[0].text(),
     //   body: infoToModify[2].text()
     // };
-    console.log(e.target.value, e, e.id, $(e.target).parent().parent().attr("id"), $(e.target).parent().parent().siblings().children(), 'logging edit save cancel')
+    console.log(e.target.value, e, e.id, $(e.target).parent().parent().attr("id"), $(e.target).parent().parent().siblings().children().children().children().children(), 'logging edit save cancel')
     this.props.divAndEventChosen($(e.target).parent().parent().attr("id"), e.target.value, infoToModify);
   }
 
@@ -35,6 +35,24 @@ class Results extends React.Component {
       console.log(this.props.eventSelection)
       if (data._id === this.props.divId && this.props.eventSelection === "Edit") {
         editableContent = true;
+        return (
+          <div className="linkWithButtons">
+            <ul className="postNavigation">
+              <li className="clickLinks">
+                <div className={data.category + 1} id={data._id} key={data._id}>
+                  <div className="perPost">
+                    <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
+                    <h3 className="postResults" id="datePosted">{data.date}</h3>
+                    <p className="postResults" id="postBody" contentEditable={editableContent}>{data.body}</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div id={data._id} className="buttons">
+              {editable}
+            </div>
+          </div>
+        )
       }
       else if (data._id === this.props.divId && this.props.eventSelection === "Cancel") {
         editableContent = false;
@@ -42,6 +60,7 @@ class Results extends React.Component {
       else {
         editableContent = false;
       }
+
       return (
         <div className="linkWithButtons">
           <ul className="postNavigation">
