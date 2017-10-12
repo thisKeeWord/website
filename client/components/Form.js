@@ -51,6 +51,10 @@ class PostForm extends React.Component {
     this.props.updateCategory(e.target.value);
   }
 
+  fileChange(e) {
+    e.preventDefault();
+    console.log(e.target);
+  }
   // handleChange(e) {
   //   e.preventDefault();
   //   this.props.handleTitleChange(e.target.value);
@@ -66,6 +70,7 @@ class PostForm extends React.Component {
         </select>
         <div className="entryTitle" role="textbox" placeholder="What's the title" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
+        <input type="file" id="myFile" multiple size="50" onChange={this.fileChange.bind(this)} />
         <input type="submit" id="submitButton" value="submit"></input>
       </form>
     );

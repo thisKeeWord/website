@@ -47,6 +47,7 @@ class Fitness extends React.Component {
   divAndEventChosen(id, selection, infoToModify) {
     const that = this;
     let objModified = {};
+    console.log(infoToModify)
     if (selection === "Save") {
       objModified = {
         id: id,
