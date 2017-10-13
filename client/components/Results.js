@@ -32,6 +32,13 @@ class Results extends React.Component {
     console.log('bro')
 
     const additions = this.props.resultsToAdd.map(data => {
+      let mediaFile = null;
+      if (data.file) {
+        console.log(data, 'filedata')
+        mediaFile = (
+          <img src={data.file} />
+        );
+      }
       console.log(this.props.eventSelection)
       if (data._id === this.props.divId && this.props.eventSelection === "Edit") {
         editableContent = true;
@@ -44,6 +51,7 @@ class Results extends React.Component {
                     <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
                     <h3 className="postResults" id="datePosted">{data.date}</h3>
                     <p className="postResults" id="postBody" contentEditable={editableContent}>{data.body}</p>
+                    {mediaFile}
                   </div>
                 </div>
               </li>
@@ -71,6 +79,7 @@ class Results extends React.Component {
                     <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
                     <h3 className="postResults" id="datePosted">{data.date}</h3>
                     <p className="postResults" contentEditable={editableContent}>{data.body}</p>
+                    {mediaFile}
                   </div>
                 </div>
               </Link>

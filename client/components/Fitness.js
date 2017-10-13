@@ -13,7 +13,8 @@ class Fitness extends React.Component {
       resultsToAdd: [],
       isLoggedIn: false,
       id: '',
-      selection: ''
+      selection: '',
+      imageData: ''
       // title: ''
     };
   }
@@ -122,10 +123,16 @@ class Fitness extends React.Component {
     });
   }
 
+  updateImageData(dataImage) {
+    this.setState({
+      imageData: dataImage
+    });
+  }
+
   render() {
     let addForm = null;
     console.log(this.state.isLoggedIn)
-    if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} />
+    if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     return (
       <div className='Fitness'>
         Fitness

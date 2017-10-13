@@ -31,12 +31,19 @@ class SinglePost extends React.Component {
 
   render() {
     const singleResult = this.state.results.map(elem => {
+      let imageResult = null;
+      if (elem.file) {
+        imageResult = (
+          <img src={elem.file} />
+        )
+      }
       return (
         <div className={elem.category + 2} id={elem._id} key={elem._id}>
           <div className="perPost">
             <h1 className="singlePostResult" id="writingTitle">{elem.title}</h1>
             <h3 className="singlePostResult" id="postDate">{elem.date}</h3>
             <p className="singlePostResult">{elem.body}</p>
+            {imageResult}
           </div>
         </div>
       )

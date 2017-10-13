@@ -8,6 +8,7 @@ var writingSchema = new Schema({
   category: { type: String, required: true },
   title: { type: String, required: true },
   body: { type: String, required: true },
+  file: { type: String }
 });
 
 module.exports = mongoose.model('Writing', writingSchema);

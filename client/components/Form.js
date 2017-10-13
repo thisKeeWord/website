@@ -29,11 +29,13 @@ class PostForm extends React.Component {
   testing(e) {
     e.preventDefault();
     let that = this;
+    console.log($("#myFile")[0].files[0].name);
     let entry = {
       url: window.location.pathname,
       category: this.props.entrySelection,
       title: $(".entryTitle").text(),
       body: $(".formEntry").text(),
+      file: that.props.imageInfo
     };
     return this.post(entry).done(info => {
       that.appendResults(info);
@@ -53,7 +55,26 @@ class PostForm extends React.Component {
 
   fileChange(e) {
     e.preventDefault();
-    console.log(e.target);
+    console.log($("#myFile")[0].files[0]);
+    let canvas = document.getElementById('imageCanvas');
+    let ctx = canvas.getContext('2d');
+    let reader = new FileReader();
+    reader.onload = event => {
+      this.props.grabImageData(event.target.result);
+      // console.log(event.target.result)
+
+      let img = new Image();
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img,0,0);
+      }
+      img.src = event.target.result;
+    }
+  // reader.readAsDataURL(e.target.files[0]);     
+    reader.readAsDataURL(e.target.files[0]);
+
+    console.log(reader.readAsDataURL($("#myFile")[0].files[0]));
   }
   // handleChange(e) {
   //   e.preventDefault();
@@ -70,7 +91,8 @@ class PostForm extends React.Component {
         </select>
         <div className="entryTitle" role="textbox" placeholder="What's the title" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
-        <input type="file" id="myFile" multiple size="50" onChange={this.fileChange.bind(this)} />
+        <input type="file" id="myFile" multiple size="60000" onChange={this.fileChange.bind(this)} />
+        <canvas id="imageCanvas"></canvas>
         <input type="submit" id="submitButton" value="submit"></input>
       </form>
     );
