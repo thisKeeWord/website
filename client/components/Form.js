@@ -91,7 +91,7 @@ class PostForm extends React.Component {
         </select>
         <div className="entryTitle" role="textbox" placeholder="What's the title" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
-        <input type="file" id="myFile" multiple size="60000" onChange={this.fileChange.bind(this)} />
+        <input type="file" id="myFile" multiple size="6000" accept=".jpg,.jpeg,.gif,.png" onChange={this.fileChange.bind(this)} />
         <canvas id="imageCanvas"></canvas>
         <input type="submit" id="submitButton" value="submit"></input>
       </form>

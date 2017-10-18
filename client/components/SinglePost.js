@@ -40,9 +40,11 @@ class SinglePost extends React.Component {
       return (
         <div className={elem.category + 2} id={elem._id} key={elem._id}>
           <div className="perPost">
-            <h1 className="singlePostResult" id="writingTitle">{elem.title}</h1>
-            <h3 className="singlePostResult" id="postDate">{elem.date}</h3>
-            <p className="singlePostResult">{elem.body}</p>
+            <div className="perPostText">
+              <h1 className="singlePostResult" id="writingTitle">{elem.title}</h1>
+              <h3 className="singlePostResult" id="postDate">{elem.date}</h3>
+              <p className="singlePostResult">{elem.body}</p>
+            </div>
             {imageResult}
           </div>
         </div>

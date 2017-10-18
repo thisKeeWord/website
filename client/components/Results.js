@@ -48,9 +48,11 @@ class Results extends React.Component {
               <li className="clickLinks">
                 <div className={data.category + 1} id={data._id} key={data._id}>
                   <div className="perPost">
-                    <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
-                    <h3 className="postResults" id="datePosted">{data.date}</h3>
-                    <p className="postResults" id="postBody" contentEditable={editableContent}>{data.body}</p>
+                    <div className="perPostText">
+                      <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
+                      <h3 className="postResults" id="datePosted">{data.date}</h3>
+                      <p className="postResults" id="postBody" contentEditable={editableContent}>{data.body}</p>
+                    </div>
                     {mediaFile}
                   </div>
                 </div>
@@ -76,9 +78,11 @@ class Results extends React.Component {
               <Link to={`/fitness/${data._id}`}>
                 <div className={data.category + 1} id={data._id} key={data._id}>
                   <div className="perPost">
-                    <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
-                    <h3 className="postResults" id="datePosted">{data.date}</h3>
-                    <p className="postResults" contentEditable={editableContent}>{data.body}</p>
+                    <div className="perPostText">
+                      <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
+                      <h3 className="postResults" id="datePosted">{data.date}</h3>
+                      <p className="postResults" contentEditable={editableContent}>{data.body}</p>
+                    </div>
                     {mediaFile}
                   </div>
                 </div>
