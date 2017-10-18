@@ -1,8 +1,9 @@
-
-/*body div div{
-  border: 1px solid black;
-  position: absolute;
-}*/
+body {
+  font-family: 'Droid Serif', serif;
+  /*font-size: 14px;*/
+  color: #2f2f2f;
+  background-color: #f9f7f1;
+}
 
 #App {
   position: relative;
@@ -107,6 +108,8 @@ img {
 }
 
 .linkWithButtons {
-  border: 1px solid black;
-  margin: 10px;
+  border-bottom: 1px solid black;
+  /*border-top: 1px solid black;*/
+  margin-left: 10px;
+  margin-right: 10px;
 }
