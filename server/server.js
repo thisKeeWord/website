@@ -15,8 +15,8 @@ var mongoURI = 'mongodb://localhost/leoWebsite';
 mongoose.connect(mongoURI);
 
 // decoding data as string for format for url
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '500mb'}));
+app.use(bodyParser.urlencoded({limit: '500mb', extended: true}));
 app.use(express.static(path.join(__dirname, './../client/')));
 app.use(fallback('index.html', { root: __dirname + './../client/' }));
 
@@ -28,9 +28,7 @@ app.get('/', function(req, res) {
 
 app.post('/fitness', writingController.writing);
 
-app.post('/blogs', function(req, res) {
-	res.send('asdf');
-});
+app.post('/blogs', writingController.writing);
 
 app.post('/projects', function(req, res) {
 	res.send('asdf');

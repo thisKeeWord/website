@@ -1,8 +1,9 @@
-
-/*body div div{
-  border: 1px solid black;
-  position: absolute;
-}*/
+body {
+  font-family: 'Droid Serif', serif;
+  /*font-size: 14px;*/
+  color: #2f2f2f;
+  background-color: #f9f7f1;
+}
 
 #App {
   position: relative;
@@ -20,8 +21,8 @@
 }
 
 .formEntry {
-  position: absolute;
-  top: 130;
+  /*position: absolute;*/
+  /*top: 130;*/
   width: 200px;
   height: 300px;
 }
@@ -34,17 +35,18 @@
   position: relative;
 }
 
-p.postResults {
-  height: 18px;
-  width: 150px;
-  white-space: nowrap;
+pre.postResults {
+  height: 140px;
+  /*width: 200px;*/
+  white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
 #datePosted.postResults {
   height: 22;
-  width: 150px;
+  /*width: 200px;*/
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,7 +54,7 @@ p.postResults {
 
 #titleOfWriting.postResults {
   height: 37px;
-  width: 150px;
+  /*width: 200px;*/
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -77,6 +79,51 @@ a:hover {
 }
 
 #myFile {
-  position: absolute;
-  right: 600;
+  /*position: absolute;*/
+  /*right: 600;*/
+}
+
+img {
+  /*max-width: 100%;
+  max-height: 100%;
+  float: right;*/
+  width: 300px;
+  height: 200px;
+  float: right;
+  object-fit: contain;
+  float: right;
+}
+
+.perPost {
+  height: 300px;
+  /*width: 500px;*/
+}
+
+.perPostText {
+  width: 50%;
+}
+
+.dateBodyImage {
+  display: inline-flex;
+  width: 100%;
+}
+
+.linkWithButtons {
+  border-bottom: 1px solid black;
+  /*border-top: 1px solid black;*/
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.Form {
+  width: 300px;
+  position: relative;  
+}
+
+canvas {
+  display: none;
+}
+
+.navi, .navigationLinks {
+  width: 200px;
 }

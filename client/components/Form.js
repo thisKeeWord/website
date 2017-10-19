@@ -29,12 +29,12 @@ class PostForm extends React.Component {
   testing(e) {
     e.preventDefault();
     let that = this;
-    console.log($("#myFile")[0].files[0].name);
+    console.log($(".formEntry"));
     let entry = {
       url: window.location.pathname,
       category: this.props.entrySelection,
-      title: $(".entryTitle").text(),
-      body: $(".formEntry").text(),
+      title: $(".entryTitle")[0].innerText,
+      body: $(".formEntry")[0].innerText,
       file: that.props.imageInfo
     };
     return this.post(entry).done(info => {
@@ -83,7 +83,7 @@ class PostForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.testing.bind(this)}>
+      <form className="Form" onSubmit={this.testing.bind(this)}>
         <select className="entryCategory" value={this.props.entryCategory} defaultValue='select one' onChange={this.onChange.bind(this)}>
           <option value="blogs">Blogs</option>
           <option value="fitness">Fitness</option>
@@ -91,7 +91,7 @@ class PostForm extends React.Component {
         </select>
         <div className="entryTitle" role="textbox" placeholder="What's the title" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
-        <input type="file" id="myFile" multiple size="60000" onChange={this.fileChange.bind(this)} />
+        <input type="file" id="myFile" multiple size="600000" accept=".jpg,.jpeg,.gif,.png" onChange={this.fileChange.bind(this)} />
         <canvas id="imageCanvas"></canvas>
         <input type="submit" id="submitButton" value="submit"></input>
       </form>
