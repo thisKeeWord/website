@@ -3,13 +3,14 @@ import { Link } from 'react-router';
 import $ from 'jquery';
 import PostForm from './Form.js';
 import Results from './Results.js';
+import Blogs from './Blogs.js';
 import Login from './Login.js';
 
 class Fitness extends React.Component {
   constructor() {
     super();
     this.state = {
-      entryCategory: '',
+      entryCategory: 'fitness',
       resultsToAdd: [],
       isLoggedIn: false,
       id: '',
@@ -25,19 +26,6 @@ class Fitness extends React.Component {
       entryCategory: selection
     });
   }
-
-  // updateTitle(title) {
-  //   console.log(title)
-  //   this.setState({
-  //     title: title
-  //   });
-  // }
-
-  // componentDidMount() {
-  //   $.get('/data', (error, data) => {
-  //     return console.log(data);
-  //   });
-  // }
 
   addResults(data) {
     this.setState({
@@ -135,9 +123,16 @@ class Fitness extends React.Component {
     if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     return (
       <div className='Fitness'>
+        <ul className="navigationLinks">
+          <li className="navi">
+            <Link to='/'>Home</Link>
+            <Link to='/blogs'>Blogs</Link>
+            <Link to='/projects'>Projects</Link>
+          </li>
+        </ul>
         Fitness
         {addForm}
-        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} />
+        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} />
         <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
       </div>
     );

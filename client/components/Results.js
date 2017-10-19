@@ -52,7 +52,7 @@ class Results extends React.Component {
                     <div className="dateBodyImage">
                       <div className="perPostText">
                         <h3 className="postResults" id="datePosted">{data.date}</h3>
-                        <p className="postResults" id="postBody" contentEditable={editableContent}>{data.body}</p>
+                        <pre className="postResults" id="postBody" contentEditable={editableContent}>{data.body}</pre>
                       </div>
                       {mediaFile}
                     </div>
@@ -77,19 +77,20 @@ class Results extends React.Component {
         <div className="linkWithButtons">
           <ul className="postNavigation">
             <li className="clickLinks">
-              <Link to={`/fitness/${data._id}`}>
-                <div className={data.category + 1} id={data._id} key={data._id}>
-                  <div className="perPost">
-                    <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
-                    <div className="dateBodyImage">
-                      <div className="perPostText">
-                        <h3 className="postResults" id="datePosted">{data.date}</h3>
-                        <p className="postResults" contentEditable={editableContent}>{data.body}</p>
-                      </div>
-                      {mediaFile}
+              <div className={data.category + 1} id={data._id} key={data._id}>
+                <div className="perPost">
+                  <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
+                  <div className="dateBodyImage">
+                    <div className="perPostText">
+                      <h3 className="postResults" id="datePosted">{data.date}</h3>
+                      <pre className="postResults" contentEditable={editableContent}>{data.body}</pre>
                     </div>
+                    {mediaFile}
                   </div>
                 </div>
+              </div>
+              <Link to={`/${that.props.entryCategory}/${data._id}`}>
+                Read More
               </Link>
             </li>
           </ul>

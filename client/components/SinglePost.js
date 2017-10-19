@@ -16,6 +16,7 @@ class SinglePost extends React.Component {
   }
 
   componentDidMount() {
+    console.log(window.location.pathname)
     const that = this;
     return $.ajax({
       type: 'POST', 

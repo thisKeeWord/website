@@ -34,6 +34,7 @@ class App extends React.Component {
       	<Route path="/fitness" component={Fitness} />
         <Route path='/fitness/:id' component={SinglePost} />
         <Route path="/blogs" component={Blogs} />
+        <Route path='/blogs/:id' component={SinglePost} />
         <Route path="/projects" component={Projects} />
         <Route path="/login" component={Login} />
       </Router>
