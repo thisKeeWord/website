@@ -10,7 +10,7 @@ class Fitness extends React.Component {
   constructor() {
     super();
     this.state = {
-      entryCategory: 'fitness',
+      entryCategory: 'blogs',
       resultsToAdd: [],
       isLoggedIn: false,
       id: '',
@@ -36,12 +36,12 @@ class Fitness extends React.Component {
   divAndEventChosen(id, selection, infoToModify) {
     const that = this;
     let objModified = {};
-    console.log(infoToModify)
+    console.log(infoToModify, $(infoToModify)[0], $($(infoToModify[1]).children().children())[1])
     if (selection === "Save") {
       objModified = {
         id: id,
-        title: $(infoToModify[0]).text(),
-        body: $(infoToModify[2]).text(),
+        title: $(infoToModify)[0].innerText,
+        body: $($(infoToModify[1]).children().children())[1].innerText,
         category: window.location.pathname.replace('/', ''),
       };
       this.updateRecord('PUT', objModified).done(results => {
@@ -97,7 +97,7 @@ class Fitness extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
-        that.addResults(data);
+        that.addResults(data.reverse());
       }
     });
     // $.post('/fack', { category: window.location.pathname.replace('/', '')}, data => {

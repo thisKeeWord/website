@@ -31,14 +31,18 @@ class PostForm extends React.Component {
     let that = this;
     console.log($(".formEntry"));
     let entry = {
-      url: window.location.pathname,
+      currUrl: window.location.pathname.split('/')[1],
+      url: '/' + this.props.entrySelection,
       category: this.props.entrySelection,
       title: $(".entryTitle")[0].innerText,
       body: $(".formEntry")[0].innerText,
       file: that.props.imageInfo
     };
     return this.post(entry).done(info => {
-      that.appendResults(info);
+      if (entry.currUrl === entry.category) {
+      // console.log(info, 'info')
+        that.appendResults(info.reverse());
+      }
     });
     // .done(() => {
       // console.log('done')
@@ -84,10 +88,9 @@ class PostForm extends React.Component {
   render() {
     return (
       <form className="Form" onSubmit={this.testing.bind(this)}>
-        <select className="entryCategory" value={this.props.entryCategory} defaultValue='select one' onChange={this.onChange.bind(this)}>
+        <select className="entryCategory" value={this.props.entryCategory} onChange={this.onChange.bind(this)}>
           <option value="blogs">Blogs</option>
           <option value="fitness">Fitness</option>
-          <option value="projects">Projects</option>
         </select>
         <div className="entryTitle" role="textbox" placeholder="What's the title" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>

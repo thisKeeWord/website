@@ -34,6 +34,12 @@ function getWritings(req, res) {
     // console.log(success, 'sojjdfsjdsaff')
     // console.log(success, 'needtobuffer')
     var itemsProcessed = 0;
+    // console.log(success, 'success')
+    // success.filter(function(categoryVsUrl) {
+    //   console.log(categoryVsUrl, 'cvu')
+    //   categoryVsUrl.category === req.body.currUrl;
+    // });
+    // console.log('new success', success)
     success.forEach(function(elem) {
       
       // if (elem.file) {
