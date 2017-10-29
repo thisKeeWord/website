@@ -34,6 +34,12 @@ function getWritings(req, res) {
     // console.log(success, 'sojjdfsjdsaff')
     // console.log(success, 'needtobuffer')
     var itemsProcessed = 0;
+    // console.log(success, 'success')
+    // success.filter(function(categoryVsUrl) {
+    //   console.log(categoryVsUrl, 'cvu')
+    //   categoryVsUrl.category === req.body.currUrl;
+    // });
+    // console.log('new success', success)
     success.forEach(function(elem) {
       
       // if (elem.file) {
@@ -46,6 +52,10 @@ function getWritings(req, res) {
     });
     if (itemsProcessed === success.length) {
       // console.log(itemsProcessed)
+      success.sort(function(a, b) {
+        return a.date > b.date;
+      });
+      console.log(success)
       res.send(success);
     }
   });

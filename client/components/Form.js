@@ -2,11 +2,6 @@ import React from 'react';
 import $ from 'jquery';
 
 class PostForm extends React.Component {
-  // componentDidMount() {
-  //   $.get('/fitness', (error, data) => {
-  //     return console.log(data);
-  //   })
-  // }
   post(writing) {
     console.log('testing')
     return $.ajax({
@@ -16,10 +11,6 @@ class PostForm extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json'
     });
-    // $.post('', writing, (error, success) => {
-    //   if (error) return console.error(error)
-    //   return console.log('success again');
-    // });
   }
 
   appendResults(data) {
@@ -31,21 +22,18 @@ class PostForm extends React.Component {
     let that = this;
     console.log($(".formEntry"));
     let entry = {
-      url: window.location.pathname,
+      currUrl: window.location.pathname.split('/')[1],
+      url: '/' + this.props.entrySelection,
       category: this.props.entrySelection,
       title: $(".entryTitle")[0].innerText,
       body: $(".formEntry")[0].innerText,
       file: that.props.imageInfo
     };
     return this.post(entry).done(info => {
-      that.appendResults(info);
+      if (entry.currUrl === entry.category) {
+        that.appendResults(info.reverse());
+      }
     });
-    // .done(() => {
-      // console.log('done')
-    // })
-    // .done(() => {
-      // console.log('successful post sent');
-    // });
   }
 
   onChange(e) {
@@ -61,8 +49,6 @@ class PostForm extends React.Component {
     let reader = new FileReader();
     reader.onload = event => {
       this.props.grabImageData(event.target.result);
-      // console.log(event.target.result)
-
       let img = new Image();
       img.onload = () => {
         canvas.width = img.width;
@@ -71,23 +57,15 @@ class PostForm extends React.Component {
       }
       img.src = event.target.result;
     }
-  // reader.readAsDataURL(e.target.files[0]);     
     reader.readAsDataURL(e.target.files[0]);
-
-    console.log(reader.readAsDataURL($("#myFile")[0].files[0]));
   }
-  // handleChange(e) {
-  //   e.preventDefault();
-  //   this.props.handleTitleChange(e.target.value);
-  // }
 
   render() {
     return (
       <form className="Form" onSubmit={this.testing.bind(this)}>
-        <select className="entryCategory" value={this.props.entryCategory} defaultValue='select one' onChange={this.onChange.bind(this)}>
+        <select className="entryCategory" value={this.props.entryCategory} onChange={this.onChange.bind(this)}>
           <option value="blogs">Blogs</option>
           <option value="fitness">Fitness</option>
-          <option value="projects">Projects</option>
         </select>
         <div className="entryTitle" role="textbox" placeholder="What's the title" contentEditable="true" aria-multiline="true" spellCheck="true"></div>
         <div className="formEntry" role="textbox" placeholder="What's poppin?" contentEditable="true" aria-multiline="true" spellCheck="true"></div>

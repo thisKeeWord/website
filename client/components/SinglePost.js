@@ -44,7 +44,7 @@ class SinglePost extends React.Component {
             <div className="perPostText">
               <h1 className="singlePostResult" id="writingTitle">{elem.title}</h1>
               <h3 className="singlePostResult" id="postDate">{elem.date}</h3>
-              <p className="singlePostResult">{elem.body}</p>
+              <pre className="singlePostResult">{elem.body}</pre>
             </div>
             {imageResult}
           </div>
