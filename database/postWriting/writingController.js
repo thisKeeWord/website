@@ -52,6 +52,10 @@ function getWritings(req, res) {
     });
     if (itemsProcessed === success.length) {
       // console.log(itemsProcessed)
+      success.sort(function(a, b) {
+        return a.date > b.date;
+      });
+      console.log(success)
       res.send(success);
     }
   });
