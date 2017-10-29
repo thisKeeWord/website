@@ -11,11 +11,37 @@ class Results extends React.Component {
     //   title: infoToModify[0].text(),
     //   body: infoToModify[2].text()
     // };
-    console.log(e.target.value, e, e.id, $(e.target).parent().parent().attr("id"), $(e.target).parent().parent().siblings().children().children().children().children(), 'logging edit save cancel')
+    // console.log(e.target.value, e, e.id, $(e.target).parent().parent().attr("id"), $(e.target).parent().parent().siblings().children().children().children().children(), 'logging edit save cancel')
     this.props.divAndEventChosen($(e.target).parent().parent().attr("id"), e.target.value, infoToModify);
   }
 
+  handlePageClick(event) {
+    event.preventDefault();
+    console.log(event.target.id);
+    this.props.setCurrentPage(Number(event.target.id));
+  }
+
+  previousPageSet(e) {
+    e.preventDefault();
+    console.log(this.props.currentBasePage - 4)
+    if (this.props.currentBasePage - 4 > 1) {
+      this.props.previousPage();
+    }
+  }
+
+  nextPageSet(e) {
+    e.preventDefault();
+    console.log(Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage))
+    if (this.props.currentBasePage + 4 < Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage)) {
+      this.props.nextPage();
+    }
+  }
+
   render() {
+    const indexOfLastResult = this.props.currentPage * this.props.resultsPerPage,
+          indexOfFirstResult = indexOfLastResult - this.props.resultsPerPage,
+          viewPage = this.props.resultsToAdd.slice(indexOfFirstResult, indexOfLastResult);
+          console.log(this.props.resultsToAdd, viewPage)
     let editable = null, editableContent = null, that = this;
     if (this.props.isLoggedIn) {
       editable = (
@@ -29,17 +55,17 @@ class Results extends React.Component {
         // </form>
       );
     }
-    console.log('bro')
-
-    const additions = this.props.resultsToAdd.map(data => {
+    // console.log('bro')
+    // console.log(this.props.resultsToAdd);
+    const renderPageResults = viewPage.map(data => {
       let mediaFile = null;
       if (data.file) {
-        console.log(data, 'filedata')
+        // console.log(data, 'filedata')
         mediaFile = (
           <img src={data.file} />
         );
       }
-      console.log(this.props.eventSelection)
+      // console.log(this.props.eventSelection)
       if (data._id === this.props.divId && this.props.eventSelection === "Edit") {
         editableContent = true;
         return (
@@ -100,9 +126,29 @@ class Results extends React.Component {
         </div>
       );
     });
+
+    // Logic for displaying page numbers
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage); i++) {
+      pageNumbers.push(i);
+    }
+
+    const renderPageNumbers = pageNumbers.map(number => {
+      return (
+        <li className="page" key={number} id={number} onClick={this.handlePageClick.bind(this)}>{number}</li>
+      );
+    });
+
     return (
       <div className='Results'>
-        {additions}
+        <div className="resultsByPage">
+          {renderPageResults}
+        </div>
+        <ul id="pageNum">
+          <li className="page" key="previous" id="previous" onClick={this.previousPageSet.bind(this)}>&laquo;</li>
+          {renderPageNumbers.slice(this.props.currentBasePage - 1, 5)}
+          <li className="page" key="next" id="next" onClick={this.nextPageSet.bind(this)}>&raquo;</li>
+        </ul>
       </div>
     );
   }

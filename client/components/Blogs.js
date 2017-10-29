@@ -15,8 +15,10 @@ class Blogs extends React.Component {
       isLoggedIn: false,
       id: '',
       selection: '',
-      imageData: ''
-      // title: ''
+      imageData: '',
+      currentPage: 1,
+      resultsPerPage: 2,
+      currentBasePage: 1
     };
   }
 
@@ -117,6 +119,28 @@ class Blogs extends React.Component {
     });
   }
 
+  setCurrentPage(currentPage) {
+    this.setState({
+      currentPage: currentPage
+    });
+  }
+
+  previousPage() {
+    let adjustPageSet = this.state.currentPage - 4;
+    this.setState({
+      currentPage: adjustPageSet,
+      currentBasePage: adjustPageSet
+    });
+  }
+
+  nextPage() {
+    let adjustPageSet = this.state.currentPage + 4;
+    this.setState({
+      currentPage: adjustPageSet,
+      currentBasePage: adjustPageSet
+    });
+  }
+
   render() {
     let addForm = null;
     console.log(this.state.isLoggedIn)
@@ -132,7 +156,7 @@ class Blogs extends React.Component {
           </li>
         </ul>
         {addForm}
-        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} />
+        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
         <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
       </div>
     );

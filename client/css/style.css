@@ -127,3 +127,18 @@ canvas {
 .navi, .navigationLinks {
   width: 200px;
 }
+
+#pageNum {
+  display: inline-flex;
+}
+
+#pageNum > li {
+  margin-right: 0.3em;
+  color: blue;
+  user-select: none;
+  cursor: pointer;
+}
+
+.page {
+
+}

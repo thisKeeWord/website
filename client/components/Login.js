@@ -20,7 +20,9 @@ class Login extends React.Component {
       contentType : 'application/json',
       success: data => {
         console.log('sucesssssssss login')
-        that.props.logIn(data)
+        that.props.logIn(data);
+        $(".loginForm")[0].reset();
+
       }
     });
   }
@@ -28,7 +30,7 @@ class Login extends React.Component {
   render() {
     return (
     	<div className="login">
-        <form onSubmit={this.login.bind(this)}>
+        <form className="loginForm" onSubmit={this.login.bind(this)}>
           <input name="username" id="username" placeholder="username"></input>
           <input name="password" id="password" type="password" placeholder="password"></input>
           <input type='submit' value="login" />
