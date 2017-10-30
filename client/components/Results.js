@@ -58,7 +58,7 @@ class Results extends React.Component {
     // console.log('bro')
     // console.log(this.props.resultsToAdd);
     const renderPageResults = viewPage.map(data => {
-      let mediaFile = null;
+      let mediaFile = <div className="noImg" />;
       if (data.file) {
         // console.log(data, 'filedata')
         mediaFile = (
@@ -70,8 +70,8 @@ class Results extends React.Component {
         editableContent = true;
         return (
           <div className="linkWithButtons">
-            <ul className="postNavigation">
-              <li className="clickLinks">
+            <ul id="postNavigation">
+              <li id="clickLinks">
                 <div className={data.category + 1} id={data._id} key={data._id}>
                   <div className="perPost">
                     <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
@@ -101,8 +101,8 @@ class Results extends React.Component {
 
       return (
         <div className="linkWithButtons">
-          <ul className="postNavigation">
-            <li className="clickLinks">
+          <ul id="postNavigation">
+            <li id="clickLinks">
               <div className={data.category + 1} id={data._id} key={data._id}>
                 <div className="perPost">
                   <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
@@ -115,7 +115,7 @@ class Results extends React.Component {
                   </div>
                 </div>
               </div>
-              <Link to={`/${that.props.entryCategory}/${data._id}`}>
+              <Link id="linkToPost" to={`/${that.props.entryCategory}/${data._id}`}>
                 Read More
               </Link>
             </li>
