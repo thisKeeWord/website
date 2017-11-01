@@ -74,11 +74,11 @@ class Results extends React.Component {
               <li id="clickLinks">
                 <div className={data.category + 1} id={data._id} key={data._id}>
                   <div className="perPost">
-                    <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
+                    <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                     <div className="dateBodyImage">
                       <div className="perPostText">
                         <h3 className="postResults" id="datePosted">{data.date}</h3>
-                        <pre className="postResults" id="postBody" contentEditable={editableContent}>{data.body}</pre>
+                        <pre className="postResults" id="postBody" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }} ></pre>
                       </div>
                       {mediaFile}
                     </div>
@@ -105,11 +105,11 @@ class Results extends React.Component {
             <li id="clickLinks">
               <div className={data.category + 1} id={data._id} key={data._id}>
                 <div className="perPost">
-                  <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent}>{data.title}</h1>
+                  <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                   <div className="dateBodyImage">
                     <div className="perPostText">
                       <h3 className="postResults" id="datePosted">{data.date}</h3>
-                      <pre className="postResults" contentEditable={editableContent}>{data.body}</pre>
+                      <pre className="postResults" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }}></pre>
                     </div>
                     {mediaFile}
                   </div>

@@ -25,8 +25,8 @@ class PostForm extends React.Component {
       currUrl: window.location.pathname.split('/')[1],
       url: '/' + this.props.entrySelection,
       category: this.props.entrySelection,
-      title: $(".entryTitle")[0].innerText,
-      body: $(".formEntry")[0].innerText,
+      title: $(".entryTitle")[0].innerHTML,
+      body: $(".formEntry")[0].innerHTML,
       file: that.props.imageInfo
     };
     return this.post(entry).done(info => {

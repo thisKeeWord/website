@@ -42,9 +42,9 @@ class SinglePost extends React.Component {
         <div className={elem.category + 2} id={elem._id} key={elem._id}>
           <div className="perPost">
             <div className="perPostText">
-              <h1 className="singlePostResult" id="writingTitle">{elem.title}</h1>
+              <h1 className="singlePostResult" id="writingTitle" dangerouslySetInnerHTML={{ __html: elem.title }}></h1>
               <h3 className="singlePostResult" id="postDate">{elem.date}</h3>
-              <pre className="singlePostResult">{elem.body}</pre>
+              <pre className="singlePostResult" dangerouslySetInnerHTML={{ __html: elem.body }}></pre>
             </div>
             {imageResult}
           </div>

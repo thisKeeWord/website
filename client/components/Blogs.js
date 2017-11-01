@@ -42,8 +42,8 @@ class Blogs extends React.Component {
     if (selection === "Save") {
       objModified = {
         id: id,
-        title: $(infoToModify)[0].innerText,
-        body: $($(infoToModify[1]).children().children())[1].innerText,
+        title: $(infoToModify)[0].innerHTML,
+        body: $($(infoToModify[1]).children().children())[1].innerHTML,
         category: window.location.pathname.replace('/', ''),
       };
       this.updateRecord('PUT', objModified).done(results => {
@@ -51,7 +51,7 @@ class Blogs extends React.Component {
         that.setState({
           id: id,
           selection: selection,
-          resultsToAdd: results
+          resultsToAdd: results.reverse()
         },
         console.log(infoToModify, objModified));
       });
@@ -66,7 +66,7 @@ class Blogs extends React.Component {
         that.setState({
           id: id,
           selection: selection,
-          resultsToAdd: results
+          resultsToAdd: results.reverse()
         },
         console.log(infoToModify, objModified));
       });
