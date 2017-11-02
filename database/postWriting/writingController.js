@@ -18,7 +18,7 @@ function writing(req, res) {
 	// var contentToSave = JSON.parse(req.body);
   // console.log(base64Img.base64(req.body.file), function(err, resu) { if (err) return console.error(err); console.log(resu)})
   // req.body.file = Buffer.from(req.body.file);
-  console.log(req.body)
+  console.log(req.body.file)
   // req.body.date = Date();
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);

@@ -15,9 +15,9 @@ class Blogs extends React.Component {
       isLoggedIn: false,
       id: '',
       selection: '',
-      imageData: '',
+      imageData: [],
       currentPage: 1,
-      resultsPerPage: 2,
+      resultsPerPage: 7,
       currentBasePage: 1
     };
   }
@@ -114,8 +114,10 @@ class Blogs extends React.Component {
   }
 
   updateImageData(dataImage) {
+    let imageArray = this.state.imageData;
+    imageArray.push(dataImage);
     this.setState({
-      imageData: dataImage
+      imageData: imageArray
     });
   }
 

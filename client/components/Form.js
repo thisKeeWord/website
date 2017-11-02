@@ -43,21 +43,27 @@ class PostForm extends React.Component {
 
   fileChange(e) {
     e.preventDefault();
-    console.log($("#myFile")[0].files[0]);
-    let canvas = document.getElementById('imageCanvas');
-    let ctx = canvas.getContext('2d');
-    let reader = new FileReader();
-    reader.onload = event => {
-      this.props.grabImageData(event.target.result);
-      let img = new Image();
-      img.onload = () => {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img,0,0);
+    console.log($("#myFile")[0].files);
+    const fileSet = $("#myFile")[0].files;
+    for (let filePos in fileSet) {
+      if (filePos !== 'length') {
+        let canvas = document.getElementById('imageCanvas');
+        let ctx = canvas.getContext('2d');
+        let reader = new FileReader();
+        reader.onload = event => {
+          this.props.grabImageData(event.target.result);
+          console.log(this.props.grabImageData)
+          let img = new Image();
+          img.onload = () => {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img,0,0);
+          }
+          img.src = event.target.result;
+        }
+        reader.readAsDataURL(e.target.files[filePos]);
       }
-      img.src = event.target.result;
     }
-    reader.readAsDataURL(e.target.files[0]);
   }
 
   render() {

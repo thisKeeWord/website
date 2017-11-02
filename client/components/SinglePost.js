@@ -34,9 +34,14 @@ class SinglePost extends React.Component {
     const singleResult = this.state.results.map(elem => {
       let imageResult = null;
       if (elem.file) {
-        imageResult = (
-          <img src={elem.file} />
-        )
+        // console.log(elem.file)
+        imageResult = elem.file.map(el => {
+          // console.log(el)
+          return (
+            <img src={el} />
+          )
+        });
+        console.log(imageResult)
       }
       return (
         <div className={elem.category + 2} id={elem._id} key={elem._id}>
