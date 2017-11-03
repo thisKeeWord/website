@@ -50,6 +50,7 @@ pre.postResults {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 0;
 }
 
 #titleOfWriting.postResults {
@@ -163,6 +164,13 @@ canvas {
   visibility: hidden;
 }
 
+.whileLoading {
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+}
+
 .loadingIcon {
   background-image: url('./../images/load-icon.gif');
   height: 100%;
@@ -170,4 +178,44 @@ canvas {
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 1000;
+}
+
+.imageGallery {
+  justify-content: right;
+}
+
+.SinglePost {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.singleResult {
+
+  width: 100%;
+}
+
+.singlePostTextImg {
+  width: 100%;
+  display: inline-flex;
+}
+
+.imageGallery img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#writingTitle.singlePostResult {
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 50px;
+}
+
+#postDate.singlePostResult {
+  margin-top: 0;
+  text-align: center;
+}
+
+pre.singlePostResult {
+  width: 70%;
 }

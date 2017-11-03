@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Fitness from './Fitness';
-import Blogs from './Blogs';
-import Projects from './Projects';
 // import Misc from './Misc';
 
 class Nav extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			userLoggedIn: false
-		};
-	}
+	// constructor() {
+	// 	super();
+	// 	this.state = {
+	// 		userLoggedIn: false
+	// 	};
+	// }
 
 	// componentWillMount() {
 		

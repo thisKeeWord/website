@@ -6,6 +6,7 @@ import Results from './Results.js';
 import Blogs from './Blogs.js';
 import Login from './Login.js';
 import Loading from './Loading.js';
+import Nav from './Nav.js';
 
 class Fitness extends React.Component {
   constructor() {
@@ -158,14 +159,7 @@ class Fitness extends React.Component {
     return (
       <div className='Fitness'>
         <Loading isActive={this.state.isActiveLoader} />
-        <ul className="navigationLinks">
-          <li className="navi">
-            <Link to='/'>Home</Link>
-            <Link to='/blogs'>Blogs</Link>
-            <Link to='/projects'>Projects</Link>
-          </li>
-        </ul>
-        Fitness
+        <Nav />
         {addForm}
         <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
         <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
