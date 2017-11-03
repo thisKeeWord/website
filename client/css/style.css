@@ -162,3 +162,12 @@ canvas {
 .login {
   visibility: hidden;
 }
+
+.loadingIcon {
+  background-image: url('./../images/load-icon.gif');
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+}

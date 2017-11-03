@@ -17,13 +17,13 @@ class Results extends React.Component {
 
   handlePageClick(event) {
     event.preventDefault();
-    console.log(event.target.id);
+    // console.log(event.target.id);
     this.props.setCurrentPage(Number(event.target.id));
   }
 
   previousPageSet(e) {
     e.preventDefault();
-    console.log(this.props.currentBasePage - 4)
+    // console.log(this.props.currentBasePage - 4)
     if (this.props.currentBasePage - 4 > 1) {
       this.props.previousPage();
     }
@@ -31,7 +31,7 @@ class Results extends React.Component {
 
   nextPageSet(e) {
     e.preventDefault();
-    console.log(Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage))
+    // console.log(Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage))
     if (this.props.currentBasePage + 4 < Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage)) {
       this.props.nextPage();
     }
@@ -41,7 +41,7 @@ class Results extends React.Component {
     const indexOfLastResult = this.props.currentPage * this.props.resultsPerPage,
           indexOfFirstResult = indexOfLastResult - this.props.resultsPerPage,
           viewPage = this.props.resultsToAdd.slice(indexOfFirstResult, indexOfLastResult);
-          console.log(this.props.resultsToAdd, viewPage)
+          // console.log(this.props.resultsToAdd, viewPage)
     let editable = null, editableContent = null, that = this;
     if (this.props.isLoggedIn) {
       editable = (
@@ -55,14 +55,17 @@ class Results extends React.Component {
         // </form>
       );
     }
+
+    
     // console.log('bro')
     // console.log(this.props.resultsToAdd);
     const renderPageResults = viewPage.map(data => {
       let mediaFile = <div className="noImg" />;
-      if (data.file) {
+      console.log(data.file)
+      if (data.file[0]) {
         // console.log(data, 'filedata')
         mediaFile = (
-          <img src={data.file} />
+          <img src={data.file[0]} />
         );
       }
       // console.log(this.props.eventSelection)
@@ -115,7 +118,7 @@ class Results extends React.Component {
                   </div>
                 </div>
               </div>
-              <Link id="linkToPost" to={`/${that.props.entryCategory}/${data._id}`}>
+              <Link id="linkToPost" to={`/${that.props.entryCategory}/${data.title.replace(" ", "-")}`}>
                 Read More
               </Link>
             </li>

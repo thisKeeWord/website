@@ -5,6 +5,7 @@ import PostForm from './Form.js';
 import Results from './Results.js';
 import Blogs from './Blogs.js';
 import Login from './Login.js';
+import Loading from './Loading.js';
 
 class Fitness extends React.Component {
   constructor() {
@@ -16,6 +17,7 @@ class Fitness extends React.Component {
       id: '',
       selection: '',
       imageData: [],
+      isActiveLoader: true,
       currentPage: 1,
       resultsPerPage: 7,
       currentBasePage: 1
@@ -30,9 +32,13 @@ class Fitness extends React.Component {
   }
 
   addResults(data) {
-    this.setState({
-      resultsToAdd: data
-    });
+    const that = this;
+    setTimeout(() => {
+      that.setState({
+        resultsToAdd: data,
+        isActiveLoader: false
+      });
+    }, 2000);
   }
 
   divAndEventChosen(id, selection, infoToModify) {
@@ -145,10 +151,13 @@ class Fitness extends React.Component {
 
   render() {
     let addForm = null;
-    console.log(this.state.isLoggedIn)
-    if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
+    console.log(this.state.isLoggedIn);
+    if (this.state.isLoggedIn) {
+      addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
+    }
     return (
       <div className='Fitness'>
+        <Loading isActive={this.state.isActiveLoader} />
         <ul className="navigationLinks">
           <li className="navi">
             <Link to='/'>Home</Link>

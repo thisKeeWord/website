@@ -16,12 +16,13 @@ class SinglePost extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     console.log(window.location.pathname)
     const that = this;
     return $.ajax({
       type: 'POST', 
       url: '/singleWritings', 
-      data: JSON.stringify({ id: window.location.pathname.split('/')[2] }), // stringyfy before passing
+      data: JSON.stringify({ title: window.location.pathname.split('/')[2].replace("-", " ") }), // stringyfy before passing
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: writing => {
