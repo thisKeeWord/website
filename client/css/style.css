@@ -85,7 +85,7 @@ a:hover {
 #myFile {
 }
 
-img, .noImg {
+.images, .noImg {
   width: 300px;
   height: 200px;
   float: right;
@@ -218,4 +218,61 @@ canvas {
 
 pre.singlePostResult {
   width: 70%;
+}
+
+.githubProjects {
+  width: 80%;
+  display: inline-flex;
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.analolics {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.analolicsImg {
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  position: relative;
+}
+
+#projectName {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#projectLink {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.techStack {
+  margin: 0 auto;
+  transition: opacity .2s, visibility .2s;
+/*  position: absolute;*/
+  position: absolute;
+  margin-top: 47px;
+  height: 200px;
+  width: 266px;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.imageHover:hover .techStack, .imageHover:active .techStack {
+  visibility: visible;
+  opacity: 1;
+}
+
+.aboutAnalolics {
+  position: relative;
 }

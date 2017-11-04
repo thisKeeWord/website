@@ -65,7 +65,7 @@ class Results extends React.Component {
       if (data.file[0]) {
         // console.log(data, 'filedata')
         mediaFile = (
-          <img src={data.file[0]} />
+          <img className="images" src={data.file[0]} />
         );
       }
       // console.log(this.props.eventSelection)

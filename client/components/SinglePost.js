@@ -40,7 +40,7 @@ class SinglePost extends React.Component {
         imageResult = elem.file.map(el => {
           // console.log(el)
           return (
-            <img src={el} />
+            <img className="images" src={el} />
           )
         });
         console.log(imageResult)
