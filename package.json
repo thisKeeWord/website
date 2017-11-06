@@ -34,6 +34,7 @@
     "mongoose": "^4.3.6",
     "path": "^0.12.7",
     "react": "^0.14",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "^0.14.0",
     "react-router": "^2.5.0",
     "react-router-dom": "^4.2.2",

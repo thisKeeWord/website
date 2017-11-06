@@ -44,9 +44,9 @@ class PostForm extends React.Component {
   fileChange(e) {
     e.preventDefault();
     console.log($("#myFile")[0].files);
-    const fileSet = $("#myFile")[0].files;
+    let fileSet = $("#myFile")[0].files;
     for (let filePos in fileSet) {
-      if (filePos !== 'length') {
+      if (!isNaN(filePos)) {
         let canvas = document.getElementById('imageCanvas');
         let ctx = canvas.getContext('2d');
         let reader = new FileReader();

@@ -11,9 +11,9 @@ body {
   height: 544px;
 }
 
-#Fitness, #Blogs, #Projects {
+/*.Fitness, .Blogs, .Projects {
   position: absolute;
-}
+}*/
 
 .formEntry, .entryTitle {
   border: 1px solid black;
@@ -37,7 +37,7 @@ body {
 
 pre.postResults {
   height: 140px;
-  /*width: 200px;*/
+  width: 80%;
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -118,7 +118,7 @@ a:hover {
   position: relative;  
 }
 
-canvas {
+#imageCanvas {
   display: none;
 }
 
@@ -190,7 +190,6 @@ canvas {
 }
 
 .singleResult {
-
   width: 100%;
 }
 
@@ -221,28 +220,29 @@ pre.singlePostResult {
 }
 
 .githubProjects {
-  width: 80%;
-  display: inline-flex;
+  width: 100%;
+  display: block;
   font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.analolics {
+.project {
   width: 300px;
   margin: 0 auto;
   text-align: center;
 }
 
-.analolicsImg {
-  height: 200px;
+.projectImg {
   background-repeat: no-repeat;
   background-size: contain;
   text-align: center;
-  position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 #projectName {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 #projectLink {
@@ -255,9 +255,8 @@ pre.singlePostResult {
   transition: opacity .2s, visibility .2s;
 /*  position: absolute;*/
   position: absolute;
-  margin-top: 47px;
   height: 200px;
-  width: 266px;
+  width: 300px;
   background: rgba(29, 106, 154, 0.72);
   color: #fff;
   visibility: hidden;
@@ -268,11 +267,15 @@ pre.singlePostResult {
   right: 0;
 }
 
+.imageHover {
+  position: relative;
+}
+
 .imageHover:hover .techStack, .imageHover:active .techStack {
   visibility: visible;
   opacity: 1;
 }
 
-.aboutAnalolics {
+.aboutProject {
   position: relative;
 }
