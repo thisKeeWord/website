@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 // TODO: Using mongoose middleware, bcrypt any new user passwords
 
 var writingSchema = new Schema({
-  date: { type: String, default: Date },
+  date: { type: String },
   category: { type: String, required: true },
   title: { type: String, required: true },
   body: { type: String, required: true },
-  file: { type: String }
+  file: { type: Array }
 });
 
 module.exports = mongoose.model('Writing', writingSchema);

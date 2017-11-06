@@ -11,9 +11,9 @@ body {
   height: 544px;
 }
 
-#Fitness, #Blogs, #Projects {
+/*.Fitness, .Blogs, .Projects {
   position: absolute;
-}
+}*/
 
 .formEntry, .entryTitle {
   border: 1px solid black;
@@ -37,7 +37,7 @@ body {
 
 pre.postResults {
   height: 140px;
-  /*width: 200px;*/
+  width: 80%;
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -50,6 +50,7 @@ pre.postResults {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 0;
 }
 
 #titleOfWriting.postResults {
@@ -84,7 +85,7 @@ a:hover {
 #myFile {
 }
 
-img, .noImg {
+.images, .noImg {
   width: 300px;
   height: 200px;
   float: right;
@@ -117,7 +118,7 @@ img, .noImg {
   position: relative;  
 }
 
-canvas {
+#imageCanvas {
   display: none;
 }
 
@@ -157,4 +158,124 @@ canvas {
 #linkToPost {
   display: block;
   text-align: center;
+}
+
+.login {
+  visibility: hidden;
+}
+
+.whileLoading {
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+}
+
+.loadingIcon {
+  background-image: url('./../images/load-icon.gif');
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+}
+
+.imageGallery {
+  justify-content: right;
+}
+
+.SinglePost {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.singleResult {
+  width: 100%;
+}
+
+.singlePostTextImg {
+  width: 100%;
+  display: inline-flex;
+}
+
+.imageGallery img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#writingTitle.singlePostResult {
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 50px;
+}
+
+#postDate.singlePostResult {
+  margin-top: 0;
+  text-align: center;
+}
+
+pre.singlePostResult {
+  width: 70%;
+}
+
+.githubProjects {
+  width: 100%;
+  display: block;
+  font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.project {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projectImg {
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#projectName {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#projectLink {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.techStack {
+  margin: 0 auto;
+  transition: opacity .2s, visibility .2s;
+/*  position: absolute;*/
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.imageHover {
+  position: relative;
+}
+
+.imageHover:hover .techStack, .imageHover:active .techStack {
+  visibility: visible;
+  opacity: 1;
+}
+
+.aboutProject {
+  position: relative;
 }

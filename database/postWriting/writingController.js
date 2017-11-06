@@ -18,8 +18,9 @@ function writing(req, res) {
 	// var contentToSave = JSON.parse(req.body);
   // console.log(base64Img.base64(req.body.file), function(err, resu) { if (err) return console.error(err); console.log(resu)})
   // req.body.file = Buffer.from(req.body.file);
-  console.log(req.body)
-  // req.body.date = Date();
+  console.log(req.body.file)
+  var dateConvert = new Date;
+  req.body.date = dateConvert.toLocaleString();
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);
 	  getWritings(req, res);
@@ -79,7 +80,7 @@ function removeWritings(req, res) {
 
 function getSingleWritings(req, res) {
   // console.log(req.body)
-  Writing.findById(req.body.id, function(err, foundIt) {
+  Writing.findOne({ title: req.body.title }, function(err, foundIt) {
     if (err) return console.error(err);
     res.send([foundIt]);
   });

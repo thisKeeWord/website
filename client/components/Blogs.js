@@ -5,6 +5,8 @@ import PostForm from './Form.js';
 import Results from './Results.js';
 import Fitness from './Fitness.js';
 import Login from './Login.js';
+import Loading from './Loading.js';
+import Nav from './Nav.js';
 
 class Blogs extends React.Component {
   constructor() {
@@ -15,9 +17,10 @@ class Blogs extends React.Component {
       isLoggedIn: false,
       id: '',
       selection: '',
-      imageData: '',
+      imageData: [],
+      isActiveLoader: true,
       currentPage: 1,
-      resultsPerPage: 2,
+      resultsPerPage: 7,
       currentBasePage: 1
     };
   }
@@ -30,9 +33,13 @@ class Blogs extends React.Component {
   }
 
   addResults(data) {
-    this.setState({
-      resultsToAdd: data
-    });
+    const that = this;
+    setTimeout(() => {
+      that.setState({
+        resultsToAdd: data,
+        isActiveLoader: false
+      });
+    }, 2000);
   }
 
   divAndEventChosen(id, selection, infoToModify) {
@@ -114,8 +121,10 @@ class Blogs extends React.Component {
   }
 
   updateImageData(dataImage) {
+    let imageArray = this.state.imageData;
+    imageArray.push(dataImage);
     this.setState({
-      imageData: dataImage
+      imageData: imageArray
     });
   }
 
@@ -147,14 +156,8 @@ class Blogs extends React.Component {
     if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     return (
       <div className='Blogs'>
-        Blogs
-        <ul className="navigationLinks">
-          <li className="navi">
-            <Link to='/'>Home</Link>
-            <Link to='/fitness'>Fitness</Link>
-            <Link to='/projects'>Projects</Link>
-          </li>
-        </ul>
+        <Loading isActive={this.state.isActiveLoader} />
+        <Nav />
         {addForm}
         <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
         <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
