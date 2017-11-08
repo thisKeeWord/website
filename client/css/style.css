@@ -5,11 +5,11 @@ body {
   background-color: #f9f7f1;
 }
 
-#App {
+/*#App {
   position: relative;
   width: 833px;
   height: 544px;
-}
+}*/
 
 /*.Fitness, .Blogs, .Projects {
   position: absolute;
@@ -37,7 +37,6 @@ body {
 
 pre.postResults {
   height: 140px;
-  width: 80%;
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -51,10 +50,11 @@ pre.postResults {
   overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 0;
+  text-align: center;
 }
 
 #titleOfWriting.postResults {
-  height: 37px;
+  height: 45px;
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
@@ -86,19 +86,22 @@ a:hover {
 }
 
 .images, .noImg {
-  width: 300px;
+  width: 50%;
   height: 200px;
   float: right;
   object-fit: contain;
-  float: right;
+  padding-left: 20px
 }
 
 .perPost {
   height: 300px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .perPostText {
   width: 50%;
+  padding-right: 20px;
 }
 
 .dateBodyImage {
@@ -168,16 +171,21 @@ a:hover {
   height: 100%;
   width: 100%;
   z-index: 1000;
-  position: fixed;
+  /*position: fixed;*/
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
 }
 
 .loadingIcon {
   background-image: url('./../images/load-icon.gif');
-  height: 100%;
-  width: 100%;
+  height: 500px;
+  width: 500px;
   background-repeat: no-repeat;
   background-size: contain;
+  display: block;
   z-index: 1000;
+  margin: 0 auto;
 }
 
 .imageGallery {
@@ -196,11 +204,20 @@ a:hover {
 .singlePostTextImg {
   width: 100%;
   display: inline-flex;
+  justify-content: center;
 }
 
 .imageGallery img {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.imagery {
+  width: 40vw;
+  float: right;
+  object-fit: contain;
+  float: right;
+  border-radius: 10px;
 }
 
 #writingTitle.singlePostResult {
@@ -211,7 +228,8 @@ a:hover {
 }
 
 #postDate.singlePostResult {
-  margin-top: 0;
+  margin-top: 5px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
@@ -220,13 +238,13 @@ pre.singlePostResult {
 }
 
 .githubProjects {
-  width: 100%;
-  display: block;
+  /*width: 100%;*/
+  /*display: block;*/
   font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .project {
-  width: 300px;
+  width: 400px;
   margin: 0 auto;
   text-align: center;
 }
@@ -237,7 +255,10 @@ pre.singlePostResult {
   text-align: center;
   display: block;
   max-width: 100%;
-  height: auto;
+  /*height: auto;*/
+  height: 300px;
+  width: 400px;
+  border-radius: 10px;
 }
 
 #projectName {
@@ -253,10 +274,8 @@ pre.singlePostResult {
 .techStack {
   margin: 0 auto;
   transition: opacity .2s, visibility .2s;
-/*  position: absolute;*/
   position: absolute;
-  height: 200px;
-  width: 300px;
+  width: 400px;
   background: rgba(29, 106, 154, 0.72);
   color: #fff;
   visibility: hidden;
@@ -265,6 +284,9 @@ pre.singlePostResult {
   left: 0;
   bottom: 0;
   right: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
 }
 
 .imageHover {
@@ -278,4 +300,18 @@ pre.singlePostResult {
 
 .aboutProject {
   position: relative;
+}
+
+/*.row {
+  margin-bottom: 50px;
+}*/
+
+#projectList {
+  margin: 0 0 30px;
+}
+
+#portfolio {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 75px;
 }
