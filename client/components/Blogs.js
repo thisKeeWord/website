@@ -19,6 +19,7 @@ class Blogs extends React.Component {
       selection: '',
       imageData: [],
       isActiveLoader: true,
+      loadedItems: 'hidden',
       currentPage: 1,
       resultsPerPage: 7,
       currentBasePage: 1
@@ -37,7 +38,8 @@ class Blogs extends React.Component {
     setTimeout(() => {
       that.setState({
         resultsToAdd: data,
-        isActiveLoader: false
+        isActiveLoader: false,
+        loadedItems: 'visible'
       });
     }, 2000);
   }
@@ -157,10 +159,12 @@ class Blogs extends React.Component {
     return (
       <div className='Blogs'>
         <Loading isActive={this.state.isActiveLoader} />
-        <Nav />
-        {addForm}
-        <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
-        <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
+        <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
+          <Nav />
+          {addForm}
+          <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
+          <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
+        </div>
       </div>
     );
   }

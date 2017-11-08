@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Nav from './Nav';
 // import Misc from './Misc';
 
-class Home extends React.Component {
+class About extends React.Component {
 	// constructor() {
 	// 	super();
 	// 	this.state = {
@@ -17,13 +17,14 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className="About">
         <Nav />
+        About
       </div>
     )
   }
 };
 
-module.exports = Home;
+module.exports = About;
 
 

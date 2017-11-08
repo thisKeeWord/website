@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
+import Nav from './Nav';
 
 class SinglePost extends React.Component {
   constructor() {
@@ -35,12 +36,12 @@ class SinglePost extends React.Component {
   render() {
     const singleResult = this.state.results.map(elem => {
       let imageResult = null;
-      if (elem.file) {
-        // console.log(elem.file)
+      if (elem.file[0]) {
+        console.log(elem.file[0])
         imageResult = elem.file.map(el => {
           // console.log(el)
           return (
-            <img className="images" src={el} />
+            <img className="imagery" src={el} />
           )
         });
         console.log(imageResult)
@@ -62,13 +63,7 @@ class SinglePost extends React.Component {
     });
     return (
       <div className='SinglePost'>
-        <ul className="navigationLinks">
-          <li className="navi">
-            <Link to='/'>Home</Link>
-            <Link to='/blogs'>Blogs</Link>
-            <Link to='/projects'>Projects</Link>
-          </li>
-        </ul>
+        <Nav />
         {singleResult}
       </div>
     );

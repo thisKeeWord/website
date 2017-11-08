@@ -18,6 +18,7 @@ class Nav extends React.Component {
     return (
       <div className="Nav">
       	<ul className="linkToPages">
+          <li id="goHome"><Link to="/">Home</Link></li>
           <li id="goFitness"><Link to="/fitness">Fitness</Link></li>
           <li id="goBlogs"><Link to="/blogs">Blogs</Link></li>
           <li id="goProjects"><Link to="/projects">Projects</Link></li>

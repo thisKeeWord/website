@@ -7,7 +7,7 @@ class Loading extends React.Component {
       loadingIcon = (
         <div className="whileLoading">
           Loading...<br/>
-          Here's something cute to see
+          Here's something cute to see in the meantime :)
           <div className="loadingIcon"></div>
         </div>
       )
