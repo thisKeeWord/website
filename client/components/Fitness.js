@@ -41,7 +41,7 @@ class Fitness extends React.Component {
         isActiveLoader: false,
         loadedItems: 'visible'
       });
-    }, 2000);
+    }, 1500);
   }
 
   divAndEventChosen(id, selection, infoToModify) {
