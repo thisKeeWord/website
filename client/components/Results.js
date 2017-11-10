@@ -60,7 +60,7 @@ class Results extends React.Component {
     // console.log('bro')
     // console.log(this.props.resultsToAdd);
     const renderPageResults = viewPage.map(data => {
-      let mediaFile = <div className="noImg" />;
+      let mediaFile = null;
       console.log(data.file)
       if (data.file[0]) {
         // console.log(data, 'filedata')
@@ -79,11 +79,9 @@ class Results extends React.Component {
                   <div className="perPost">
                     <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                     <div className="dateBodyImage">
-                      <div className="perPostText">
-                        <h3 className="postResults" id="datePosted">{data.date}</h3>
-                        <pre className="postResults" id="postBody" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }} ></pre>
-                      </div>
+                      <h4 className="postResults" id="datePosted">{data.date}</h4>
                       {mediaFile}
+                      <pre className="postResults" id="postBody" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }} ></pre>
                     </div>
                   </div>
                 </div>
@@ -110,11 +108,9 @@ class Results extends React.Component {
                 <div className="perPost">
                   <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                   <div className="dateBodyImage">
-                    <div className="perPostText">
-                      <h3 className="postResults" id="datePosted">{data.date}</h3>
-                      <pre className="postResults" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }}></pre>
-                    </div>
+                    <h4 className="postResults" id="datePosted">{data.date}</h4>
                     {mediaFile}
+                    <pre className="postResults" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }}></pre>
                   </div>
                 </div>
               </div>

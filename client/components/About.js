@@ -18,8 +18,16 @@ class About extends React.Component {
   render() {
     return (
       <div className="About">
+        <div className="aboutMe">
+          <div className="myImage"></div>
+          <div className="aboutDescription">
+            <div className="nameAndDescription">
+              <h1 className="name">Leonard Kee</h1>
+              <span className="personalDescription">Developer, Powerbuilder, Blogger</span>
+            </div>
+          </div>
+        </div>
         <Nav />
-        About
       </div>
     )
   }

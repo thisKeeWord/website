@@ -38,12 +38,18 @@ class SinglePost extends React.Component {
       let imageResult = null;
       if (elem.file[0]) {
         console.log(elem.file[0])
-        imageResult = elem.file.map(el => {
+        imageResult = (
+          <div className="imageGallery">
+            {
+              elem.file.map(el => {
           // console.log(el)
-          return (
-            <img className="imagery" src={el} />
-          )
-        });
+                return (
+                  <img className="imagery" src={el} />
+                )
+              })
+            }
+          </div>
+        )
         console.log(imageResult)
       }
       return (
@@ -52,10 +58,8 @@ class SinglePost extends React.Component {
             <h1 className="singlePostResult" id="writingTitle" dangerouslySetInnerHTML={{ __html: elem.title }}></h1>
             <h4 className="singlePostResult" id="postDate">{elem.date}</h4>
             <div className="singlePostTextImg">
+              {imageResult}
               <pre className="singlePostResult" dangerouslySetInnerHTML={{ __html: elem.body }}></pre>
-              <div className="imageGallery">
-                {imageResult}
-              </div>
             </div>
           </div>
         </div>
