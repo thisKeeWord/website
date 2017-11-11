@@ -108,6 +108,7 @@ class Blogs extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
+        console.log(data)
         that.addResults(data.reverse());
       }
     });

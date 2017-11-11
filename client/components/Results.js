@@ -79,7 +79,7 @@ class Results extends React.Component {
                   <div className="perPost">
                     <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                     <div className="dateBodyImage">
-                      <h4 className="postResults" id="datePosted">{data.date}</h4>
+                      <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString()}</h4>
                       {mediaFile}
                       <pre className="postResults" id="postBody" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }} ></pre>
                     </div>
@@ -108,7 +108,7 @@ class Results extends React.Component {
                 <div className="perPost">
                   <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                   <div className="dateBodyImage">
-                    <h4 className="postResults" id="datePosted">{data.date}</h4>
+                    <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString()}</h4>
                     {mediaFile}
                     <pre className="postResults" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }}></pre>
                   </div>

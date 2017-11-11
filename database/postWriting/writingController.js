@@ -19,8 +19,8 @@ function writing(req, res) {
   // console.log(base64Img.base64(req.body.file), function(err, resu) { if (err) return console.error(err); console.log(resu)})
   // req.body.file = Buffer.from(req.body.file);
   console.log(req.body.file)
-  var dateConvert = new Date;
-  req.body.date = dateConvert.toLocaleString();
+  var dateConvert = Date.now();
+  req.body.date = dateConvert;
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);
 	  getWritings(req, res);
@@ -29,7 +29,7 @@ function writing(req, res) {
 }
 
 function getWritings(req, res) {
-  console.log(req.body, '8972r33r8')
+  // console.log(req.body, '8972r33r8')
 	Writing.find({ category: req.body.category }, function(error, success) {
     if (error) return console.error(error);
     // console.log(success, 'sojjdfsjdsaff')
@@ -49,14 +49,16 @@ function getWritings(req, res) {
       //   console.log(elem.file, 'file convert testing')
       // }
       itemsProcessed++;
+      console.log(elem.date)
 
     });
     if (itemsProcessed === success.length) {
       // console.log(itemsProcessed)
       success.sort(function(a, b) {
-        return a.date > b.date;
+        // console.log(a.date)
+        return a.date - b.date;
       });
-      console.log(success)
+      // console.log(success)
       res.send(success);
     }
   });

@@ -36,7 +36,9 @@ class SinglePost extends React.Component {
   render() {
     const singleResult = this.state.results.map(elem => {
       let imageResult = null;
+      let textContainerWidth = 70;
       if (elem.file[0]) {
+        textContainerWidth = 50;
         console.log(elem.file[0])
         imageResult = (
           <div className="imageGallery">
@@ -56,10 +58,10 @@ class SinglePost extends React.Component {
         <div className={elem.category + 2} id={elem._id} key={elem._id}>
           <div className="singleResult">
             <h1 className="singlePostResult" id="writingTitle" dangerouslySetInnerHTML={{ __html: elem.title }}></h1>
-            <h4 className="singlePostResult" id="postDate">{elem.date}</h4>
+            <h4 className="singlePostResult" id="postDate">{(new Date(elem.date)).toLocaleString()}</h4>
             <div className="singlePostTextImg">
               {imageResult}
-              <pre className="singlePostResult" dangerouslySetInnerHTML={{ __html: elem.body }}></pre>
+              <pre className="singlePostResult" dangerouslySetInnerHTML={{ __html: elem.body }} style={{ width: textContainerWidth + "%" }}></pre>
             </div>
           </div>
         </div>
