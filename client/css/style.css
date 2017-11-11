@@ -1,7 +1,6 @@
 body {
-  font-family: 'Droid Serif', serif;
-  color: #2f2f2f;
-  background-color: #f9f7f1;
+  color: #2f2f2f !important;
+  background-color: #f9f7f1 !important;
 }
 
 .formEntry, .entryTitle {
@@ -24,7 +23,7 @@ body {
 
 pre.postResults {
   height: 15vw;
-  white-space: pre-wrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 80%;
@@ -164,7 +163,11 @@ a:hover {
 .imageGallery {
   justify-content: right;
   width: 50%;
-  margin-left: 10px;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .SinglePost {
@@ -183,15 +186,13 @@ a:hover {
 }
 
 .imageGallery img {
-  margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .imagery {
-  width: 40vw;
-  float: right;
+  width: 100%;
+  /*float: right;*/
   object-fit: contain;
-  float: right;
   border-radius: 10px;
 }
 
@@ -209,10 +210,12 @@ a:hover {
 }
 
 pre.singlePostResult {
-  width: 50%;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   background-color: unset;
   border: none;
+  text-align: center;
+  padding-left: 7vw;
+  padding-right: 7vw;
 }
 
 .githubProjects {
@@ -251,7 +254,6 @@ pre.singlePostResult {
   margin: 0 auto;
   transition: opacity .2s, visibility .2s;
   position: absolute;
-  width: 400px;
   background: rgba(29, 106, 154, 0.72);
   color: #fff;
   visibility: hidden;
@@ -288,7 +290,7 @@ pre.singlePostResult {
   margin-bottom: 75px;
 }
 
-.myImage {
+/*.myImage {
   background-image: url(./../images/profile-image.png);
   height: 20vw;
   width: 20vw;
@@ -298,6 +300,16 @@ pre.singlePostResult {
   border-radius: 50%;
   margin-top: 10px;
   margin-bottom: 10px;
+}*/
+
+.myImage {
+  padding: 10px;
+}
+
+.headImage {
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
 }
 
 .blogs2 {
@@ -308,7 +320,7 @@ pre.singlePostResult {
 .aboutMe {
   /*text-align: center;*/
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  background-color: royalblue;
+  background-color: steelblue;
   display: inline-flex;
   width: 100%;
   justify-content: center;
@@ -316,15 +328,14 @@ pre.singlePostResult {
 
 .aboutDescription {
   margin-top: 20px;
-  font-size: 1.5vw;
-  font-weight: bold;
+  font-size: 15px;
+  /*font-weight: bold;*/
   color: white;
-  padding-left: 10px;
-  margin-bottom: 20px;
+  padding: 10px;
 }
 
 .name {
-  font-size: 4.5vw;
+  font-size: 40px;
   margin-top: 0;
   margin-bottom: 1px;
 }
@@ -333,4 +344,88 @@ pre.singlePostResult {
   width: 400px;
   margin: 0 auto;
   max-width: 100%;
+}
+
+#iconLink {
+  padding: 1vw;
+  color: lightgrey;
+}
+
+.icons {
+  display: flex;
+}
+
+@media all and (min-width: 768px) {
+  .name {
+    font-size: 50px;
+  }
+
+  .personalDescription {
+    font-size: 19px;
+  }
+}
+
+@media all and (min-width: 425px) and (max-width: 768px) {
+  .name {
+    font-size: 45px;
+  }
+
+  .personalDescription {
+    font-size: 17px;
+  }
+}
+
+@media all and (min-width: 375px) and (max-width: 425px) {
+  .name {
+    font-size: 30px;
+  }
+
+  .personalDescription {
+    font-size: 15px;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 375px) {
+  .headImage {
+
+  }
+
+  .name {
+    font-size: 25px; 
+  }
+
+  .personalDescription {
+    font-size: 12px;
+  }
+
+  #iconLink {
+    font-size: 7vw;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .headImage {
+
+  }
+
+  .name {
+    font-size: 7vw; 
+  }
+
+  .personalDescription {
+    font-size: 4vw;
+  }
+
+  .aboutDescription {
+    margin-top: 5vw;
+    padding: 3vw;
+  }
+
+  .myImage {
+    padding: 3vw;
+  }
+
+  #iconLink {
+    font-size: 6vw;
+  }
 }
