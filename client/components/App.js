@@ -7,7 +7,7 @@ import Blogs from './Blogs';
 import Projects from './Projects';
 import Login from './Login';
 import SinglePost from './SinglePost';
-import Nav from './Nav';
+import Navigate from './Navigate';
 
 
 // function loggedIn() {

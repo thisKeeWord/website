@@ -1,13 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Nav from './Nav';
+import Navigate from './Navigate';
 
 class Projects extends React.Component {
   render() {
     return (
       <div className="Base">
-        <Nav />
+        <Navigate />
         <div className="Projects">
           <h1 id="portfolio">PORTFOLIO</h1>
           <div className="githubProjects">
