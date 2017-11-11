@@ -373,11 +373,11 @@ pre.singlePostResult {
  * prefixes.
  */
 
-#menuToggle {
+/*#menuToggle {
   display: none;
   position: relative;
-  top: 50px;
-  left: 50px;
+  float: right;
+  margin-right: 20px;
   
   z-index: 1;
   
@@ -392,18 +392,17 @@ pre.singlePostResult {
   position: absolute;
   top: -7px;
   left: -5px;
-/*   float: ; */
   cursor: pointer;
   
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0;
+  z-index: 2;
   
   -webkit-touch-callout: none;
 }
 
-/*
+
  * Just a quick hamburger
- */
+ 
 
 #menuToggle span:first-child {
   transform-origin: 0% 0%;
@@ -413,62 +412,62 @@ pre.singlePostResult {
   transform-origin: 0% 100%;
 }
 
-/* 
+ 
  * Transform all the slices of hamburger
  * into a crossmark.
- */
+ 
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
 }
 
-/*
+
  * But let's hide the middle one.
- */
+ 
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/*
+
  * Ohyeah and the last one should go the other direction
- */
+ 
 #menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
+
  * Make this absolute positioned
  * at the top left of the screen
- */
+ 
 #linkToPages {
   position: absolute;
-  width: 300px;
-  margin: -100px 0 0 -50px;
+  width: 200px;
+  margin: -72px 0 0 -100px;
   padding: 50px;
   padding-top: 125px;
-  
-  background: #ededed;
+  left: 0;
+  background: #f9f7f1 !important;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
+   to stop flickering of text in safari 
   
   transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  transform: translate(100%, 0);
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-}
+}*/
 
-#linkToPages li {
+/*#linkToPages li {
   padding: 10px 0;
   font-size: 22px;
-}
+}*/
 
 /*
  * And let's slide it in from the left
  */
-#menuToggle input:checked ~ ul {
+/*#menuToggle input:checked ~ ul {
   transform: none;
 }
 
@@ -491,6 +490,13 @@ pre.singlePostResult {
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               opacity 0.55s ease;
+}*/
+.dropdown {
+  display: block;
+}
+
+#linkToPages {
+  display: none;
 }
 
 @media all and (min-width: 768px) {
@@ -500,6 +506,14 @@ pre.singlePostResult {
 
   .personalDescription {
     font-size: 19px;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  #linkToPages {
+    display: block;
   }
 }
 
