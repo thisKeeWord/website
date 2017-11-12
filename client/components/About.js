@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Nav from './Nav';
+import Navigate from './Navigate';
 import { Grid, Row, Col } from 'react-bootstrap';
 // import Misc from './Misc';
 
@@ -20,6 +20,7 @@ class About extends React.Component {
   render() {
     return (
       <div className="About">
+        <Navigate />
         <div className="aboutMe">
           <div className="myImage">
             <img className="headImage" src="./../images/profile-image.png"></img>
@@ -42,7 +43,6 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-        <Nav />
       </div>
     )
   }
