@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Navigate from './Navigate';
+import Footers from './Footers';
 
 class Projects extends React.Component {
   render() {
@@ -105,6 +106,7 @@ class Projects extends React.Component {
     
           </div>
         </div>
+        <Footers />
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
 import Navigate from './Navigate';
+import Footers from './Footers';
 
 class SinglePost extends React.Component {
   constructor() {
@@ -71,6 +72,7 @@ class SinglePost extends React.Component {
       <div className='SinglePost'>
         <Navigate />
         {singleResult}
+        <Footers/>
       </div>
     );
   }

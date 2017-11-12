@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Navigate from './Navigate';
 import { Grid, Row, Col } from 'react-bootstrap';
-// import Misc from './Misc';
+import Navigate from './Navigate';
+import Footers from './Footers';
 
 class About extends React.Component {
 	// constructor() {
@@ -43,6 +43,7 @@ class About extends React.Component {
             </div>
           </div>
         </div>
+        <Footers />
       </div>
     )
   }
