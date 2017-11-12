@@ -8,9 +8,9 @@ class Projects extends React.Component {
   render() {
     return (
       <div className="Base">
-        <div className="heading">  
-          <span id="pageName">PORTFOLIO</span>
-          <Navigate />
+        <div className="heading">
+          <Navigate /> 
+          <h1 id="pageName">PORTFOLIO</h1>
         </div>
         <div className="Projects">
           <div className="githubProjects">
