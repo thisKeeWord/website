@@ -7,9 +7,11 @@ class Projects extends React.Component {
   render() {
     return (
       <div className="Base">
-        <Navigate />
+        <div className="heading">  
+          <span id="pageName">PORTFOLIO</span>
+          <Navigate />
+        </div>
         <div className="Projects">
-          <h1 id="portfolio">PORTFOLIO</h1>
           <div className="githubProjects">
               <Col sm={6} id="projectList">
                 <div className="project" id="analolics">

@@ -160,9 +160,12 @@ class Fitness extends React.Component {
     }
     return (
       <div className='Fitness'>
+        <div className="heading">
+          <Navigate />
+          <h1 id="pageName">FITNESS</h1>
+        </div>
         <Loading isActive={this.state.isActiveLoader} />
         <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
-          <Navigate />
           {addForm}
           <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
           <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />

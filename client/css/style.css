@@ -49,7 +49,7 @@ pre.postResults {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 ul {
@@ -284,10 +284,11 @@ pre.singlePostResult {
   margin: 0 0 30px;
 }
 
-#portfolio {
+#pageName {
   text-align: center;
   font-weight: bold;
   margin-bottom: 75px;
+  font-size: 50px;
 }
 
 /*.myImage {
@@ -459,10 +460,14 @@ pre.singlePostResult {
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }*/
 
-/*#linkToPages li {
-  padding: 10px 0;
-  font-size: 22px;
-}*/
+#linkToPages li {
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#linkToPages {
+  -webkit-padding-start: 0px;
+}
 
 /*
  * And let's slide it in from the left
@@ -495,8 +500,28 @@ pre.singlePostResult {
   display: block;
 }
 
-#linkToPages {
-  display: none;
+#briefDescription {
+  display: flex;
+}
+
+#myName {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+#adjectives {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+@media all and (max-width: 768px) {
+  .dropdown {
+    display: block !important;
+  }
+
+  #linkToPages {
+    display: none !important;
+  }
 }
 
 @media all and (min-width: 768px) {
@@ -513,8 +538,12 @@ pre.singlePostResult {
   }
 
   #linkToPages {
-    display: block;
+    display: flex;
   }
+
+  /*#briefDescription {
+    display: flex;
+  }*/
 }
 
 @media all and (min-width: 425px) and (max-width: 768px) {
@@ -525,6 +554,16 @@ pre.singlePostResult {
   .personalDescription {
     font-size: 17px;
   }
+
+  #myName {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  #adjectives {
+    font-size: 13px;
+    font-weight: 300;
+  }
 }
 
 @media all and (min-width: 375px) and (max-width: 425px) {
@@ -534,6 +573,15 @@ pre.singlePostResult {
 
   .personalDescription {
     font-size: 15px;
+  }
+
+  #myName {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  #adjectives {
+    font-size: 12px;
   }
 }
 
@@ -552,6 +600,15 @@ pre.singlePostResult {
 
   #iconLink {
     font-size: 7vw;
+  }
+
+  #myName {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  #adjectives {
+    font-size: 12px;
   }
 }
 
@@ -580,6 +637,27 @@ pre.singlePostResult {
   #iconLink {
     font-size: 6vw;
   }
+
+  #myName {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  #adjectives {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+@media all and (max-width: 375px) {
+  #briefDescription {
+  }
+
+  #myName, #adjectives {
+    font-weight: 300;
+    line-height: normal;
+  }
+
 }
 
 /*.linkToPages {
@@ -587,8 +665,17 @@ pre.singlePostResult {
   flex-direction: row;
 }*/
 
-@media all and (max-width: 768px) {
-  #menuToggle {
-    display: block;
-  }
+.open>.dropdown-menu {
+  flex-direction: column !important;
+  display: flex !important;
+}
+
+.Explore {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+sup {
+  top: 0 !important;
 }
