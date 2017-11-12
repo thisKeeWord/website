@@ -505,13 +505,7 @@ pre.singlePostResult {
 }
 
 #myName {
-  font-size: 30px;
-  font-weight: 500;
-}
-
-#adjectives {
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 17px;
 }
 
 @media all and (max-width: 768px) {
@@ -556,13 +550,7 @@ pre.singlePostResult {
   }
 
   #myName {
-    font-size: 15px;
-    font-weight: 500;
-  }
-
-  #adjectives {
-    font-size: 13px;
-    font-weight: 300;
+    font-size: 12px;
   }
 }
 
@@ -576,11 +564,6 @@ pre.singlePostResult {
   }
 
   #myName {
-    font-weight: 500;
-    font-size: 15px;
-  }
-
-  #adjectives {
     font-size: 12px;
   }
 }
@@ -603,12 +586,7 @@ pre.singlePostResult {
   }
 
   #myName {
-    font-weight: 500;
     font-size: 15px;
-  }
-
-  #adjectives {
-    font-size: 12px;
   }
 }
 
@@ -637,25 +615,15 @@ pre.singlePostResult {
   #iconLink {
     font-size: 6vw;
   }
-
-  #myName {
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  #adjectives {
-    font-size: 12px;
-    font-weight: 400;
-  }
 }
 
 @media all and (max-width: 375px) {
   #briefDescription {
   }
 
-  #myName, #adjectives {
-    font-weight: 300;
+  #myName {
     line-height: normal;
+    font-size: 3vw;
   }
 
 }
@@ -673,9 +641,9 @@ pre.singlePostResult {
 .Explore {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: flex-end;
 }
 
-sup {
-  top: 0 !important;
+.Footers {
+  text-align: center;
 }

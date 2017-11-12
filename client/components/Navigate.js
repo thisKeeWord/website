@@ -21,19 +21,8 @@ class Nav extends React.Component {
  //          <span></span>
 
   render() {
-    let displayStyle = "none";
-    let heading = null;
-    if (location.pathname !== "/") {
-      heading = (
-        <div id="briefDescription">
-          <span id="myName">LEONARD KEE</span>
-          <sup id="adjectives">&nbsp; Developer | Powerbuilder | Blogger</sup>
-        </div>
-      )
-    }
     return (
       <div className="Explore">
-        {heading}
         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
           <Link to="/">Home</Link>
           <Link to="/fitness">Fitness</Link>
