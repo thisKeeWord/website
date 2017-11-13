@@ -7,7 +7,7 @@ import Footers from './Footers';
 class Projects extends React.Component {
   render() {
     return (
-      <div className="Base">
+      <div className="Projects">
         <div className="heading">
           <Navigate /> 
           <h1 id="pageName">PORTFOLIO</h1>
