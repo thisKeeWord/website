@@ -43,7 +43,6 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-        <Footers />
       </div>
     )
   }
