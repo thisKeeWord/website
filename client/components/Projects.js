@@ -12,7 +12,7 @@ class Projects extends React.Component {
           <Navigate /> 
           <h1 id="pageName">PORTFOLIO</h1>
         </div>
-        <div className="Projects">
+        <div className="projectsSection">
           <div className="githubProjects">
               <Col sm={6} id="projectList">
                 <div className="project" id="analolics">
@@ -33,7 +33,7 @@ class Projects extends React.Component {
                       from the match history menu, game data will be shown.
                     </div>
                   </div>
-                  <a href="https://github.com/thisKeeWord/Ana-LoL-ics">Github Link</a>
+                  <a href="https://github.com/thisKeeWord/Ana-LoL-ics" target="_blank">Github Link</a>
                 </div>
               </Col>
 
@@ -56,7 +56,7 @@ class Projects extends React.Component {
                       system based on the length of the submitted word.
                     </div>
                   </div>
-                  <a href="https://github.com/thisKeeWord/boggle5">Github Link</a>
+                  <a href="https://github.com/thisKeeWord/boggle5" target="_blank">Github Link</a>
                 </div>
               </Col>
 
@@ -78,7 +78,7 @@ class Projects extends React.Component {
                       allowing you to easily copy and paste the results.
                     </div>
                   </div>
-                  <a href="https://github.com/thisKeeWord/voiceText">Github Link</a>
+                  <a href="https://github.com/thisKeeWord/voiceText" target="_blank">Github Link</a>
                 </div>
               </Col>
 
@@ -100,7 +100,7 @@ class Projects extends React.Component {
                       and returns advice.
                     </div>
                   </div>
-                  <a href="https://github.com/thisKeeWord/advice-generator">Github Link</a>
+                  <a href="https://github.com/thisKeeWord/advice-generator" target="_blank">Github Link</a>
                 </div>
               </Col>
     
