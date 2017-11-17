@@ -359,7 +359,7 @@ pre.singlePostResult {
 
 #iconLink {
   padding: 1vw;
-  color: lightgrey;
+  color: ghostwhite;
 }
 
 .icons {
@@ -519,7 +519,14 @@ pre.singlePostResult {
 }
 
 #myName {
+  padding-top: 7px;
   font-size: 17px;
+  background-color: darkgrey;
+  color: ghostwhite;
+}
+
+.footerIcons {
+  background-color: darkgrey;
 }
 
 @media all and (max-width: 768px) {
@@ -655,15 +662,32 @@ pre.singlePostResult {
   /*justify-content: flex-end;*/
 }
 
-.Footers {
+.navbarFooter {
   text-align: center;
+  border-radius: 0 !important;
+  margin-bottom: 0;
+  height: 150px !important;
+  background-color: #333333;
   position: absolute;
-  bottom: -30;
-  left: 0;
-  right: 0;
+  width: 100%;
 }
 
 .Blogs, .Fitness, .Projects {
   min-height: 100%;
   position: relative;
+}
+
+.fitness2, .blogs2 {
+  height: 100%;
+}
+
+.footer {
+  height: 77px;
+  /* padding: 10px; */
+  margin-top: 100px;
+  text-align: center;
+}
+
+.projectsSection {
+  height: 100%;
 }

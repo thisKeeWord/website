@@ -37,7 +37,7 @@ class SinglePost extends React.Component {
   render() {
     const singleResult = this.state.results.map(elem => {
       let imageResult = null;
-      let textContainerWidth = 70;
+      let textContainerWidth = 100;
       if (elem.file[0]) {
         textContainerWidth = 50;
         console.log(elem.file[0])
