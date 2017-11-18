@@ -18,6 +18,10 @@ class SinglePost extends React.Component {
     });
   }
 
+  componentWillMount() {
+    window.scrollTo(0,0);
+  }
+
   componentDidMount() {
     console.log(this.props)
     console.log(window.location.pathname)
@@ -71,7 +75,9 @@ class SinglePost extends React.Component {
     return (
       <div className='SinglePost'>
         <Navigate />
-        {singleResult}
+        <div className="singleRead">
+          {singleResult}
+        </div>
         <Footers/>
       </div>
     );

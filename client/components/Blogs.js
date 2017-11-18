@@ -163,7 +163,6 @@ class Blogs extends React.Component {
       <div className='Blogs'>
         <div className="heading">
           <Navigate />
-          <h1 id="pageName">BLOGS</h1>
         </div>
         <Loading isActive={this.state.isActiveLoader} />
         <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
