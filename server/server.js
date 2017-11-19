@@ -38,7 +38,7 @@ app.post('/projects', function(req, res) {
 
 app.post('/fack', writingController.getWritings);
 
-app.post('/login', userController.createUser, userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
+app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
 
 app.put('/update', writingController.updateWritings);
 
