@@ -736,3 +736,11 @@ ul.nav.nav-tabs {
   display: block;
   margin: 0 auto;
 }
+
+.whatIDo {
+  text-align: center;
+  line-height: 20px;
+  font-size: 15px;
+  margin: 20px;
+  font-family: BentonSansRE, Verdana, sans-serif;
+}
