@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
-        // <Link to="/">Home</Link>
 
 class Login extends React.Component {
   login(e) {
@@ -11,7 +10,6 @@ class Login extends React.Component {
       password: $("#password").val()
     };
     const that = this;
-    console.log(e.target)
     return $.ajax({
       type: 'POST', 
       url: '/login', 
@@ -19,10 +17,8 @@ class Login extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
-        console.log('sucesssssssss login')
         that.props.logIn(data);
         $(".loginForm")[0].reset();
-
       }
     });
   }
@@ -35,7 +31,6 @@ class Login extends React.Component {
           <input name="password" id="password" type="password" placeholder="password"></input>
           <input type='submit' value="login" />
         </form>
-
       </div>
     )
   }
