@@ -37,6 +37,7 @@ pre.postResults {
   border: none;
   text-align: center;
   word-break: break-word;
+  font-family: BentonSansRE, Verdana, sans-serif;
 }
 
 #datePosted.postResults {
@@ -100,7 +101,6 @@ a:hover {
 }
 
 .linkWithButtons {
-  /*border-bottom: 1px solid black;*/
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -151,7 +151,6 @@ a:hover {
 }
 
 .login {
-  /*visibility: hidden;*/
   display: none;
 }
 
@@ -202,7 +201,6 @@ a:hover {
 
 .imagery {
   width: 100%;
-  /*float: right;*/
   object-fit: contain;
   border-radius: 10px;
 }
@@ -221,7 +219,6 @@ a:hover {
 }
 
 pre.singlePostResult {
-   /* margin-right: 10px; */
   background-color: unset;
   border: none;
   text-align: center;
@@ -229,9 +226,7 @@ pre.singlePostResult {
   padding-right: 7vw;
   word-break: break-word;
   white-space: pre-wrap;
-/*  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;*/
+  font-family: BentonSansRE, Verdana, sans-serif;
 }
 
 .githubProjects {
@@ -274,9 +269,7 @@ pre.singlePostResult {
   color: #fff;
   visibility: hidden;
   opacity: 0;
-  /* top: 0; */
   left: 0;
-  /* bottom: 0; */
   right: 0;
   padding-left: 10px;
   padding-right: 10px;
@@ -287,7 +280,6 @@ pre.singlePostResult {
 
 .imageHover {
   position: relative;
-/*  background-repeat: no-repeat;
   background-size: contain;
   text-align: center;*/
   display: block;
@@ -319,18 +311,6 @@ pre.singlePostResult {
   background-color: #93B7BE;
 }
 
-/*.myImage {
-  background-image: url(./../images/profile-image.png);
-  height: 20vw;
-  width: 20vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: block;
-  border-radius: 50%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}*/
-
 .myImage {
   padding: 10px;
 }
@@ -347,7 +327,6 @@ pre.singlePostResult {
 }
 
 .aboutMe {
-  /*text-align: center;*/
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
   background-color: steelblue;
   display: inline-flex;
@@ -358,7 +337,6 @@ pre.singlePostResult {
 .aboutDescription {
   margin-top: 20px;
   font-size: 15px;
-  /*font-weight: bold;*/
   color: white;
   padding: 10px;
 }
@@ -384,113 +362,8 @@ pre.singlePostResult {
   display: flex;
 }
 
-/*button.hamburger {
-  display: none
-  padding: 10px
-  margin: 2px
-  background-color: grey;
-}*/
-
-/*
- * Made by Erik Terwan
- * 24th of November 2015
- * All rights reserved
- *
- *
- * If you are thinking of using this in
- * production code, beware of the browser
- * prefixes.
- */
-
-/*#menuToggle {
-  display: none;
-  position: relative;
-  float: right;
-  margin-right: 20px;
-  
-  z-index: 1;
-  
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-#menuToggle input {
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  cursor: pointer;
-  
-  opacity: 0;
-  z-index: 2;
-  
-  -webkit-touch-callout: none;
-}
-
-
- * Just a quick hamburger
- 
-
-#menuToggle span:first-child {
-  transform-origin: 0% 0%;
-}
-
-#menuToggle span:nth-last-child(2) {
-  transform-origin: 0% 100%;
-}
-
- 
- * Transform all the slices of hamburger
- * into a crossmark.
- 
-#menuToggle input:checked ~ span {
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-}
-
-
- * But let's hide the middle one.
- 
-#menuToggle input:checked ~ span:nth-last-child(3) {
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-
- * Ohyeah and the last one should go the other direction
- 
-#menuToggle input:checked ~ span:nth-last-child(2) {
-  transform: rotate(-45deg) translate(0, -1px);
-}
-
-
- * Make this absolute positioned
- * at the top left of the screen
- 
-#linkToPages {
-  position: absolute;
-  width: 200px;
-  margin: -72px 0 0 -100px;
-  padding: 50px;
-  padding-top: 125px;
-  left: 0;
-  background: #f9f7f1 !important;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-   to stop flickering of text in safari 
-  
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-}*/
-
 #linkToPages li {
   justify-content: space-between;
-  /*padding: 10px;*/
 }
 
 #linkToPages {
@@ -501,33 +374,6 @@ pre.singlePostResult {
   margin-top: 20px;
 }
 
-/*
- * And let's slide it in from the left
- */
-/*#menuToggle input:checked ~ ul {
-  transform: none;
-}
-
-
-
-#menuToggle span {
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  
-  background: #cdcdcd;
-  border-radius: 3px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
-}*/
 .dropdown {
   display: none;
 }
@@ -549,13 +395,7 @@ pre.singlePostResult {
 }
 
 @media all and (max-width: 768px) {
-  /*.dropdown {
-    display: block !important;
-  }
 
-  #linkToPages {
-    display: none !important;
-  }*/
 }
 
 @media all and (min-width: 768px) {
@@ -566,18 +406,6 @@ pre.singlePostResult {
   .personalDescription {
     font-size: 19px;
   }
-
-  /*.dropdown {
-    display: none;
-  }
-
-  #linkToPages {
-    display: flex;
-  }*/
-
-  /*#briefDescription {
-    display: flex;
-  }*/
 }
 
 @media all and (min-width: 425px) and (max-width: 768px) {
@@ -664,11 +492,6 @@ pre.singlePostResult {
 
 }
 
-/*.linkToPages {
-  display: flex;
-  flex-direction: row;
-}*/
-
 .open>.dropdown-menu {
   flex-direction: column !important;
   display: flex !important;
@@ -703,11 +526,7 @@ pre.singlePostResult {
 }
 
 .footer {
-  /*height: 77px;*/
-  /* padding: 10px; */
-  /*margin-top: 100px;*/
   text-align: center;
-  /*display: none;*/
   top: 100%;
   position: absolute;
   width: 100%;
@@ -725,8 +544,6 @@ ul.nav.nav-tabs {
 }
 
 #navTabs {
-  /*width: 100px;*/
-  /*font-size: 15px;*/
 }
 
 #bordering {
@@ -741,6 +558,11 @@ ul.nav.nav-tabs {
   text-align: center;
   line-height: 20px;
   font-size: 15px;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   font-family: BentonSansRE, Verdana, sans-serif;
+  width: 70%;
+  justify-content: center;
 }
