@@ -11,7 +11,8 @@ var Session = require('./../database/session/sessionModel');
 var sessionController = require('./../database/session/sessionController');
 var cookieController = require('./../database/util/cookieController');
 var mongoose = require('mongoose');
-var mongoURI = 'mongodb://localhost/leoWebsite';
+var mongoURI = process.env.MONGODB_URI;
+
 mongoose.connect(mongoURI);
 
 // decoding data as string for format for url
