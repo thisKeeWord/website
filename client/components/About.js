@@ -5,18 +5,6 @@ import Navigate from './Navigate';
 import Footers from './Footers';
 
 class About extends React.Component {
-	// constructor() {
-	// 	super();
-	// 	this.state = {
-	// 		userLoggedIn: false
-	// 	};
-	// }
-
-	// componentWillMount() {
-		
-	// }
-        // <Col lg={12} bsClass="noPad">
-
   render() {
     return (
       <div className="About">

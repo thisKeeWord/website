@@ -29,7 +29,6 @@ class Blogs extends React.Component {
   }
 
   updateCategory(selection) {
-    console.log(selection)
     this.setState({
       entryCategory: selection
     });
@@ -49,7 +48,6 @@ class Blogs extends React.Component {
   divAndEventChosen(id, selection, infoToModify) {
     const that = this;
     let objModified = {};
-    console.log(infoToModify)
     if (selection === "Save") {
       objModified = {
         id: id,
@@ -58,13 +56,11 @@ class Blogs extends React.Component {
         category: window.location.pathname.replace('/', ''),
       };
       this.updateRecord('PUT', objModified).done(results => {
-        console.log(results)
         that.setState({
           id: id,
           selection: selection,
           resultsToAdd: results.reverse()
-        },
-        console.log(infoToModify, objModified));
+        });
       });
     }
     else if (selection === "Delete") {
@@ -73,13 +69,11 @@ class Blogs extends React.Component {
         category: window.location.pathname.replace('/', ''),
       };
       this.updateRecord('DELETE', objModified).done(results => {
-        console.log(results)
         that.setState({
           id: id,
           selection: selection,
           resultsToAdd: results.reverse()
-        },
-        console.log(infoToModify, objModified));
+        });
       });
     }
     else {
@@ -101,7 +95,6 @@ class Blogs extends React.Component {
   }
 
   componentDidMount() {
-    console.log(window.location.pathname);
     let that = this;
     return $.ajax({
       type: 'POST', 
@@ -110,13 +103,9 @@ class Blogs extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
-        console.log(data)
         that.addResults(data.reverse());
       }
     });
-    // $.post('/fack', { category: window.location.pathname.replace('/', '')}, data => {
-    //   console.log(data);
-    // });
   }
 
   login(loggingIn) {
@@ -157,7 +146,6 @@ class Blogs extends React.Component {
 
   render() {
     let addForm = null;
-    console.log(this.state.isLoggedIn)
     if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     return (
       <div className='Blogs'>

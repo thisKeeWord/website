@@ -28,7 +28,6 @@ class Fitness extends React.Component {
   }
 
   updateCategory(selection) {
-    console.log(selection)
     this.setState({
       entryCategory: selection
     });
@@ -48,7 +47,6 @@ class Fitness extends React.Component {
   divAndEventChosen(id, selection, infoToModify) {
     const that = this;
     let objModified = {};
-    console.log(infoToModify, $(infoToModify)[0], $($(infoToModify[1]).children().children())[1])
     if (selection === "Save") {
       objModified = {
         id: id,
@@ -57,13 +55,11 @@ class Fitness extends React.Component {
         category: window.location.pathname.replace('/', ''),
       };
       this.updateRecord('PUT', objModified).done(results => {
-        console.log(results)
         that.setState({
           id: id,
           selection: selection,
           resultsToAdd: results.reverse()
-        },
-        console.log(infoToModify, objModified));
+        });
       });
     }
     else if (selection === "Delete") {
@@ -72,13 +68,11 @@ class Fitness extends React.Component {
         category: window.location.pathname.replace('/', ''),
       };
       this.updateRecord('DELETE', objModified).done(results => {
-        console.log(results)
         that.setState({
           id: id,
           selection: selection,
           resultsToAdd: results.reverse()
-        },
-        console.log(infoToModify, objModified));
+        });
       });
     }
     else {
@@ -100,7 +94,6 @@ class Fitness extends React.Component {
   }
 
   componentDidMount() {
-    console.log(window.location.pathname);
     let that = this;
     return $.ajax({
       type: 'POST', 
@@ -112,9 +105,6 @@ class Fitness extends React.Component {
         that.addResults(data.reverse());
       }
     });
-    // $.post('/fack', { category: window.location.pathname.replace('/', '')}, data => {
-    //   console.log(data);
-    // });
   }
 
   login(loggingIn) {
@@ -155,7 +145,6 @@ class Fitness extends React.Component {
 
   render() {
     let addForm = null;
-    console.log(this.state.isLoggedIn);
     if (this.state.isLoggedIn) {
       addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     }

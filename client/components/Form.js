@@ -20,7 +20,6 @@ class PostForm extends React.Component {
   testing(e) {
     e.preventDefault();
     let that = this;
-    console.log($(".formEntry"));
     let entry = {
       currUrl: window.location.pathname.split('/')[1],
       url: '/' + this.props.entrySelection,
@@ -43,7 +42,6 @@ class PostForm extends React.Component {
 
   fileChange(e) {
     e.preventDefault();
-    console.log($("#myFile")[0].files);
     let fileSet = $("#myFile")[0].files;
     for (let filePos in fileSet) {
       if (!isNaN(filePos)) {
@@ -52,7 +50,6 @@ class PostForm extends React.Component {
         let reader = new FileReader();
         reader.onload = event => {
           this.props.grabImageData(event.target.result);
-          console.log(this.props.grabImageData)
           let img = new Image();
           img.onload = () => {
             canvas.width = img.width;
