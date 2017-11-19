@@ -15,6 +15,9 @@ var mongoURI = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURI);
 
+
+app.set('port', (process.env.PORT || 3001));
+
 // decoding data as string for format for url
 app.use(bodyParser.json({limit: '500mb'}));
 app.use(bodyParser.urlencoded({limit: '500mb', extended: true}));
@@ -44,6 +47,9 @@ app.delete('/update', writingController.removeWritings);
 app.post('/singleWritings', writingController.getSingleWritings);
 
 
-app.listen(3001);
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
 
 module.exports = app;
