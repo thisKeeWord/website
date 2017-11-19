@@ -90,6 +90,7 @@ class Results extends React.Component {
             <div id={data._id} className="buttons">
               {editable}
             </div>
+            <span id="bordering"></span>
           </div>
         )
       }
@@ -122,6 +123,7 @@ class Results extends React.Component {
           <div id={data._id} className="buttons">
             {editable}
           </div>
+          <span id="bordering"></span>
         </div>
       );
     });

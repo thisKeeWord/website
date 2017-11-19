@@ -163,7 +163,6 @@ class Fitness extends React.Component {
       <div className='Fitness'>
         <div className="heading">
           <Navigate />
-          <h1 id="pageName">FITNESS</h1>
         </div>
         <Loading isActive={this.state.isActiveLoader} />
         <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>

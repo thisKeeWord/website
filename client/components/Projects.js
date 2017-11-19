@@ -10,7 +10,6 @@ class Projects extends React.Component {
       <div className="Projects">
         <div className="heading">
           <Navigate /> 
-          <h1 id="pageName">PORTFOLIO</h1>
         </div>
         <div className="projectsSection">
           <div className="githubProjects">
