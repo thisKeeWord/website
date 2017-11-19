@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "npm run task",
     "start": "nodemon server/server.js",
-    "start-dev": "npm run task",
+    "start-dev": "npm run task & npm start",
     "task": "gulp"
   },
   "author": "",
@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.0.15",
     "babelify": "^7.3.0",
     "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.14.2",
     "browserify": "^10.2.6",
     "bunyan": "^1.8.10",
