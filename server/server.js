@@ -21,8 +21,6 @@ app.use(express.static(path.join(__dirname, './../client/')));
 app.use(fallback('index.html', { root: __dirname + './../client/' }));
 
 app.get('/', function(req, res) {
-	console.log(req)
-	console.log('testing')
     res.sendFile('index.html');
 });
 
@@ -35,7 +33,6 @@ app.post('/projects', function(req, res) {
 });
 
 app.post('/fack', writingController.getWritings);
-// writingController.getWritings);
 
 app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
 
