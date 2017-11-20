@@ -48,6 +48,7 @@ class Blogs extends React.Component {
   divAndEventChosen(id, selection, infoToModify) {
     const that = this;
     let objModified = {};
+    console.log($($(infoToModify[1]).children().children()))
     if (selection === "Save") {
       objModified = {
         id: id,

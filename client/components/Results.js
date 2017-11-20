@@ -6,6 +6,7 @@ class Results extends React.Component {
 
   escOptions(e) {
     e.preventDefault();
+    console.log($(e.target).parent().parent().siblings().children().children().children().children());
     let infoToModify = $(e.target).parent().parent().siblings().children().children().children().children();
     this.props.divAndEventChosen($(e.target).parent().parent().attr("id"), e.target.value, infoToModify);
   }

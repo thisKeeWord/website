@@ -1,3 +1,4 @@
+var dotenv = require('dotenv').config({ path: 'config.env' });
 var fs = require('fs');
 var express = require('express');
 var app = express();
@@ -11,7 +12,8 @@ var Session = require('./../database/session/sessionModel');
 var sessionController = require('./../database/session/sessionController');
 var cookieController = require('./../database/util/cookieController');
 var mongoose = require('mongoose');
-var mongoURI = process.env.MONGODB_URI;
+var mongoURI = process.env.k1 + process.env.k2;
+console.log(process.env.k1)
 
 mongoose.connect(mongoURI);
 
