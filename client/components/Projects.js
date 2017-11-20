@@ -24,7 +24,7 @@ class Projects extends React.Component {
                         <h5>Tech stack:</h5>
                         html, css, jquery, d3, react, react-router, node, express, mongoose
                       </div>
-                      <img className="projectImg" src="./../images/ana-lol-ics.png"></img>
+                      <img id="projectImg" src="./../images/ana-lol-ics.png" className="img-responsive"></img>
                     </div>
                     <div className="projectDescription">
                       Ana-lol-ics takes the League of Legends username entered in
@@ -47,7 +47,7 @@ class Projects extends React.Component {
                         <h5>Tech stack:</h5>
                         html, css, jquery, react, node, express, socketio
                       </div>
-                      <img className="projectImg" src="./../images/boggle5.png"></img>
+                      <img id="projectImg" src="./../images/boggle5.png" className="img-responsive"></img>
                     </div>
                     <div className="projectDescription">
                       Boggle5 is a web version of the classic boggle word game. 
@@ -70,7 +70,7 @@ class Projects extends React.Component {
                         <h5>Tech stack:</h5>
                         html, css, jquery
                       </div>
-                      <img className="projectImg" src="./../images/voice-text.png"></img>
+                      <img id="projectImg" src="./../images/voice-text.png" className="img-responsive"></img>
                     </div>
                     <div className="projectDescription">
                       Voice Text is an easy to use web application that transcribes your speech,
@@ -92,7 +92,7 @@ class Projects extends React.Component {
                         <h5>Tech stack:</h5>
                         html, css, jquery
                       </div>
-                      <img className="projectImg" src="./../images/advice-generator.png"></img>
+                      <img id="projectImg" src="./../images/advice-generator.png" className="img-responsive"></img>
                     </div>
                     <div className="projectDescription">
                       Advice Generator is a Chrome extension that takes a question 

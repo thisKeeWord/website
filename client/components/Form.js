@@ -3,7 +3,6 @@ import $ from 'jquery';
 
 class PostForm extends React.Component {
   post(writing) {
-    console.log('testing')
     return $.ajax({
       type: 'POST', 
       url: '', 
@@ -20,12 +19,16 @@ class PostForm extends React.Component {
   testing(e) {
     e.preventDefault();
     let that = this;
+    let bodyReplacement = $(".formEntry")[0].innerHTML;
+    if ($(".formEntry")[0].children) {
+      bodyReplacement = $(".formEntry")[0].children[0].innerHTML;
+    }
     let entry = {
       currUrl: window.location.pathname.split('/')[1],
       url: '/' + this.props.entrySelection,
       category: this.props.entrySelection,
       title: $(".entryTitle")[0].innerHTML,
-      body: $(".formEntry")[0].innerHTML,
+      body: bodyReplacement,
       file: that.props.imageInfo
     };
     return this.post(entry).done(info => {
