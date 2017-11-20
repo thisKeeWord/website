@@ -17,7 +17,7 @@ class Projects extends React.Component {
                 <div className="project" id="analolics">
                   <div className="aboutProject" id="aboutAnalolics">
                     <h3 id="projectName">
-                      <a href="http://ana-lol-ics.xyz" target="_blank">Ana-lol-ics</a>
+                      <a href="http://ana-lol-ics.herokuapp.com" target="_blank">Ana-lol-ics</a>
                     </h3>
                     <div className="imageHover">
                       <div className="techStack">
