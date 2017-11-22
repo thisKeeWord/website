@@ -13,6 +13,7 @@ class Projects extends React.Component {
         </div>
         <div className="projectsSection">
           <div className="githubProjects">
+            <Row>
               <Col sm={6} id="projectList">
                 <div className="project" id="analolics">
                   <div className="aboutProject" id="aboutAnalolics">
@@ -55,10 +56,12 @@ class Projects extends React.Component {
                       system based on the length of the submitted word.
                     </div>
                   </div>
-                  <a href="https://github.com/thisKeeWord/boggle5" target="_blank">Github Link</a>
+                  <a href="https://github.com/thisKeeWord/boggle-game" target="_blank">Github Link</a>
                 </div>
               </Col>
+            </Row>
 
+            <Row>
               <Col sm={6} id="projectList">
                 <div className="project" id="voiceText">
                   <div className="aboutProject" id="aboutVoiceText">
@@ -102,6 +105,7 @@ class Projects extends React.Component {
                   <a href="https://github.com/thisKeeWord/advice-generator" target="_blank">Github Link</a>
                 </div>
               </Col>
+            </Row>
     
           </div>
         </div>
