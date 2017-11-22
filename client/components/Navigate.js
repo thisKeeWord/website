@@ -8,9 +8,6 @@ class Navigate extends React.Component {
     return (
       <div className="Explore">
         <div className="viewDropdown">
-          <span className="briefHeading">
-            Leonard Kee | Developer | Powerbuilder | Blogger
-          </span>
           <NavDropdown title="Menu" id="basic-nav-dropdown">
             <li className="menuLinks">
               <Link to="/">Home</Link>
@@ -27,7 +24,17 @@ class Navigate extends React.Component {
           <NavItem id="navTabs" eventKey="blogs" href="/blogs">Blogs</NavItem>
           <NavItem id="navTabs" eventKey="projects" href="/projects">Portfolio</NavItem>
         </Nav>
-      	
+      	<div className="icons">
+          <a href="https://www.linkedin.com/in/thiskeeword" target="_blank">
+            <i className="fa fa-linkedin fa-2x" id="iconLink"></i>
+          </a>
+          <a href="https://www.github.com/thisKeeWord" target="_blank">
+            <i className="fa fa-github fa-2x" id="iconLink"></i>
+          </a>
+          <a href="https://instagram.com/whatintheleo" target="_blank">
+            <i className="fa fa-instagram fa-2x" id="iconLink"></i>
+          </a>
+        </div>
       </div>
     )
   }

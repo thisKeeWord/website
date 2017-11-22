@@ -8,34 +8,23 @@ import Projects from './Projects';
 import Login from './Login';
 import SinglePost from './SinglePost';
 import Navigate from './Navigate';
-
-
-// function loggedIn() {
-//   // ...
-// }
-
-// function requireAuth(nextState, replace) {
-//   if (!loggedIn()) {
-//     replace({
-//       pathname: '/login'
-//     })
-//   }
-// }
-          // <Route path="/misc" component={Misc} />
-          // <Route path="/login" component={Login} />
-
+import Home from './Home';
+import Contact from './Comtact';
 
 
 class App extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Route path="/" component={About} />
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/portfolio" component={Projects} />
       	<Route path="/fitness" component={Fitness} />
         <Route path='/fitness/:title' component={SinglePost} />
         <Route path="/blogs" component={Blogs} />
         <Route path='/blogs/:title' component={SinglePost} />
-        <Route path="/projects" component={Projects} />
+        <Route path="/contact" component={Contact} />
+
       </Router>
     )
   }
