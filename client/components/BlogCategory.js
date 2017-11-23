@@ -9,7 +9,7 @@ import Loading from './Loading';
 import Navigate from './Navigate';
 import Footers from './Footers';
 
-class Fitness extends React.Component {
+class BlogCategory extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -149,7 +149,7 @@ class Fitness extends React.Component {
       addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     }
     return (
-      <div className='Fitness'>
+      <div className='BlogCategory'>
         <div className="heading">
           <Navigate />
         </div>
@@ -165,6 +165,6 @@ class Fitness extends React.Component {
   }
 };
 
-module.exports = Fitness;
+module.exports = BlogCategory;
 
 

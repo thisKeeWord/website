@@ -337,8 +337,28 @@ pre.singlePostResult {
 .aboutDescription {
   margin-top: 20px;
   font-size: 15px;
-  color: aliceblue;
+  color: #2C3E50;
   padding: 10px;
+  text-align: center;
+  display: flex;
+  height: 30vh;
+}
+
+.wassup {
+  margin: auto;
+}
+
+.homeLinks {
+  background-color: #FBF8ED;
+  font-size: 18px !important;
+  height: 30vh;
+  display: flex;
+  -webkit-padding-start: 0 !important;
+}
+
+.quickLinks {
+  margin: auto;
+
 }
 
 .name {
@@ -356,10 +376,16 @@ pre.singlePostResult {
 #iconLink {
   padding: 1vw;
   color: ghostwhite;
+  font-size: 1.75em;
 }
 
 .icons {
   display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 40px;
 }
 
 #linkToPages li {
@@ -406,8 +432,7 @@ pre.singlePostResult {
 }
 
 .dropdown-menu {
-  left: unset !important;
-  right: -5;
+ left: 3 !important;
 
 }
 
@@ -470,8 +495,7 @@ pre.singlePostResult {
   }
 
   .dropdown-menu {
-    left: unset !important;
-    right: -5;
+    left: 3 !important;
     margin-top: 0px;
     background-color: #2C3E50 !important;
     width: 100% !important;
@@ -514,6 +538,10 @@ pre.singlePostResult {
   ul.nav.nav-tabs {
     display: flex !important;
   }
+
+  .homeLinks {
+    font-size: 22px !important;
+  }
 }
 
 @media all and (min-width: 425px) and (max-width: 768px) {
@@ -531,10 +559,6 @@ pre.singlePostResult {
 }
 
 @media all and (min-width: 375px) and (max-width: 425px) {
-  .name {
-    font-size: 30px;
-  }
-
   .personalDescription {
     font-size: 15px;
   }
@@ -546,7 +570,7 @@ pre.singlePostResult {
 
 @media all and (min-width: 320px) and (max-width: 375px) {
   .name {
-    font-size: 25px; 
+    font-size: 32px; 
   }
 
   .personalDescription {
@@ -568,7 +592,7 @@ pre.singlePostResult {
   }
 
   .name {
-    font-size: 7vw; 
+    font-size: 11vw; 
   }
 
   .personalDescription {
@@ -598,6 +622,9 @@ pre.singlePostResult {
     font-size: 3vw;
   }
 
+  .homeLinks {
+    font-size: 14px !important;
+  }
 }
 
 /*.open>.dropdown-menu {
@@ -609,9 +636,10 @@ pre.singlePostResult {
   display: flex;
   width: 100%;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 60px;
   background-color: #2C3E50;
+  width: 100%;
 }
 
 .briefHeading {
@@ -629,7 +657,7 @@ pre.singlePostResult {
   width: 100%;
 }
 
-.Blogs, .Fitness, .Projects, .About {
+.Blogs, .Fitness, .Projects, .About, .Home {
   min-height: 100%;
   position: absolute;
   left: 0;
@@ -652,16 +680,18 @@ pre.singlePostResult {
 }
 
 ul.nav.nav-tabs {
-  width: 100%;
   display: none;
   justify-content: space-around;
   background-color: #2C3E50;
   border-bottom: unset !important;
+  margin-left: 40px;
 }
 
 .nav-tabs > li {
   margin-bottom: auto !important;
   margin-top: auto !important;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .nav-tabs > li > a {
@@ -674,8 +704,6 @@ ul.nav.nav-tabs {
   background-color: aliceblue !important;
   border-radius: 50% !important;
 }
-
-
 
 #bordering {
   width: 90%;

@@ -10,8 +10,10 @@ class Home extends React.Component {
       <div className="Home">
         <Navigate />
         <div className="aboutDescription">
-          <h1 className="name">Leonard Kee</h1>
-          <span className="personalDescription">Developer | Powerbuilder | Blogger</span>
+          <div className="wassup">
+            <h1 className="name">Leonard Kee</h1>
+            <span className="personalDescription">Developer | Powerbuilder | Blogger</span>
+          </div>
         </div>
         <ul className="homeLinks">
           <li className="quickLinks">
@@ -29,5 +31,7 @@ class Home extends React.Component {
     )
   }
 }
+
+module.exports = Home;
 
 

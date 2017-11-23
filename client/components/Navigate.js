@@ -11,18 +11,22 @@ class Navigate extends React.Component {
           <NavDropdown title="Menu" id="basic-nav-dropdown">
             <li className="menuLinks">
               <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/portfolio">Portfolio</Link>
               <Link to="/fitness">Fitness</Link>
               <Link to="/blogs">Blogs</Link>
-              <Link to="/projects">Projects</Link>
+              <Link to="/contact">Contact</Link>
             </li>
           </NavDropdown>
         </div>
 
         <Nav bsStyle="tabs" activeKey={location.pathname.split('/')[1]}>
           <NavItem id="navTabs" eventKey="" href="/">Home</NavItem>
+          <NavItem id="navTabs" eventKey="about" href="/about">About</NavItem>
+          <NavItem id="navTabs" eventKey="portfolio" href="/portfolio">Portfolio</NavItem>
           <NavItem id="navTabs" eventKey="fitness" href="/fitness">Fitness</NavItem>
           <NavItem id="navTabs" eventKey="blogs" href="/blogs">Blogs</NavItem>
-          <NavItem id="navTabs" eventKey="projects" href="/projects">Portfolio</NavItem>
+          <NavItem id="navTabs" eventKey="contact" href="/contact">Contact</NavItem>
         </Nav>
       	<div className="icons">
           <a href="https://www.linkedin.com/in/thiskeeword" target="_blank">
