@@ -1,6 +1,6 @@
 import React from 'react';
-import Navigate from './Navigate';
-import Footers from './Footers';
+// import Navigate from './Navigate';
+// import Footers from './Footers';
 
 
 class Contact extends React.Component {

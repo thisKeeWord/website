@@ -1,16 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Navigate from './Navigate';
-import Footers from './Footers';
+// import Navigate from './Navigate';
+// import Footers from './Footers';
 
 class Projects extends React.Component {
   render() {
     return (
       <div className="Projects">
-        <div className="heading">
-          <Navigate /> 
-        </div>
         <div className="projectsSection">
           <div className="githubProjects">
             <Row>
@@ -109,7 +106,6 @@ class Projects extends React.Component {
     
           </div>
         </div>
-        <Footers />
       </div>
     );
   }

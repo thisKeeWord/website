@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
-import Navigate from './Navigate';
-import Footers from './Footers';
+// import Navigate from './Navigate';
+// import Footers from './Footers';
 
 class SinglePost extends React.Component {
   constructor() {
@@ -69,11 +69,9 @@ class SinglePost extends React.Component {
     });
     return (
       <div className='SinglePost'>
-        <Navigate />
         <div className="singleRead">
           {singleResult}
         </div>
-        <Footers/>
       </div>
     );
   }

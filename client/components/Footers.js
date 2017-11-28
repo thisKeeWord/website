@@ -23,7 +23,6 @@ class Footers extends React.Component {
 		return (
 			<footer className="footer">
        	<div id="myName">&copy; 2017 LEONARD KEE | Developer | Powerbuilder | Blogger</div>
-       	{feetIcons}
       </footer>
 		)
 	}

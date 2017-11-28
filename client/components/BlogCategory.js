@@ -52,7 +52,7 @@ class BlogCategory extends React.Component {
         id: id,
         title: $(infoToModify)[0].innerHTML,
         body: $($(infoToModify[1]).children().children())[1].innerHTML,
-        category: window.location.pathname.replace('/', ''),
+        category: window.location.pathname.split('/')[2],
       };
       this.updateRecord('PUT', objModified).done(results => {
         that.setState({
@@ -65,7 +65,7 @@ class BlogCategory extends React.Component {
     else if (selection === "Delete") {
       objModified = {
         id: id,
-        category: window.location.pathname.replace('/', ''),
+        category: window.location.pathname.split('/')[2],
       };
       this.updateRecord('DELETE', objModified).done(results => {
         that.setState({
@@ -98,7 +98,7 @@ class BlogCategory extends React.Component {
     return $.ajax({
       type: 'POST', 
       url: '/fack', 
-      data: JSON.stringify({ category: window.location.pathname.replace('/', '')}), // stringyfy before passing
+      data: JSON.stringify({ category: window.location.pathname.split('/')[2]}), // stringyfy before passing
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {

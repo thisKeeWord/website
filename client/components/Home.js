@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Navigate from './Navigate';
-import Footers from './Footers';
+// import Navigate from './Navigate';
+// import Footers from './Footers';
 
 class Home extends React.Component {
   render() {
     return (
       <div className="Home">
-        <Navigate />
         <div className="aboutDescription">
           <div className="wassup">
             <h1 className="name">Leonard Kee</h1>
@@ -17,16 +16,15 @@ class Home extends React.Component {
         </div>
         <ul className="homeLinks">
           <li className="quickLinks">
-            <Link to="/portfolio">Portfolio</Link>
+            <NavLink to="#/portfolio">Portfolio</NavLink>
           </li>
           <li className="quickLinks">
-            <Link to="/blog/fitness">Fitness</Link>
+            <NavLink to="#/blog/fitness">Fitness</NavLink>
           </li>
           <li className="quickLinks">
-            <Link to="/blog">Blog</Link>
+            <NavLink to="#/blog">Blog</NavLink>
           </li>
         </ul>
-        <Footers />
       </div>
     )
   }

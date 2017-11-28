@@ -3,145 +3,17 @@ import { Link } from 'react-router';
 import $ from 'jquery';
 import PostForm from './Form';
 import Results from './Results';
-import Fitness from './Fitness';
+import BlogCategory from './BlogCategory';
 import Login from './Login';
 import Loading from './Loading';
-import Navigate from './Navigate';
-import Footers from './Footers';
+// import Navigate from './Navigate';
+// import Footers from './Footers';
 
 
 class Blogs extends React.Component {
   constructor() {
     super();
-    this.state = {
-      entryCategory: 'blogs',
-      resultsToAdd: [],
-      isLoggedIn: false,
-      id: '',
-      selection: '',
-      imageData: [],
-      isActiveLoader: true,
-      loadedItems: 'hidden',
-      currentPage: 1,
-      resultsPerPage: 7,
-      currentBasePage: 1
-    };
-  }
-
-  updateCategory(selection) {
-    this.setState({
-      entryCategory: selection
-    });
-  }
-
-  addResults(data) {
-    const that = this;
-    setTimeout(() => {
-      that.setState({
-        resultsToAdd: data,
-        isActiveLoader: false,
-        loadedItems: 'visible'
-      });
-    }, 1500);
-  }
-
-  divAndEventChosen(id, selection, infoToModify) {
-    const that = this;
-    let objModified = {};
-    if (selection === "Save") {
-      objModified = {
-        id: id,
-        title: $(infoToModify)[0].innerHTML,
-        body: $($(infoToModify[1]).children().children())[1].innerHTML,
-        category: window.location.pathname.replace('/', ''),
-      };
-      this.updateRecord('PUT', objModified).done(results => {
-        that.setState({
-          id: id,
-          selection: selection,
-          resultsToAdd: results.reverse()
-        });
-      });
-    }
-    else if (selection === "Delete") {
-      objModified = {
-        id: id,
-        category: window.location.pathname.replace('/', ''),
-      };
-      this.updateRecord('DELETE', objModified).done(results => {
-        that.setState({
-          id: id,
-          selection: selection,
-          resultsToAdd: results.reverse()
-        });
-      });
-    }
-    else {
-      that.setState({
-        id: id,
-        selection: selection
-      });
-    }
-  }
-
-  updateRecord(mod, record) {
-    return $.ajax({
-      type: mod, 
-      url: '/update', 
-      data: JSON.stringify(record), // stringyfy before passing
-      dataType: 'json', // payload is json
-      contentType : 'application/json',
-    });
-  }
-
-  componentDidMount() {
-    let that = this;
-    return $.ajax({
-      type: 'POST', 
-      url: '/fack', 
-      data: JSON.stringify({ category: window.location.pathname.replace('/', '')}), // stringyfy before passing
-      dataType: 'json', // payload is json
-      contentType : 'application/json',
-      success: data => {
-        that.addResults(data.reverse());
-      }
-    });
-  }
-
-  login(loggingIn) {
-    this.setState({
-      isLoggedIn: true
-    });
-  }
-
-  updateImageData(dataImage) {
-    let imageArray = this.state.imageData;
-    imageArray.push(dataImage);
-    this.setState({
-      imageData: imageArray
-    });
-  }
-
-  setCurrentPage(currentPage) {
-    this.setState({
-      currentPage: currentPage
-    });
-  }
-
-  previousPage() {
-    let adjustPageSet = this.state.currentPage - 4;
-    this.setState({
-      currentPage: adjustPageSet,
-      currentBasePage: adjustPageSet
-    });
-  }
-
-  nextPage() {
-    let adjustPageSet = this.state.currentPage + 4;
-    this.setState({
-      currentPage: adjustPageSet,
-      currentBasePage: adjustPageSet
-    });
+    this.state = {};
   }
 
   render() {
