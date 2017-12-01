@@ -694,12 +694,18 @@ ul.nav.nav-tabs {
   margin-right: 4px;
 }
 
-.nav-tabs > li > a {
+.inactive {
   color: aliceblue !important;
   border-radius: 50% !important;
 }
 
-.nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+a#navTabs active {
+
+}
+
+
+
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover, .nav-tabs > li > a:active, .active {
   color: #2C3E50 !important;
   background-color: aliceblue !important;
   border-radius: 50% !important;

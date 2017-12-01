@@ -3,12 +3,31 @@ import React from 'react';
 import { NavDropdown, MenuItem, Nav, NavItem } from 'react-bootstrap';
 import { Link, Route, NavLink, HashRouter } from 'react-router-dom';
 
+// <NavItem id="navTabs" eventKey="">
+// <NavItem id="navTabs" eventKey="fitness">
+// <NavItem id="navTabs" eventKey="blogs">
+// <NavItem id="navTabs" eventKey="portfolio">
 
 class Navigate extends React.Component {
   render() {
     const that = this;
-    console.log(location.pathname.split('/'))
-    console.log(location.pathname)
+    let urlPath = location.pathname.split('/')[1];
+    let activeTag = ["", "about", "fitness", "blogs", "portfolio", "contact"].map(elem => {
+      let classActive = "inactive";
+      let linkReference = elem.charAt(0).toUpperCase() + elem.slice(1);
+      if (elem === "") {
+        linkReference = "Home";
+      }
+      if (elem === urlPath) {
+        classActive = "active";
+      }
+      return (
+        <li>
+          <Link className={classActive} aria-current={elem === urlPath} id={"navTabs" + " " + classActive} to={"/" + elem}>{linkReference}</Link>
+        </li>
+      )
+    });
+
     return (
       <div className="Explore">
         <div className="viewDropdown">
@@ -24,12 +43,10 @@ class Navigate extends React.Component {
           </NavDropdown>
         </div>
 
-        <Nav bsStyle="tabs" activeKey={location.pathname.split('/')[1]}>
-          <NavItem id="navTabs" eventKey=""><NavLink to="/">Home</NavLink></NavItem>
-          <NavItem id="navTabs" eventKey="fitness"><NavLink to="/fitness">Fitness</NavLink></NavItem>
-          <NavItem id="navTabs" eventKey="blogs"><NavLink to="/blogs">Blogs</NavLink></NavItem>
-          <NavItem id="navTabs" eventKey="portfolio"><NavLink to="/portfolio">Portfolio</NavLink></NavItem>
+        <Nav bsStyle="tabs">
+          {activeTag}
         </Nav>
+
       	<div className="icons">
           <a href="https://www.linkedin.com/in/thiskeeword" target="_blank">
             <i className="fa fa-linkedin fa-2x" id="iconLink"></i>
