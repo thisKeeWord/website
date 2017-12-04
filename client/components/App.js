@@ -11,6 +11,7 @@ import SinglePost from './SinglePost';
 import Navigate from './Navigate';
 import Home from './Home';
 import Contact from './Contact';
+import Footers from './Footers';
 
 
 //<Router history={browserHistory}>
@@ -43,6 +44,7 @@ class App extends React.Component {
               <Route path="/contact" component={Contact} />
             </Switch>
           </main>
+          <Footers />
         </div>
       </BrowserRouter>
     )

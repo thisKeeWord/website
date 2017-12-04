@@ -33,10 +33,10 @@ class Navigate extends React.Component {
         <div className="viewDropdown">
           <NavDropdown title="Menu" id="basic-nav-dropdown">
             <li className="menuLinks">
-              <Link exact to="/">Home</Link>
+              <Link to="/">Home</Link>
               <Link to="/about">About</Link>
-              <Link to="/fitness">Fitness</Link>
-              <Link to="/blogs">Blogs</Link>
+              <Link to="/blog/fitness">Fitness</Link>
+              <Link to="/blog">Blogs</Link>
               <Link to="/portfolio">Portfolio</Link>
               <Link to="/contact">Contact</Link>
             </li>

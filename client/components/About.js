@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-bootstrap';
-import Navigate from './Navigate';
 import Footers from './Footers';
 
 class About extends React.Component {

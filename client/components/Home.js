@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
 // import Navigate from './Navigate';
 // import Footers from './Footers';
@@ -16,13 +16,13 @@ class Home extends React.Component {
         </div>
         <ul className="homeLinks">
           <li className="quickLinks">
-            <NavLink to="#/portfolio">Portfolio</NavLink>
+            <Link to="/portfolio">Portfolio</Link>
           </li>
           <li className="quickLinks">
-            <NavLink to="#/blog/fitness">Fitness</NavLink>
+            <Link to="/blog/fitness">Fitness</Link>
           </li>
           <li className="quickLinks">
-            <NavLink to="#/blog">Blog</NavLink>
+            <Link to="/blog">Blog</Link>
           </li>
         </ul>
       </div>
