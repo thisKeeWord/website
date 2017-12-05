@@ -30,7 +30,17 @@ app.get('/', function(req, res) {
 
 app.post('/fitness', writingController.writing);
 
-app.post('/blogs', writingController.writing);
+app.post('/blog/fitness', writingController.writing);
+
+app.post('/blog/food', writingController.writing);
+
+app.post('/blog/lifestyle', writingController.writing);
+
+app.post('/blog/personal', writingController.writing);
+
+app.post('/blog/tech', writingController.writing);
+
+app.post('/blog/travel', writingController.writing);
 
 app.post('/projects', function(req, res) {
 	res.send('asdf');

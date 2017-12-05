@@ -12,8 +12,7 @@ var writingController = {
 };
 
 function writing(req, res) {
-  var dateConvert = Date.now();
-  req.body.date = dateConvert;
+  console.log(req.body, 'line 15')
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);
 	  getWritings(req, res);
@@ -22,7 +21,9 @@ function writing(req, res) {
 }
 
 function getWritings(req, res) {
+  console.log(console.log(req.body.category))
 	Writing.find({ category: req.body.category }, function(error, success) {
+    console.log(success)
     if (error) return console.error(error);
     var itemsProcessed = 0;
     success.forEach(function(elem) {

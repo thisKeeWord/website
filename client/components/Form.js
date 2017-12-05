@@ -29,7 +29,8 @@ class PostForm extends React.Component {
       category: this.props.entrySelection,
       title: $(".entryTitle")[0].innerHTML,
       body: bodyReplacement,
-      file: that.props.imageInfo
+      file: that.props.imageInfo,
+      date: Date.now()
     };
     return this.post(entry).done(info => {
       if (entry.currUrl === entry.category) {

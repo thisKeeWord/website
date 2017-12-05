@@ -13,7 +13,7 @@ class BlogCategory extends React.Component {
   constructor() {
     super();
     this.state = {
-      entryCategory: 'blogs',
+      entryCategory: 'food',
       resultsToAdd: [],
       isLoggedIn: false,
       id: '',
@@ -94,15 +94,16 @@ class BlogCategory extends React.Component {
   }
 
   componentDidMount() {
-    console.log(window.location.pathname.split('/')[2])
+    console.log(location.pathname.split('/')[2])
     let that = this;
     return $.ajax({
       type: 'POST', 
       url: '/fack', 
-      data: JSON.stringify({ category: window.location.pathname.split('/')[2]}), // stringyfy before passing
+      data: JSON.stringify({ category: location.pathname.split('/')[2]}), // stringyfy before passing
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
+        console.log(data)
         that.addResults(data.reverse());
       }
     });
