@@ -30,10 +30,83 @@ class Results extends React.Component {
   }
 
   render() {
+    const that = this;
+    if (this.props.currentLink === 'all') {
+      let omgResults = this.props.resultsToAdd.map((datas, pos, arr) => {
+        let mFile = null;
+        console.log(datas[0])
+        if (datas.length > 0) {
+          if (datas[0].file[0]) {
+            mFile = (
+              <img className="images" src={datas[0].file[0]} />
+            );
+          }
+          if (pos === 0 || datas[0].category !== arr[pos - 1].category) {
+            return (
+              <div className="groupCategory">
+                <h2>{datas[0].category}</h2>
+                <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
+                  <div className="perPostCategory">
+                    <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
+                    <div className="dateBodyImageCategory">
+                      <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
+                      {mFile}
+                      <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
+                    </div>
+                  </div>
+                </div>
+                <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
+                  Read More
+                </Link>
+              </div>
+            )
+          }
+          else if (pos === arr.length - 1 || datas[0].category !== arr[pos + 1].category) {
+            <div className="groupCategory" id="groupCategoryShort">
+              <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
+                <div className="perPostCategory">
+                  <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
+                  <div className="dateBodyImageCategory">
+                    <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
+                    {mFile}
+                    <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
+                  </div>
+                </div>
+              </div>
+              <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
+                Read More
+              </Link>
+            </div>
+          }
+          else {
+            <div className="groupCategory" id="groupCategoryShort">
+              <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
+                <div className="perPostCategory">
+                  <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
+                  <div className="dateBodyImageCategory">
+                    <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
+                    {mFile}
+                    <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
+                  </div>
+                </div>
+              </div>
+              <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
+                Read More
+              </Link>
+            </div>
+          }
+        }
+      });
+      return (
+        <div className="allResults">
+          {omgResults}
+        </div>
+      )
+    }
     const indexOfLastResult = this.props.currentPage * this.props.resultsPerPage,
           indexOfFirstResult = indexOfLastResult - this.props.resultsPerPage,
           viewPage = this.props.resultsToAdd.slice(indexOfFirstResult, indexOfLastResult);
-    let editable = null, editableContent = null, that = this;
+    let editable = null, editableContent = null;
     if (this.props.isLoggedIn) {
       editable = (
         <div>
@@ -98,7 +171,7 @@ class Results extends React.Component {
                   </div>
                 </div>
               </div>
-              <Link id="linkToPost" to={`/${that.props.entryCategory}/${data.title.replace(" ", "-")}`}>
+              <Link id="linkToPost" to={`/blog/${data.category}/${data.title.replace(" ", "-")}`}>
                 Read More
               </Link>
             </li>

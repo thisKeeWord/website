@@ -12,7 +12,7 @@ class Navigate extends React.Component {
   render() {
     const that = this;
     let urlPath = location.pathname.split('/')[1];
-    let activeTag = ["", "about", "fitness", "blogs", "portfolio", "contact"].map(elem => {
+    let activeTag = ["", "about", "fitness", "blog", "portfolio", "contact"].map(elem => {
       let classActive = "inactive";
       let linkReference = elem.charAt(0).toUpperCase() + elem.slice(1);
       if (elem === "") {
@@ -20,6 +20,9 @@ class Navigate extends React.Component {
       }
       if (elem === urlPath) {
         classActive = "active";
+      }
+      if (elem === 'fitness') {
+        elem = 'blog/fitness'
       }
       return (
         <li>
@@ -36,7 +39,7 @@ class Navigate extends React.Component {
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
               <Link to="/blog/fitness">Fitness</Link>
-              <Link to="/blog">Blogs</Link>
+              <Link to="/blog">Blog</Link>
               <Link to="/portfolio">Portfolio</Link>
               <Link to="/contact">Contact</Link>
             </li>

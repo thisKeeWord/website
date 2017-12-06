@@ -23,7 +23,8 @@ class BlogCategory extends React.Component {
       loadedItems: 'hidden',
       currentPage: 1,
       resultsPerPage: 7,
-      currentBasePage: 1
+      currentBasePage: 1,
+      alreadyCalled: false
     };
   }
 
@@ -39,7 +40,9 @@ class BlogCategory extends React.Component {
       that.setState({
         resultsToAdd: data,
         isActiveLoader: false,
-        loadedItems: 'visible'
+        loadedItems: 'visible',
+        currentLink: location.pathname.split('/')[2] || 'all',
+        alreadyCalled: true
       });
     }, 1500);
   }
@@ -52,7 +55,7 @@ class BlogCategory extends React.Component {
         id: id,
         title: $(infoToModify)[0].innerHTML,
         body: $($(infoToModify[1]).children().children())[1].innerHTML,
-        category: window.location.pathname.split('/')[2],
+        category: location.pathname.split('/')[2],
       };
       this.updateRecord('PUT', objModified).done(results => {
         that.setState({
@@ -65,7 +68,7 @@ class BlogCategory extends React.Component {
     else if (selection === "Delete") {
       objModified = {
         id: id,
-        category: window.location.pathname.split('/')[2],
+        category: location.pathname.split('/')[2],
       };
       this.updateRecord('DELETE', objModified).done(results => {
         that.setState({
@@ -94,17 +97,27 @@ class BlogCategory extends React.Component {
   }
 
   componentDidMount() {
-    console.log(location.pathname.split('/')[2])
+    console.log('am i updating myself')
+    this.getBlogs(location.pathname.split('/')[2] || 'all')
+  }
+
+  getBlogs(subLink) {
+    console.log(subLink, 'subLink')
     let that = this;
     return $.ajax({
       type: 'POST', 
       url: '/fack', 
-      data: JSON.stringify({ category: location.pathname.split('/')[2]}), // stringyfy before passing
+      data: JSON.stringify({ category: subLink }), // stringyfy before passing
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
         console.log(data)
-        that.addResults(data.reverse());
+        if (data[1] === 'dont reverse this') {
+          that.addResults(data[0]);
+        }
+        else {
+          that.addResults(data.reverse());
+        }
       }
     });
   }
@@ -146,6 +159,12 @@ class BlogCategory extends React.Component {
   }
 
   render() {
+    console.log(location.pathname.split('/')[2] !== undefined && location.pathname.split('/')[2] !== "")
+    if (this.state.currentLink !== location.pathname.split('/')[2] && (location.pathname.split('/')[2] !== undefined && location.pathname.split('/')[2] !== "")) {
+      console.log('test')
+      console.log(this.state.currentLink === location.pathname.split('/')[2])
+      this.getBlogs(location.pathname.split('/')[2] || 'all')
+    }
     let addForm = null;
     if (this.state.isLoggedIn) {
       addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
@@ -155,7 +174,7 @@ class BlogCategory extends React.Component {
         <Loading isActive={this.state.isActiveLoader} />
         <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
           {addForm}
-          <Results resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
+          <Results currentLink={this.state.currentLink} resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
           <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
         </div>
       </div>

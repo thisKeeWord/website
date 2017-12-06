@@ -21,21 +21,57 @@ function writing(req, res) {
 }
 
 function getWritings(req, res) {
-  console.log(console.log(req.body.category))
-	Writing.find({ category: req.body.category }, function(error, success) {
-    console.log(success)
-    if (error) return console.error(error);
-    var itemsProcessed = 0;
-    success.forEach(function(elem) {
-      itemsProcessed++;
-    });
-    if (itemsProcessed === success.length) {
-      success.sort(function(a, b) {
-        return a.date - b.date;
+  var sendList = {
+    fitness: [],
+    food: [],
+    lifestyle: [],
+    personal: [],
+    tech: [],
+    travel: []
+  };
+  var finalResult = [];
+  var count = 0;
+  console.log('asdf')
+  if (req.body.category === 'all') {
+    Writing.find({}, function(error, findings) {
+      
+      findings.sort(function(a, b) {
+        return a.date - b.date
       });
-      res.send(success);
-    }
-  });
+      findings.forEach(function(items) {
+        console.log(items.category)
+        if (sendList[items.category].length < 3) {
+          sendList[items.category].push(items);
+        }
+        count++;
+      });
+      if (findings.length > 0 && (sendList.fitness.length === sendList.food.length === sendList.lifestyle.length === sendList.personal.length === sendList.tech.length === sendList.travel.length === 2 || count === findings.length)) {
+        for (var key in sendList) {
+          if (key.length > 0) {
+            console.log(sendList[key])
+            finalResult.push(sendList[key].reverse());
+          }
+        }
+        return res.send([finalResult, 'dont reverse this']);
+      }
+    });
+  }
+	else {
+    Writing.find({ category: req.body.category }, function(error, success) {
+      console.log(success)
+      if (error) return console.error(error);
+      var itemsProcessed = 0;
+      success.forEach(function(elem) {
+        itemsProcessed++;
+      });
+      if (itemsProcessed === success.length) {
+        success.sort(function(a, b) {
+          return a.date - b.date;
+        });
+        res.send(success);
+      }
+    });
+  }
 }
 
 function updateWritings(req, res) {
