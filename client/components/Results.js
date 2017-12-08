@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Carousel } from 'react-bootstrap';
 import $ from 'jquery';
 
 class Results extends React.Component {
@@ -43,63 +44,32 @@ class Results extends React.Component {
           }
           if (pos === 0 || datas[0].category !== arr[pos - 1].category) {
             return (
-              <div className="groupCategory">
-                <h2>{datas[0].category}</h2>
-                <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
-                  <div className="perPostCategory">
-                    <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
-                    <div className="dateBodyImageCategory">
-                      <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
-                      {mFile}
-                      <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
+              <Carousel.Item>
+                <div className="groupCategory" id="groupCategoryShort">
+                  <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
+                    <div className="perPostCategory">
+                      <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
+                      <div className="dateBodyImageCategory">
+                        <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
+                        {mFile}
+                        <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
+                      </div>
                     </div>
                   </div>
+                  <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
+                    Read More
+                  </Link>
                 </div>
-                <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
-                  Read More
-                </Link>
-              </div>
+              </Carousel.Item>
             )
-          }
-          else if (pos === arr.length - 1 || datas[0].category !== arr[pos + 1].category) {
-            <div className="groupCategory" id="groupCategoryShort">
-              <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
-                <div className="perPostCategory">
-                  <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
-                  <div className="dateBodyImageCategory">
-                    <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
-                    {mFile}
-                    <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
-                  </div>
-                </div>
-              </div>
-              <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
-                Read More
-              </Link>
-            </div>
-          }
-          else {
-            <div className="groupCategory" id="groupCategoryShort">
-              <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
-                <div className="perPostCategory">
-                  <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
-                  <div className="dateBodyImageCategory">
-                    <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
-                    {mFile}
-                    <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
-                  </div>
-                </div>
-              </div>
-              <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
-                Read More
-              </Link>
-            </div>
           }
         }
       });
       return (
         <div className="allResults">
-          {omgResults}
+          <Carousel>
+            {omgResults}
+          </Carousel>
         </div>
       )
     }
