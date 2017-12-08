@@ -550,6 +550,10 @@ pre.singlePostResult {
   .homeLinks {
     font-size: 22px !important;
   }
+
+  .carouselPosts {
+    width: 75%;
+  }
 }
 
 @media all and (min-width: 425px) and (max-width: 768px) {
@@ -564,6 +568,10 @@ pre.singlePostResult {
   #myName {
     font-size: 12px;
   }
+
+  .carouselPosts {
+    width: 80% !important;
+  }
 }
 
 @media all and (min-width: 375px) and (max-width: 425px) {
@@ -573,6 +581,12 @@ pre.singlePostResult {
 
   #myName {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .carouselPosts {
+    width: 100%;
   }
 }
 
@@ -707,12 +721,6 @@ ul.nav.nav-tabs {
   border-radius: 50% !important;
 }
 
-a#navTabs active {
-
-}
-
-
-
 .nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover, .nav-tabs > li > a:active, .active {
   color: #2C3E50 !important;
   background-color: aliceblue !important;
@@ -747,4 +755,25 @@ a#navTabs active {
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+.groupCategory {
+  width: 80%;
+}
+
+.latestPosts {
+  text-align: center;
+}
+
+.carouselPosts {
+  margin: 0 auto;
+}
+
+.perPostCategory {
+  text-align: center;
+}
+
+.groupCategory {
+  margin: 0 auto;
+}
 }

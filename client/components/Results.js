@@ -67,9 +67,12 @@ class Results extends React.Component {
       });
       return (
         <div className="allResults">
-          <Carousel>
-            {omgResults}
-          </Carousel>
+          <h2 className="latestPosts">Latest Posts</h2>
+          <div className="carouselPosts">
+            <Carousel>
+              {omgResults}
+            </Carousel>
+          </div>
         </div>
       )
     }
