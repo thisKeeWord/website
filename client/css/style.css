@@ -1,11 +1,13 @@
 body {
   color: #2f2f2f !important;
   background-color: #f9f7f1 !important;
-  min-height: 100%;
+  height: 100vh;
 }
 
 #container {
-  min-height: 100%;
+  min-height: 100vh;
+  display: table;
+  width: 100%;
 }
 
 .formEntry, .entryTitle {
@@ -88,6 +90,12 @@ a:hover {
 
 .perPost {
   margin: 0 auto;
+}
+
+.item.active {
+  color: inherit !important;
+  background-color: inherit !important;
+  border-radius:  unset !important;
 }
 
 .perPostText {
@@ -183,8 +191,8 @@ a:hover {
 .SinglePost {
   width: 100%;
   margin: 0 auto;
-  min-height: 100%;
-  position: absolute;
+  min-height: 100vh;
+  /*position: absolute;*/
 }
 
 .singleResult, .singleRead {
@@ -338,10 +346,9 @@ pre.singlePostResult {
 }
 
 .aboutDescription {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
   font-size: 15px;
   color: #2C3E50;
-  padding: 10px;
   text-align: center;
   display: flex;
   height: 30vh;
@@ -357,6 +364,7 @@ pre.singlePostResult {
   height: 30vh;
   display: flex;
   -webkit-padding-start: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .quickLinks {
@@ -388,7 +396,6 @@ pre.singlePostResult {
   margin-bottom: auto;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: 40px;
 }
 
 #linkToPages li {
@@ -475,6 +482,10 @@ pre.singlePostResult {
   font-size: 17px;
   background-color: darkgrey;
   color: ghostwhite;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footerIcons {
@@ -622,7 +633,7 @@ pre.singlePostResult {
   }
 
   .aboutDescription {
-    margin-top: 5vw;
+    /*margin-top: 5vw;*/
     padding: 3vw;
   }
 
@@ -675,25 +686,25 @@ pre.singlePostResult {
   margin-bottom: 0;
   height: 150px !important;
   background-color: #333333;
-  position: absolute;
+  /*position: absolute;*/
   width: 100%;
 }
 
-.Blogs, .Fitness, .Projects, .About, .Home {
-  min-height: 100%;
+.Blogs, .Fitness, .Projects, .About, .Home, .allPosts {
+  /*min-height: 100vh;
   position: absolute;
   left: 0;
-  right: 0;
+  right: 0;*/
 }
 
-.fitness2, .blogs2 {
-  min-height: 100%;
+.basePage, main {
+  min-height: calc(100vh - 95px);
 }
 
 .footer {
   text-align: center;
   top: 100%;
-  position: absolute;
+  /*position: absolute;*/
   width: 100%;
 }
 
@@ -759,6 +770,8 @@ ul.nav.nav-tabs {
 
 .groupCategory {
   width: 80%;
+  margin: 0 auto;
+  padding-bottom: 70px;
 }
 
 .latestPosts {
@@ -773,7 +786,31 @@ ul.nav.nav-tabs {
   text-align: center;
 }
 
-.groupCategory {
-  margin: 0 auto;
+.emailMe {
+  margin-top: 0 !important;
+  padding-top: 20px;
 }
+
+.allResults {
+  /*margin-bottom: 35px;*/
+}
+
+.postResultsCatsBod {
+  border: none !important;
+  height: 150px;
+  word-break: break-word;
+  overflow-y: hidden;
+  background-color: inherit !important;
+}
+
+.blogLinks {
+  display: flex;
+}
+
+.carousel-indicators .active {
+  background-color: #808080 !important;
+}
+
+.carousel-indicators li {
+  background-color: #C0C0C0 !important;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Footers from './Footers';
 
@@ -7,7 +7,6 @@ class About extends React.Component {
   render() {
     return (
       <div className="About">
-        <Navigate />
         <div className="aboutMe">
           <div className="myImage">
             <img className="headImage" src="./../images/profile-image.png"></img>
@@ -43,7 +42,6 @@ class About extends React.Component {
             <br/>
             "Goals on the road to achievement cannot be achieved without discipline and consistency." — Denzel Washington
           </div>
-        <Footers />
       </div>
     )
   }

@@ -51,8 +51,7 @@ class Results extends React.Component {
                       <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
                       <div className="dateBodyImageCategory">
                         <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
-                        {mFile}
-                        <pre className="postResultsCats" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
+                        <pre className="postResultsCatsBod" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
                       </div>
                     </div>
                   </div>

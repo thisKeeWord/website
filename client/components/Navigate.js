@@ -12,6 +12,9 @@ class Navigate extends React.Component {
   render() {
     const that = this;
     let urlPath = location.pathname.split('/')[1];
+    if (location.pathname.split('/')[2] === "fitness") {
+      urlPath = "fitness";
+    }
     let activeTag = ["", "about", "fitness", "blog", "portfolio", "contact"].map(elem => {
       let classActive = "inactive";
       let linkReference = elem.charAt(0).toUpperCase() + elem.slice(1);

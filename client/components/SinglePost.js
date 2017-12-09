@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 // import Navigate from './Navigate';
 // import Footers from './Footers';
@@ -23,11 +23,12 @@ class SinglePost extends React.Component {
   }
 
   componentDidMount() {
+    console.log(location.pathname.split('/'));
     const that = this;
     return $.ajax({
       type: 'POST', 
       url: '/singleWritings', 
-      data: JSON.stringify({ title: location.pathname.split('/')[2].replace("-", " ") }), // stringyfy before passing
+      data: JSON.stringify({ title: location.pathname.split('/')[3].replace("-", " ") }), // stringyfy before passing
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: writing => {
@@ -37,6 +38,7 @@ class SinglePost extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     const singleResult = this.state.results.map(elem => {
       let imageResult = null;
       let textContainerWidth = 100;
