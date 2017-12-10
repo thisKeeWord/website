@@ -33,6 +33,7 @@ function getWritings(req, res) {
   var count = 0;
   console.log('asdf')
   if (req.body.category === 'all') {
+    console.log('what')
     Writing.find({}, function(error, findings) {
       
       findings.sort(function(a, b) {
@@ -48,17 +49,20 @@ function getWritings(req, res) {
       if (findings.length > 0 && (sendList.fitness.length === sendList.food.length === sendList.lifestyle.length === sendList.personal.length === sendList.tech.length === sendList.travel.length === 2 || count === findings.length)) {
         for (var key in sendList) {
           if (key.length > 0) {
-            console.log(sendList[key])
-            finalResult.push(sendList[key].reverse());
+            console.log(sendList[key].constructor, typeof sendList[key], Array.isArray(sendList[key]), 'listkey')
+            finalResult.push(...(sendList[key].reverse()));
           }
         }
+        console.log(finalResult, 'finalResult')
         return res.send([finalResult, 'dont reverse this']);
       }
     });
   }
 	else {
+    console.log('am i here')
+    console.log(req.body.category)
     Writing.find({ category: req.body.category }, function(error, success) {
-      console.log(success)
+      // console.log(success)
       if (error) return console.error(error);
       var itemsProcessed = 0;
       success.forEach(function(elem) {

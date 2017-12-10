@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
 import $ from 'jquery';
+import SinglePost from './SinglePost';
+
 
 class Results extends React.Component {
-
   escOptions(e) {
     e.preventDefault();
     let infoToModify = $(e.target).parent().parent().siblings().children().children().children().children();
@@ -32,49 +33,42 @@ class Results extends React.Component {
 
   render() {
     const that = this;
+    // console.log(this.props)
+    let omgResults = null;
     if (this.props.currentLink === 'all') {
-      let omgResults = this.props.resultsToAdd.map((datas, pos, arr) => {
+      omgResults = this.props.resultsToAdd.map((datas, pos, arr) => {
         let mFile = null;
-        console.log(datas[0])
-        if (datas.length > 0) {
-          if (datas[0].file[0]) {
-            mFile = (
-              <img className="images" src={datas[0].file[0]} />
-            );
-          }
-          if (pos === 0 || datas[0].category !== arr[pos - 1].category) {
-            return (
-              <Carousel.Item>
-                <div className="groupCategory" id="groupCategoryShort">
-                  <div className="postByCategory" id={datas[0]._id} key={datas[0]._id}>
-                    <div className="perPostCategory">
-                      <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas[0].title }}></h1>
-                      <div className="dateBodyImageCategory">
-                        <h4 className="postResultsCats" id="datePosted">{(new Date(datas[0].date)).toLocaleString()}</h4>
-                        <pre className="postResultsCatsBod" dangerouslySetInnerHTML={{ __html: datas[0].body }}></pre>
-                      </div>
+        // console.log(datas, 'datas')
+          // console.log(datas, 'datas')
+        if (datas.file[0]) {
+          mFile = (
+            <img className="images" src={datas.file[0]} />
+          );
+        }
+        if (pos === 0 || datas.category !== arr[pos - 1].category) {
+          // console.log(`/blog/${datas.category}/${datas.title.replace(" ", "-")}`)
+          return (
+            <Carousel.Item>
+              <div className="groupCategory" id="groupCategoryShort">
+                <div className="postByCategory" id={datas._id} key={datas._id}>
+                  <div className="perPostCategory">
+                    <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas.title }}></h1>
+                    <div className="dateBodyImageCategory">
+                      <h4 className="postResultsCats" id="datePosted">{(new Date(datas.date)).toLocaleString()}</h4>
+                      <pre className="postResultsCatsBod" dangerouslySetInnerHTML={{ __html: datas.body }}></pre>
                     </div>
                   </div>
-                  <Link id="linkToPost" to={`/blog/${datas[0].category}/${datas[0].title.replace(" ", "-")}`}>
-                    Read More
-                  </Link>
                 </div>
-              </Carousel.Item>
-            )
-          }
+                <Link id="linkToPost" to={`/blog/${datas.category}/${datas.title.replace(" ", "-")}`}>
+                  Read More
+                </Link>
+              </div>
+            </Carousel.Item>
+          )
         }
       });
-      return (
-        <div className="allResults">
-          <h2 className="latestPosts">Latest Posts</h2>
-          <div className="carouselPosts">
-            <Carousel>
-              {omgResults}
-            </Carousel>
-          </div>
-        </div>
-      )
     }
+
     const indexOfLastResult = this.props.currentPage * this.props.resultsPerPage,
           indexOfFirstResult = indexOfLastResult - this.props.resultsPerPage,
           viewPage = this.props.resultsToAdd.slice(indexOfFirstResult, indexOfLastResult);
@@ -89,9 +83,14 @@ class Results extends React.Component {
         </div>
       );
     }
-
-    const renderPageResults = viewPage.map(data => {
+    // console.log(viewPage, 'viewPage')
+    // console.log(this.props.currentLink, location.pathname.split("/")[2], 'currentLink')
+    let renderPageResults = null;
+    renderPageResults = viewPage.map(data => {
       let mediaFile = null;
+
+      // if (location.pathname.split("/")[2] !==)
+      // console.log(data, 'data')
       if (data.file[0]) {
         mediaFile = (
           <img className="images" src={data.file[0]} />
@@ -161,25 +160,52 @@ class Results extends React.Component {
     for (let i = 1; i <= Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage); i++) {
       pageNumbers.push(i);
     }
-
-    const renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <li className="page" key={number} id={number} onClick={this.handlePageClick.bind(this)}>{number}</li>
-      );
-    });
-
-    return (
-      <div className='Results'>
-        <div className="resultsByPage">
-          {renderPageResults}
-        </div>
+    console.log(pageNumbers)
+    let renderPageNumbers = null;
+    if (pageNumbers.length > 0) {
+      renderPageNumbers = (
         <ul id="pageNum">
           <li className="page" key="previous" id="previous" onClick={this.previousPageSet.bind(this)}>&laquo;</li>
-          {renderPageNumbers.slice(this.props.currentBasePage - 1, 5)}
+            {
+              pageNumbers.map(number => {
+                return (
+                  <li className="page" key={number} id={number} onClick={this.handlePageClick.bind(this)}>{number}</li>
+                );
+              }).slice(this.props.currentBasePage - 1, 5)
+            }
           <li className="page" key="next" id="next" onClick={this.nextPageSet.bind(this)}>&raquo;</li>
         </ul>
-      </div>
-    );
+      );
+    }
+
+    if (location.pathname.split("/")[2] === undefined || location.pathname.split("/") === "/") {
+      return (
+        <div className="allResults">
+          <h2 className="latestPosts">Latest Posts</h2>
+          <div className="carouselPosts">
+            <Carousel>
+              {omgResults}
+            </Carousel>
+          </div>
+        </div>
+      )
+    }
+
+    else if ((location.pathname.split("/")[3] === undefined || location.pathname.split("/")[3] === "") && location.pathname.split("/")[2] === this.props.currentLink) {
+      console.log('rerendering')
+      return (
+        <div className='Results'>
+          <div className="resultsByPage">
+            {renderPageResults}
+          </div>
+          {renderPageNumbers}
+        </div>
+      );
+    }
+
+    else {
+      return <div></div>
+    }
   }
 };
 

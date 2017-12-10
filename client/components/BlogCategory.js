@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import PostForm from './Form';
 import Results from './Results';
 // import Blogs from './Blogs';
 import Login from './Login';
 import Loading from './Loading';
+import SinglePost from './SinglePost';
 
 
 
@@ -24,7 +25,8 @@ class BlogCategory extends React.Component {
       currentPage: 1,
       resultsPerPage: 7,
       currentBasePage: 1,
-      alreadyCalled: false
+      alreadyCalled: false,
+      subLink: ""
     };
   }
 
@@ -42,7 +44,8 @@ class BlogCategory extends React.Component {
         isActiveLoader: false,
         loadedItems: 'visible',
         currentLink: location.pathname.split('/')[2] || 'all',
-        alreadyCalled: true
+        alreadyCalled: true,
+
       });
     }, 1500);
   }
@@ -103,6 +106,7 @@ class BlogCategory extends React.Component {
 
   getBlogs(subLink) {
     console.log(subLink, 'subLink')
+    this.state.subLink = subLink
     let that = this;
     return $.ajax({
       type: 'POST', 
@@ -159,7 +163,7 @@ class BlogCategory extends React.Component {
   }
 
   render() {
-    console.log(location.pathname.split('/')[2] !== undefined && location.pathname.split('/')[2] !== "")
+    console.log(this.state.currentLink, this.state.subLink)
     if (this.state.currentLink !== location.pathname.split('/')[2] && (location.pathname.split('/')[2] !== undefined && location.pathname.split('/')[2] !== "")) {
       console.log('test')
       console.log(this.state.currentLink === location.pathname.split('/')[2])
@@ -169,16 +173,24 @@ class BlogCategory extends React.Component {
     if (this.state.isLoggedIn) {
       addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     }
-    return (
-      <div className='BlogCategory'>
-        <Loading isActive={this.state.isActiveLoader} />
-        <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
-          {addForm}
-          <Results currentLink={this.state.currentLink} resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
-          <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
+
+    if (location.pathname.split('/')[3] === undefined || location.pathname.split('/')[3] === "" ) {
+      return (
+        <div className='BlogCategory'>
+          <Loading isActive={this.state.isActiveLoader} />
+          <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
+            {addForm}
+            <Results currentLink={this.state.currentLink} resultsToAdd={this.state.resultsToAdd} isLoggedIn={this.state.isLoggedIn} divId={this.state.id} eventSelection={this.state.selection} divAndEventChosen={this.divAndEventChosen.bind(this)} entryCategory={this.state.entryCategory} currentPage={this.state.currentPage} resultsPerPage={this.state.resultsPerPage} setCurrentPage={this.setCurrentPage.bind(this)} currentBasePage={this.state.currentBasePage} previousPage={this.previousPage.bind(this)} nextPage={this.nextPage.bind(this)} />
+            <Login isLoggedIn={this.state.isLoggedIn} logIn={this.login.bind(this)} />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else {
+      return (
+        <SinglePost />
+      )
+    }
   }
 };
 

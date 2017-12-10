@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="basePage">
+        <div>
           <Navigate />
           <main>
             <Switch>
