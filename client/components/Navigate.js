@@ -27,6 +27,20 @@ class Navigate extends React.Component {
       if (elem === 'fitness') {
         elem = 'blog/fitness'
       }
+      // if (elem === 'blog') {
+      //   return (
+      //     <NavDropdown title="Blog" id="basic-nav-dropdown" className={classActive}>
+      //       <li className="menuLinks">
+      //         <Link to='/blog/fitness'>Fitness</Link>
+      //         <Link to='/blog/food'>Food</Link>
+      //         <Link to='/blog/lifestyle'>Lifestyle</Link>
+      //         <Link to='/blog/personal'>Personal</Link>
+      //         <Link to='/blog/tech'>Tech</Link>
+      //         <Link to='/blog/travel'>Travel</Link>
+      //       </li>
+      //     </NavDropdown>
+      //   )
+      // }
       return (
         <li>
           <Link className={classActive} aria-current={elem === urlPath} id={"navTabs" + " " + classActive} to={"/" + elem}>{linkReference}</Link>

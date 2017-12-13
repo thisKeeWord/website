@@ -31,22 +31,22 @@ class Results extends React.Component {
     }
   }
 
+  // will compartmentalize at a later date
   render() {
+    // issue if with rapid clicking
+    // console.log(location.pathname.split("/")[2], this.props.currentLink);
+    
     const that = this;
-    // console.log(this.props)
     let omgResults = null;
     if (this.props.currentLink === 'all') {
       omgResults = this.props.resultsToAdd.map((datas, pos, arr) => {
         let mFile = null;
-        // console.log(datas, 'datas')
-          // console.log(datas, 'datas')
         if (datas.file[0]) {
           mFile = (
             <img className="images" src={datas.file[0]} />
           );
         }
         if (pos === 0 || datas.category !== arr[pos - 1].category) {
-          // console.log(`/blog/${datas.category}/${datas.title.replace(" ", "-")}`)
           return (
             <Carousel.Item>
               <div className="groupCategory" id="groupCategoryShort">
@@ -83,14 +83,10 @@ class Results extends React.Component {
         </div>
       );
     }
-    // console.log(viewPage, 'viewPage')
-    // console.log(this.props.currentLink, location.pathname.split("/")[2], 'currentLink')
+
     let renderPageResults = null;
     renderPageResults = viewPage.map(data => {
       let mediaFile = null;
-
-      // if (location.pathname.split("/")[2] !==)
-      // console.log(data, 'data')
       if (data.file[0]) {
         mediaFile = (
           <img className="images" src={data.file[0]} />
@@ -160,7 +156,6 @@ class Results extends React.Component {
     for (let i = 1; i <= Math.ceil(this.props.resultsToAdd.length / this.props.resultsPerPage); i++) {
       pageNumbers.push(i);
     }
-    console.log(pageNumbers)
     let renderPageNumbers = null;
     if (pageNumbers.length > 0) {
       renderPageNumbers = (
@@ -178,7 +173,7 @@ class Results extends React.Component {
       );
     }
 
-    if (location.pathname.split("/")[2] === undefined || location.pathname.split("/") === "/") {
+    if (location.pathname.split("/")[2] === undefined || location.pathname.split("/")[2] === "") {
       return (
         <div className="allResults">
           <h2 className="latestPosts">Latest Posts</h2>
@@ -192,7 +187,6 @@ class Results extends React.Component {
     }
 
     else if ((location.pathname.split("/")[3] === undefined || location.pathname.split("/")[3] === "") && location.pathname.split("/")[2] === this.props.currentLink) {
-      console.log('rerendering')
       return (
         <div className='Results'>
           <div className="resultsByPage">

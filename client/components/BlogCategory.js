@@ -100,12 +100,14 @@ class BlogCategory extends React.Component {
   }
 
   componentDidMount() {
-    console.log('am i updating myself')
-    this.getBlogs(location.pathname.split('/')[2] || 'all')
+    let urlCheck = location.pathname.split('/')[2];
+    if (urlCheck === "" || !urlCheck) {
+      urlCheck = 'all';
+    }
+    this.getBlogs(urlCheck)
   }
 
   getBlogs(subLink) {
-    console.log(subLink, 'subLink')
     this.state.subLink = subLink
     let that = this;
     return $.ajax({
@@ -115,7 +117,6 @@ class BlogCategory extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
-        console.log(data)
         if (data[1] === 'dont reverse this') {
           that.addResults(data[0]);
         }
@@ -163,11 +164,15 @@ class BlogCategory extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentLink, this.state.subLink)
+    // calling next if statement causes setState to rerender parent component
+    // that has the links, so componentDidMount gets called again...
+    // soft rendering counter of 2 :(
     if (this.state.currentLink !== location.pathname.split('/')[2] && (location.pathname.split('/')[2] !== undefined && location.pathname.split('/')[2] !== "")) {
-      console.log('test')
-      console.log(this.state.currentLink === location.pathname.split('/')[2])
-      this.getBlogs(location.pathname.split('/')[2] || 'all')
+      let urlCheck = location.pathname.split('/')[2];
+      if (urlCheck === "" || !urlCheck) {
+        urlCheck = 'all';
+      }
+      this.getBlogs(urlCheck)
     }
     let addForm = null;
     if (this.state.isLoggedIn) {

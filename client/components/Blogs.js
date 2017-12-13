@@ -13,16 +13,12 @@ import Loading from './Loading';
 class Blogs extends React.Component {
   constructor() {
     super();
-    this.state = {
-      currentLink: location.pathname.split('/')
-    };
   }
 
   // get recent posts from categories and display
 
   render() {
     let addForm = null;
-    if (this.state.isLoggedIn) addForm = <PostForm entrySelection={this.state.entryCategory} updateCategory={this.updateCategory.bind(this)} addResultsToPage={this.addResults.bind(this)} grabImageData={this.updateImageData.bind(this)} imageInfo={this.state.imageData} />
     return (
       <div className='Blogs'>
         <ul className='blogLinks'>
