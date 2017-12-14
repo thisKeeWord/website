@@ -46,26 +46,24 @@ class Results extends React.Component {
             <img className="images" src={datas.file[0]} />
           );
         }
-        if (pos === 0 || datas.category !== arr[pos - 1].category) {
-          return (
-            <Carousel.Item>
-              <div className="groupCategory" id="groupCategoryShort">
-                <div className="postByCategory" id={datas._id} key={datas._id}>
-                  <div className="perPostCategory">
-                    <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas.title }}></h1>
-                    <div className="dateBodyImageCategory">
-                      <h4 className="postResultsCats" id="datePosted">{(new Date(datas.date)).toLocaleString()}</h4>
-                      <pre className="postResultsCatsBod" dangerouslySetInnerHTML={{ __html: datas.body }}></pre>
-                    </div>
+        return (
+          <Carousel.Item>
+            <div className="groupCategory" id="groupCategoryShort">
+              <div className="postByCategory" id={datas._id} key={datas._id}>
+                <div className="perPostCategory">
+                  <h1 className="postResultsCategory" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: datas.title }}></h1>
+                  <div className="dateBodyImageCategory">
+                    <h4 className="postResultsCats" id="datePosted">{(new Date(datas.date)).toLocaleString().split(",")[0]}</h4>
+                    <pre className="postResultsCatsBod" dangerouslySetInnerHTML={{ __html: datas.body }}></pre>
                   </div>
                 </div>
-                <Link id="linkToPost" to={`/blog/${datas.category}/${datas.title.replace(" ", "-")}`}>
-                  Read More
-                </Link>
               </div>
-            </Carousel.Item>
-          )
-        }
+              <Link id="linkToPost" to={`/blog/${datas.category}/${datas.title.replace(/\s+/g, '-')}`}>
+                Read More
+              </Link>
+            </div>
+          </Carousel.Item>
+        )
       });
     }
 
@@ -102,7 +100,7 @@ class Results extends React.Component {
                   <div className="perPost">
                     <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                     <div className="dateBodyImage">
-                      <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString()}</h4>
+                      <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString().split(",")[0]}</h4>
                       {mediaFile}
                       <pre className="postResults" id="postBody" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }} ></pre>
                     </div>
@@ -132,13 +130,13 @@ class Results extends React.Component {
                 <div className="perPost">
                   <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
                   <div className="dateBodyImage">
-                    <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString()}</h4>
+                    <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString().split(",")[0]}</h4>
                     {mediaFile}
                     <pre className="postResults" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }}></pre>
                   </div>
                 </div>
               </div>
-              <Link id="linkToPost" to={`/blog/${data.category}/${data.title.replace(" ", "-")}`}>
+              <Link id="linkToPost" to={`/blog/${data.category}/${data.title.replace(/\s+/g, '-')}`}>
                 Read More
               </Link>
             </li>

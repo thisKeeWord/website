@@ -150,8 +150,6 @@ a:hover {
 }
 
 #postNavigation {
-  -webkit-padding-end: 12vw;
-  -webkit-padding-start: 12vw;
   padding-left: 0 !important;
 }
 

@@ -117,6 +117,7 @@ class BlogCategory extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
+        console.log(data, 'results from backend')
         if (data[1] === 'dont reverse this') {
           that.addResults(data[0]);
         }

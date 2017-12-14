@@ -19,8 +19,9 @@ class PostForm extends React.Component {
   testing(e) {
     e.preventDefault();
     let that = this;
+    console.log($(".formEntry"))
     let bodyReplacement = $(".formEntry")[0].innerHTML;
-    if ($(".formEntry")[0].children) {
+    if ($(".formEntry")[0].children.length > 0) {
       bodyReplacement = $(".formEntry")[0].children[0].innerHTML;
     }
     let entry = {

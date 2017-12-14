@@ -31,29 +31,30 @@ function getWritings(req, res) {
   };
   var finalResult = [];
   var count = 0;
-  console.log('asdf')
+  // console.log('asdf')
   if (req.body.category === 'all') {
-    console.log('what')
+    // console.log('what')
     Writing.find({}, function(error, findings) {
       
       findings.sort(function(a, b) {
         return a.date - b.date
       });
       findings.forEach(function(items) {
-        console.log(items.category)
+        // console.log(items.category)
         if (sendList[items.category].length < 3) {
           sendList[items.category].push(items);
         }
         count++;
       });
+      console.log(sendList.fitness.length, sendList.food.length, sendList.lifestyle.length, sendList.personal.length, sendList.tech.length, sendList.travel.length)
       if (findings.length > 0 && (sendList.fitness.length === sendList.food.length === sendList.lifestyle.length === sendList.personal.length === sendList.tech.length === sendList.travel.length === 2 || count === findings.length)) {
         for (var key in sendList) {
           if (key.length > 0) {
-            console.log(sendList[key].constructor, typeof sendList[key], Array.isArray(sendList[key]), 'listkey')
+            // console.log(sendList[key].constructor, typeof sendList[key], Array.isArray(sendList[key]), 'listkey')
             finalResult.push(...(sendList[key].reverse()));
           }
         }
-        console.log(finalResult, 'finalResult')
+        // console.log(finalResult, 'finalResult')
         return res.send([finalResult, 'dont reverse this']);
       }
     });
