@@ -26,7 +26,8 @@ class BlogCategory extends React.Component {
       resultsPerPage: 7,
       currentBasePage: 1,
       alreadyCalled: false,
-      subLink: ""
+      subLink: "",
+      endOfLink: location.pathname.split('/').slice(-1)[0]
     };
   }
 
@@ -45,7 +46,7 @@ class BlogCategory extends React.Component {
         loadedItems: 'visible',
         currentLink: location.pathname.split('/')[2] || 'all',
         alreadyCalled: true,
-
+        endOfLink: location.pathname.split('/').slice(-1)[0]
       });
     }, 1500);
   }
@@ -108,6 +109,7 @@ class BlogCategory extends React.Component {
   }
 
   getBlogs(subLink) {
+    console.log('testing123')
     this.state.subLink = subLink
     let that = this;
     return $.ajax({
@@ -168,7 +170,10 @@ class BlogCategory extends React.Component {
     // calling next if statement causes setState to rerender parent component
     // that has the links, so componentDidMount gets called again...
     // soft rendering counter of 2 :(
-    if (this.state.currentLink !== location.pathname.split('/')[2] && (location.pathname.split('/')[2] !== undefined && location.pathname.split('/')[2] !== "")) {
+      console.log(location.pathname.split('/').slice(-1), this.state.endOfLink)
+    if (location.pathname.split('/').slice(-1)[0] !== this.state.endOfLink) {
+      this.state.isActiveLoader = true;
+      console.log('am i getting called here')
       let urlCheck = location.pathname.split('/')[2];
       if (urlCheck === "" || !urlCheck) {
         urlCheck = 'all';
@@ -183,6 +188,26 @@ class BlogCategory extends React.Component {
     if (location.pathname.split('/')[3] === undefined || location.pathname.split('/')[3] === "" ) {
       return (
         <div className='BlogCategory'>
+          <ul className='blogLinks'>
+            <li className="indivLinks">
+              <Link to='/blog/fitness'>Fitness</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/food'>Food</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/lifestyle'>Lifestyle</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/personal'>Personal</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/tech'>Tech</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/travel'>Travel</Link>
+            </li>
+          </ul>
           <Loading isActive={this.state.isActiveLoader} />
           <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
             {addForm}
@@ -194,7 +219,29 @@ class BlogCategory extends React.Component {
     }
     else {
       return (
-        <SinglePost />
+        <div>
+          <ul className='blogLinks'>
+            <li className="indivLinks">
+              <Link to='/blog/fitness'>Fitness</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/food'>Food</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/lifestyle'>Lifestyle</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/personal'>Personal</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/tech'>Tech</Link>
+            </li>
+            <li className="indivLinks">
+              <Link to='/blog/travel'>Travel</Link>
+            </li>
+          </ul>
+          <SinglePost />
+        </div>
       )
     }
   }
