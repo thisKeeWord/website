@@ -171,7 +171,20 @@ class BlogCategory extends React.Component {
     // that has the links, so componentDidMount gets called again...
     // soft rendering counter of 2 :(
       console.log(location.pathname.split('/').slice(-1), this.state.endOfLink)
-    if (location.pathname.split('/').slice(-1)[0] !== this.state.endOfLink) {
+    let currentBlogLink = location.pathname.split('/').slice(-1)[0];
+    let activeBlogLink = ["fitness", "food", "lifestyle", "personal", "tech", "travel"].map(elem => {
+      let isClassActive = "unactive";
+      if (elem === currentBlogLink) {
+        isClassActive = "active";
+      }
+      let linkReference = elem.charAt(0).toUpperCase() + elem.slice(1);
+      return (
+        <li className="indivLinks">
+          <Link className={isClassActive} id={`blogTab ${isClassActive}`} to={`/blog/${elem}`}>{linkReference}</Link>
+        </li>
+      )
+    });
+    if (currentBlogLink !== this.state.endOfLink) {
       this.state.isActiveLoader = true;
       console.log('am i getting called here')
       let urlCheck = location.pathname.split('/')[2];
@@ -186,27 +199,30 @@ class BlogCategory extends React.Component {
     }
 
     if (location.pathname.split('/')[3] === undefined || location.pathname.split('/')[3] === "" ) {
+      // <ul className='blogLinks'>
+      //   <li className="indivLinks">
+      //     <Link to='/blog/fitness'>Fitness</Link>
+      //   </li>
+      //   <li className="indivLinks">
+      //     <Link to='/blog/food'>Food</Link>
+      //   </li>
+      //   <li className="indivLinks">
+      //     <Link to='/blog/lifestyle'>Lifestyle</Link>
+      //   </li>
+      //   <li className="indivLinks">
+      //     <Link to='/blog/personal'>Personal</Link>
+      //   </li>
+      //   <li className="indivLinks">
+      //     <Link to='/blog/tech'>Tech</Link>
+      //   </li>
+      //   <li className="indivLinks">
+      //     <Link to='/blog/travel'>Travel</Link>
+      //   </li>
+      // </ul>
       return (
         <div className='BlogCategory'>
           <ul className='blogLinks'>
-            <li className="indivLinks">
-              <Link to='/blog/fitness'>Fitness</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/food'>Food</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/lifestyle'>Lifestyle</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/personal'>Personal</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/tech'>Tech</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/travel'>Travel</Link>
-            </li>
+            {activeBlogLink}
           </ul>
           <Loading isActive={this.state.isActiveLoader} />
           <div className="loadingFinished" style={{"visibility": this.state.loadedItems}}>
@@ -218,27 +234,32 @@ class BlogCategory extends React.Component {
       );
     }
     else {
+      let urlPath = location.pathname.split('/')[3];
+      
+          // <ul className='blogLinks'>
+          //   <li className="indivLinks">
+          //     <Link to='/blog/fitness'>Fitness</Link>
+          //   </li>
+          //   <li className="indivLinks">
+          //     <Link to='/blog/food'>Food</Link>
+          //   </li>
+          //   <li className="indivLinks">
+          //     <Link to='/blog/lifestyle'>Lifestyle</Link>
+          //   </li>
+          //   <li className="indivLinks">
+          //     <Link to='/blog/personal'>Personal</Link>
+          //   </li>
+          //   <li className="indivLinks">
+          //     <Link to='/blog/tech'>Tech</Link>
+          //   </li>
+          //   <li className="indivLinks">
+          //     <Link to='/blog/travel'>Travel</Link>
+          //   </li>
+          // </ul>
       return (
         <div>
           <ul className='blogLinks'>
-            <li className="indivLinks">
-              <Link to='/blog/fitness'>Fitness</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/food'>Food</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/lifestyle'>Lifestyle</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/personal'>Personal</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/tech'>Tech</Link>
-            </li>
-            <li className="indivLinks">
-              <Link to='/blog/travel'>Travel</Link>
-            </li>
+            {activeBlogLink}
           </ul>
           <SinglePost />
         </div>

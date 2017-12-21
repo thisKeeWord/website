@@ -83,15 +83,54 @@ class Results extends React.Component {
     }
 
     let renderPageResults = null;
-    renderPageResults = viewPage.map(data => {
-      let mediaFile = null;
-      if (data.file[0]) {
-        mediaFile = (
-          <img className="images" src={data.file[0]} />
-        );
-      }
-      if (data._id === this.props.divId && this.props.eventSelection === "Edit") {
-        editableContent = true;
+
+    if (this.props.resultsToAdd.length === 0) {
+      renderPageResults = (
+        <div className="noResults">
+          There are currently no blogs available for this category.
+        </div>
+      );
+    }
+    else {
+      renderPageResults = viewPage.map(data => {
+        let mediaFile = null;
+        if (data.file[0]) {
+          mediaFile = (
+            <img className="images" src={data.file[0]} />
+          );
+        }
+        if (data._id === this.props.divId && this.props.eventSelection === "Edit") {
+          editableContent = true;
+          return (
+            <div className="linkWithButtons">
+              <ul id="postNavigation">
+                <li id="clickLinks">
+                  <div className={data.category + 1} id={data._id} key={data._id}>
+                    <div className="perPost">
+                      <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
+                      <div className="dateBodyImage">
+                        <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString().split(",")[0]}</h4>
+                        {mediaFile}
+                        <pre className="postResults" id="postBody" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }} ></pre>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div id={data._id} className="buttons">
+                {editable}
+              </div>
+              <span id="bordering"></span>
+            </div>
+          )
+        }
+        else if (data._id === this.props.divId && this.props.eventSelection === "Cancel") {
+          editableContent = false;
+        }
+        else {
+          editableContent = false;
+        }
+
         return (
           <div className="linkWithButtons">
             <ul id="postNavigation">
@@ -102,10 +141,13 @@ class Results extends React.Component {
                     <div className="dateBodyImage">
                       <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString().split(",")[0]}</h4>
                       {mediaFile}
-                      <pre className="postResults" id="postBody" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }} ></pre>
+                      <pre className="postResults" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }}></pre>
                     </div>
                   </div>
                 </div>
+                <Link id="linkToPost" to={`/blog/${data.category}/${data.title.replace(/\s+/g, '-')}`}>
+                  Read More
+                </Link>
               </li>
             </ul>
             <div id={data._id} className="buttons">
@@ -113,41 +155,9 @@ class Results extends React.Component {
             </div>
             <span id="bordering"></span>
           </div>
-        )
-      }
-      else if (data._id === this.props.divId && this.props.eventSelection === "Cancel") {
-        editableContent = false;
-      }
-      else {
-        editableContent = false;
-      }
-
-      return (
-        <div className="linkWithButtons">
-          <ul id="postNavigation">
-            <li id="clickLinks">
-              <div className={data.category + 1} id={data._id} key={data._id}>
-                <div className="perPost">
-                  <h1 className="postResults" id="titleOfWriting" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.title }}></h1>
-                  <div className="dateBodyImage">
-                    <h4 className="postResults" id="datePosted">{(new Date(data.date)).toLocaleString().split(",")[0]}</h4>
-                    {mediaFile}
-                    <pre className="postResults" contentEditable={editableContent} dangerouslySetInnerHTML={{ __html: data.body }}></pre>
-                  </div>
-                </div>
-              </div>
-              <Link id="linkToPost" to={`/blog/${data.category}/${data.title.replace(/\s+/g, '-')}`}>
-                Read More
-              </Link>
-            </li>
-          </ul>
-          <div id={data._id} className="buttons">
-            {editable}
-          </div>
-          <span id="bordering"></span>
-        </div>
-      );
-    });
+        );
+      });
+    }
 
     // Logic for displaying page numbers
     const pageNumbers = [];
@@ -185,6 +195,7 @@ class Results extends React.Component {
     }
 
     else if ((location.pathname.split("/")[3] === undefined || location.pathname.split("/")[3] === "") && location.pathname.split("/")[2] === this.props.currentLink) {
+      console.log(renderPageResults, 'renderPageResults')
       return (
         <div className='Results'>
           <div className="resultsByPage">

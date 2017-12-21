@@ -24,13 +24,13 @@ class About extends React.Component {
             I also considered training to become a professional League of Legends player, becoming an actor, and even joining the police force.
             <br/>
             <br/>
-            During my pursuit of different possible avenues, I found coding to be more interesting. I 
+            During my pursuit of different possible avenues, I found coding to be more interesting.
             Furthermore, as one who ponders and thinks a decent amount, blogging allows me to share the knowledge
             I have gained over the years with others.
             <br/>
             <br/>
             Knowing that life is too short to pursue everything I want to do, it's best to start somewhere and move on if that somewhere doesn't work out.
-            As I continue to pursue my dreams - though those dreams my change over time - the one thing I won't stop
+            As I continue to pursue my dreams - though those dreams may change over time - the one thing I won't stop
             doing is 1-up'ing myself. 
             <br/>
             <br/>
