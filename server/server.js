@@ -1,4 +1,4 @@
-// var dotenv = require('dotenv').config({ path: 'config.env' });
+var dotenv = require('dotenv').config({ path: 'config.env' });
 var fs = require('fs');
 var express = require('express');
 var app = express();
@@ -28,23 +28,7 @@ app.get('/', function(req, res) {
     res.sendFile('index.html');
 });
 
-app.post('/fitness', writingController.writing);
 
-app.post('/blogs', writingController.writing);
-
-app.post('/projects', function(req, res) {
-	res.send('asdf');
-});
-
-app.post('/fack', writingController.getWritings);
-
-app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
-
-app.put('/update', writingController.updateWritings);
-
-app.delete('/update', writingController.removeWritings);
-
-app.post('/singleWritings', writingController.getSingleWritings);
 
 
 app.listen(app.get('port'), function() {

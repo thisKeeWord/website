@@ -21,7 +21,7 @@ userSchema.pre('save', function(next) {
 userSchema.methods.verifying = function(pass, callback) {
 	var self = this;
   bcrypt.compare(pass, self.password, function(error, result) {
-    if(error || result === false) return console.log(error);
+    if(error || result === false) return console.error(error);
     if(result === true) callback(null, result);
   });
 }

@@ -1,42 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+// import { Router, Route, browserHistory } from 'react-router';
+import { Route, NavLink, HashRouter, BrowserRouter, Switch } from 'react-router-dom';
 import About from './About';
-import Fitness from './Fitness';
+import BlogCategory from './BlogCategory';
 import Blogs from './Blogs';
 import Projects from './Projects';
 import Login from './Login';
 import SinglePost from './SinglePost';
 import Navigate from './Navigate';
-
-
-// function loggedIn() {
-//   // ...
-// }
-
-// function requireAuth(nextState, replace) {
-//   if (!loggedIn()) {
-//     replace({
-//       pathname: '/login'
-//     })
-//   }
-// }
-          // <Route path="/misc" component={Misc} />
-          // <Route path="/login" component={Login} />
+import Home from './Home';
+import Contact from './Contact';
+import Footers from './Footers';
 
 
 
 class App extends React.Component {
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route path="/" component={About} />
-      	<Route path="/fitness" component={Fitness} />
-        <Route path='/fitness/:title' component={SinglePost} />
-        <Route path="/blogs" component={Blogs} />
-        <Route path='/blogs/:title' component={SinglePost} />
-        <Route path="/projects" component={Projects} />
-      </Router>
+      <BrowserRouter>
+        <div>
+          <Navigate />
+          <main>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/portfolio" component={Projects} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+          </main>
+          <Footers />
+        </div>
+      </BrowserRouter>
     )
   }
 }

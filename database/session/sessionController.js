@@ -21,7 +21,7 @@ function isLoggedIn(req, res, next) {
 function startSession(req, res, next) {
   //write code here
  	Session.findOne({ cookieId: req.userData._id }, function(error, session) {
- 		if (error) return console.log(error);
+ 		if (error) return console.error(error);
  		if (session) return res.send('true');
 		var session = new Session({
 			cookieId: req.userData._id

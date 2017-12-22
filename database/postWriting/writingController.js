@@ -12,8 +12,6 @@ var writingController = {
 };
 
 function writing(req, res) {
-  var dateConvert = Date.now();
-  req.body.date = dateConvert;
 	Writing.create(req.body, function (err, result) {
 	  if (err) return console.error(err);
 	  getWritings(req, res);
@@ -22,19 +20,53 @@ function writing(req, res) {
 }
 
 function getWritings(req, res) {
-	Writing.find({ category: req.body.category }, function(error, success) {
-    if (error) return console.error(error);
-    var itemsProcessed = 0;
-    success.forEach(function(elem) {
-      itemsProcessed++;
-    });
-    if (itemsProcessed === success.length) {
-      success.sort(function(a, b) {
-        return a.date - b.date;
+  var sendList = {
+    fitness: [],
+    food: [],
+    lifestyle: [],
+    personal: [],
+    tech: [],
+    travel: []
+  };
+  var finalResult = [];
+  var count = 0;
+  if (req.body.category === 'all') {
+    Writing.find({}, function(error, findings) {
+      
+      findings.sort(function(a, b) {
+        return a.date - b.date
       });
-      res.send(success);
-    }
-  });
+      findings.forEach(function(items) {
+        if (sendList[items.category].length < 3) {
+          sendList[items.category].push(items);
+        }
+        count++;
+      });
+      if (findings.length > 0 && (sendList.fitness.length === sendList.food.length === sendList.lifestyle.length === sendList.personal.length === sendList.tech.length === sendList.travel.length === 2 || count === findings.length)) {
+        for (var key in sendList) {
+          if (key.length > 0) {
+            finalResult.push(...(sendList[key].reverse()));
+          }
+        }
+        return res.send([finalResult, 'dont reverse this']);
+      }
+    });
+  }
+	else {
+    Writing.find({ category: req.body.category }, function(error, success) {
+      if (error) return console.error(error);
+      var itemsProcessed = 0;
+      success.forEach(function(elem) {
+        itemsProcessed++;
+      });
+      if (itemsProcessed === success.length) {
+        success.sort(function(a, b) {
+          return a.date - b.date;
+        });
+        res.send(success);
+      }
+    });
+  }
 }
 
 function updateWritings(req, res) {

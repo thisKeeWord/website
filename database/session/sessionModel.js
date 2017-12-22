@@ -6,6 +6,5 @@ var sessionSchema = new Schema({
   // add expiration seconds
   expires: {type: Date, expires: 30}
 });
-// console.log(Date);
 
 module.exports = mongoose.model('Session', sessionSchema);
