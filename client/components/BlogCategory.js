@@ -109,7 +109,6 @@ class BlogCategory extends React.Component {
   }
 
   getBlogs(subLink) {
-    console.log('testing123')
     this.state.subLink = subLink
     let that = this;
     return $.ajax({
@@ -119,7 +118,6 @@ class BlogCategory extends React.Component {
       dataType: 'json', // payload is json
       contentType : 'application/json',
       success: data => {
-        console.log(data, 'results from backend')
         if (data[1] === 'dont reverse this') {
           that.addResults(data[0]);
         }
@@ -170,7 +168,6 @@ class BlogCategory extends React.Component {
     // calling next if statement causes setState to rerender parent component
     // that has the links, so componentDidMount gets called again...
     // soft rendering counter of 2 :(
-      console.log(location.pathname.split('/').slice(-1), this.state.endOfLink)
     let currentBlogLink = location.pathname.split('/').slice(-1)[0];
     let activeBlogLink = ["fitness", "food", "lifestyle", "personal", "tech", "travel"].map(elem => {
       let isClassActive = "unactive";
@@ -186,7 +183,6 @@ class BlogCategory extends React.Component {
     });
     if (currentBlogLink !== this.state.endOfLink) {
       this.state.isActiveLoader = true;
-      console.log('am i getting called here')
       let urlCheck = location.pathname.split('/')[2];
       if (urlCheck === "" || !urlCheck) {
         urlCheck = 'all';

@@ -8,10 +8,9 @@ class Contact extends React.Component {
     return (
       <div className="Contact">
         <div className="contactMe">
-          <h1 className="emailMe">Contact Me</h1>
-          <a href="mailto:leonardwkee@gmail.com" target="_blank">
-            <i className="fa fa-envelope-o fa-2x"></i>
-          </a>
+          <h3 className="inquiries">
+            For business inquiries, send an email by clicking <a href="mailto:leonardwkee@gmail.com" target="_blank"> here</a>.
+          </h3>
         </div>
       </div>
     )

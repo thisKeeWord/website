@@ -14,18 +14,6 @@ import Contact from './Contact';
 import Footers from './Footers';
 
 
-//<Router history={browserHistory}>
-        //<Route path="/" component={Footers}>
-         // <Route path="/home" component={Home} />
-          //<Route path="/about" component={About} />
-          //<Route path="/portfolio" component={Projects} />
-          //<Route path="/blog" component={Blogs} />
-          //<Route path='/blog/:category' component={BlogCategory} />
-          // <Route path='/blog/:category/:title' component={SinglePost} />
-          // <Route path="/contact" component={Contact} />
-        //</Route>
-
-      //</Router>
 
 class App extends React.Component {
   render() {
@@ -38,9 +26,6 @@ class App extends React.Component {
               <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
               <Route path="/portfolio" component={Projects} />
-              <Route path="/blog" component={BlogCategory} />
-              <Route path='/blog/:category' component={BlogCategory} />
-              <Route path='/blog/:category/:title' component={SinglePost} />
               <Route path="/contact" component={Contact} />
             </Switch>
           </main>

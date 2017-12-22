@@ -12,10 +12,7 @@ class Navigate extends React.Component {
   render() {
     const that = this;
     let urlPath = location.pathname.split('/')[1];
-    if (location.pathname.split('/')[2] === "fitness") {
-      urlPath = "fitness";
-    }
-    let activeTag = ["", "about", "fitness", "blog", "portfolio", "contact"].map(elem => {
+    let activeTag = ["", "about", "fitness", "blog", "portfolio", "contact"].map((elem, index) => {
       let classActive = "inactive";
       let linkReference = elem.charAt(0).toUpperCase() + elem.slice(1);
       if (elem === "") {
@@ -25,25 +22,22 @@ class Navigate extends React.Component {
         classActive = "active";
       }
       if (elem === 'fitness') {
-        elem = 'blog/fitness'
+        return (
+          <li key={index}>
+            <Link className="altActive" aria-current={elem === urlPath} id={`navTabs${classActive}`} to="https://instagram.com/whatintheleo" target="_blank" key={index}>{linkReference}</Link>
+          </li>
+        )
       }
-      // if (elem === 'blog') {
-      //   return (
-      //     <NavDropdown title="Blog" id="basic-nav-dropdown" className={classActive}>
-      //       <li className="menuLinks">
-      //         <Link to='/blog/fitness'>Fitness</Link>
-      //         <Link to='/blog/food'>Food</Link>
-      //         <Link to='/blog/lifestyle'>Lifestyle</Link>
-      //         <Link to='/blog/personal'>Personal</Link>
-      //         <Link to='/blog/tech'>Tech</Link>
-      //         <Link to='/blog/travel'>Travel</Link>
-      //       </li>
-      //     </NavDropdown>
-      //   )
-      // }
+      if (elem === 'blog') {
+        return (
+          <li key={index}>
+            <Link className="altActive" aria-current={elem === urlPath} id={`navTabs${classActive}`} to="https://medium.com/@leosjourney" target="_blank" key={index}>{linkReference}</Link>
+          </li>
+        )
+      }
       return (
-        <li>
-          <Link className={classActive} aria-current={elem === urlPath} id={"navTabs" + " " + classActive} to={"/" + elem}>{linkReference}</Link>
+        <li key={index}>
+          <Link className={classActive} aria-current={elem === urlPath} id={`navTabs${classActive}`} to={`/${elem}`} key={index}>{linkReference}</Link>
         </li>
       )
     });
@@ -55,14 +49,13 @@ class Navigate extends React.Component {
             <li className="menuLinks">
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
-              <Link to="/blog/fitness">Fitness</Link>
-              <Link to="/blog">Blog</Link>
+              <Link to="https://instagram.com/whatintheleo" target="_blank">Fitness</Link>
+              <Link to="https://medium.com/@leosjourney" target="_blank">Blog</Link>
               <Link to="/portfolio">Portfolio</Link>
               <Link to="/contact">Contact</Link>
             </li>
           </NavDropdown>
         </div>
-
         <Nav bsStyle="tabs">
           {activeTag}
         </Nav>

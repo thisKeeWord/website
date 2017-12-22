@@ -34,7 +34,6 @@ class Results extends React.Component {
   // will compartmentalize at a later date
   render() {
     // issue if with rapid clicking
-    // console.log(location.pathname.split("/")[2], this.props.currentLink);
     
     const that = this;
     let omgResults = null;
@@ -195,7 +194,6 @@ class Results extends React.Component {
     }
 
     else if ((location.pathname.split("/")[3] === undefined || location.pathname.split("/")[3] === "") && location.pathname.split("/")[2] === this.props.currentLink) {
-      console.log(renderPageResults, 'renderPageResults')
       return (
         <div className='Results'>
           <div className="resultsByPage">

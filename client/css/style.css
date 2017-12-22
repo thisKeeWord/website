@@ -727,7 +727,7 @@ ul.nav.nav-tabs {
   margin-right: 4px;
 }
 
-.inactive {
+.inactive, .altActive {
   color: aliceblue !important;
   border-radius: 50% !important;
 }
@@ -846,4 +846,21 @@ ul.nav.nav-tabs {
 
 .Results {
   margin-top: 70px;
+}
+
+.contactMe {
+  /* display: grid; */
+  width: 80%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 70px;
+  text-align: center;
+}
+
+.inquiries {
+  padding-top: 30px;
+  font-size: 1.5em;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }

@@ -28,33 +28,7 @@ app.get('/', function(req, res) {
     res.sendFile('index.html');
 });
 
-app.post('/fitness', writingController.writing);
 
-app.post('/blog/fitness', writingController.writing);
-
-app.post('/blog/food', writingController.writing);
-
-app.post('/blog/lifestyle', writingController.writing);
-
-app.post('/blog/personal', writingController.writing);
-
-app.post('/blog/tech', writingController.writing);
-
-app.post('/blog/travel', writingController.writing);
-
-app.post('/projects', function(req, res) {
-	res.send('asdf');
-});
-
-app.post('/fack', writingController.getWritings);
-
-app.post('/login', userController.verifyUser, cookieController.setSSIDCookie, sessionController.startSession);
-
-app.put('/update', writingController.updateWritings);
-
-app.delete('/update', writingController.removeWritings);
-
-app.post('/singleWritings', writingController.getSingleWritings);
 
 
 app.listen(app.get('port'), function() {

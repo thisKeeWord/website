@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
-// import Navigate from './Navigate';
-// import Footers from './Footers';
+
+
 
 class Home extends React.Component {
   render() {
@@ -19,10 +19,10 @@ class Home extends React.Component {
             <Link to="/portfolio">Portfolio</Link>
           </li>
           <li className="quickLinks">
-            <Link to="/blog/fitness">Fitness</Link>
+            <Link to="https://instagram.com/whatintheleo">Fitness</Link>
           </li>
           <li className="quickLinks">
-            <Link to="/blog">Blog</Link>
+            <Link to="https://medium.com/@leosjourney">Blog</Link>
           </li>
         </ul>
       </div>
