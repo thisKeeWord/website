@@ -19,10 +19,10 @@ class Home extends React.Component {
             <Link to="/portfolio">Portfolio</Link>
           </li>
           <li className="quickLinks">
-            <Link to="https://instagram.com/whatintheleo">Fitness</Link>
+            <Link to="https://instagram.com/whatintheleo" target="_blank">Fitness</Link>
           </li>
           <li className="quickLinks">
-            <Link to="https://medium.com/@leosjourney">Blog</Link>
+            <Link to="https://medium.com/@leosjourney" target="_blank">Blog</Link>
           </li>
         </ul>
       </div>
