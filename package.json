@@ -4,6 +4,7 @@
   "description": "Your awesome project!",
   "main": "gulpfile.js",
   "scripts": {
+    "prestart": "npm install",
     "start": "nodemon server/server.js"
   },
   "author": "",
