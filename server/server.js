@@ -19,9 +19,9 @@ app.get('/', function(req, res) {
   res.sendFile('index.html');
 });
 
-// app.get('/resume', function(req, res) {
-//   res.sendFile('resume.html');
-// });
+app.get('/resume', function(req, res) {
+  res.sendFile(path.join(__dirname, '../secondary_pages', 'resume.html'));
+});
 
 
 
