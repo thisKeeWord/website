@@ -16,8 +16,12 @@ app.use(express.static(path.join(__dirname, './../')));
 // app.use(fallback('index.html', { root: __dirname + './../client/' }));
 
 app.get('/', function(req, res) {
-    res.sendFile('index.html');
+  res.sendFile('index.html');
 });
+
+// app.get('/resume', function(req, res) {
+//   res.sendFile('resume.html');
+// });
 
 
 
