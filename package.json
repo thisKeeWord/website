@@ -15,7 +15,7 @@
   "dependencies": {
     "express": "^4.13.3",
     "express-history-api-fallback": "^2.2.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.4.0",
     "nodemon": "^1.17.4",
     "path": "^0.12.7"
   }
