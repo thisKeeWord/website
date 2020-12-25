@@ -10,12 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "watchify": "^3.2.2"
+    "watchify": "^3.11.1"
   },
   "dependencies": {
     "express": "^4.13.3",
     "express-history-api-fallback": "^2.2.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.1",
     "nodemon": "^1.17.4",
     "path": "^0.12.7"
   }
