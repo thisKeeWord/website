@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "watchify": "^4.0.0"
+    "watchify": "^4.0.0",
+    "ansi-regex": ">=5.0.1"
   },
   "dependencies": {
     "express": "^4.13.3",
