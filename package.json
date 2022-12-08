@@ -14,7 +14,7 @@
     "ansi-regex": ">=5.0.1"
   },
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "^4.17.3",
     "express-history-api-fallback": "^2.2.1",
     "jquery": "^3.5.1",
     "nodemon": "^2.0.20",
