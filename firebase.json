@@ -2,8 +2,8 @@
   "hosting": {
     "public": "/",
     "rewrites": [{
-      "source": "**",
-      "destination": "/index.html"
+      "source": "/resume",
+      "destination": "/secondary_pages/resume.html"
     }],
     "ignore": [
       "firebase.json",
